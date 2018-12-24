@@ -1,3 +1,12 @@
+# Ignore credentials JSON file used in developement runtime
+credentials.json
+
+# Ignore playground
+playground.py
+
+
+# Lines hereunder are auto-generated
+
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
