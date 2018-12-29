@@ -12,6 +12,7 @@ credentials = fn.read_json_file('credentials.json')
 # get inputs
 inputs = fn.read_json_file('./files/inputs.JSON')
 rules = fn.read_json_file('./files/rules.JSON')
+outputs = fn.read_json_file('./files/outputs.JSON')
 
 # Open browser
 option = webdriver.ChromeOptions()
@@ -24,4 +25,5 @@ session = ic.Session(**credentials,browser = browser, rules = rules)
 session.connect()
 
 # like pictures
-session.like(inputs['hashtags'])
+session.like(inputs['hashtags'],outputs['clicked_links'])
+fn.write_json_file(outputs,'./files/outputs.JSON')

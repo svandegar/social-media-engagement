@@ -40,3 +40,9 @@ def read_json_file(file):
 
 def random_sleep(min =2, max =5):
     time.sleep(random.randint(min,max))
+
+def write_json_file(data: dict, filename: str):
+    """convert the input data dict to JSON
+    and write it to a json with the input filename"""
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(data, file)

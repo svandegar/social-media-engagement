@@ -33,21 +33,17 @@ class Session:
         deny_notifications_button.click()
         fn.random_sleep(2, 5)
 
-    def like(self, hashtags: dict):
+    def like(self, hashtags: dict, clicked_links : list):
         rules_like = self.rules['like']
-        links = []
         for hashtag in hashtags:
             browser = self.browser
             browser.get("https://www.instagram.com/explore/tags/" + hashtag)
             for _ in range(*rules_like['count'].values()):
-                print('enter the loop')
                 picture = browser.find_element_by_xpath("//a/div/div[1]/img")
-                print('found picture')
                 a = picture.find_elements_by_xpath("//ancestor::a")
-                print('found a')
                 # if fn.wait_element(browser,a,self.timeout):
                 link = a[random.randint(0, len(a))].get_attribute("href")
-                print('got link' + link)
+                print('got link ' + link)
                 if link not in links:
                     browser.get(link)
                     fn.random_sleep(**rules_like['delay'])
@@ -56,5 +52,6 @@ class Session:
                         if random.random() > rules_like['probability']:
                             heart.click()
                     fn.random_sleep(**rules_like['delay'])
-                    links.append(link)
+                    clicked_links.append(link)
                 browser.back()
+        return clicked_links
