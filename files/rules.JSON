@@ -1,0 +1,16 @@
+{
+  "global": {
+    "timeout": 20
+  },
+  "like": {
+    "count": {
+      "min": 2,
+      "max": 8
+    },
+    "delay": {
+      "min": 2,
+      "max": 8
+    },
+    "probability": 0.8
+  }
+}
