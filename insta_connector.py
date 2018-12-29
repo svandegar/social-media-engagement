@@ -55,4 +55,5 @@ class Session:
                     fn.random_sleep(**rules_like['delay'])
                     clicked_links.append(link)
                 browser.back()
+                fn.random_sleep(**rules_like['delay'])
         return clicked_links
