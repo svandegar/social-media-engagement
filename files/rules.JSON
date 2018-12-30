@@ -2,8 +2,14 @@
   "global": {
     "timeout": 20
   },
+  "connect": {
+    "delay": {
+      "min": 2,
+      "max": 8
+    }
+  },
   "like": {
-    "count": {
+    "postsPerHashtag": {
       "min": 2,
       "max": 8
     },
