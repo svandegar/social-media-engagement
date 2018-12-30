@@ -4,26 +4,34 @@ import insta_connector as ic
 import importlib
 importlib.reload(ic)
 importlib.reload(fn)
+from datetime import datetime
+from settings import *
 
+# get account credentials
+credentials = fn.read_json_file(CREDENTIALS_FILE)
 
-# get Instagram account credentials
-credentials = fn.read_json_file('credentials.json')
+# get data from files
+inputs = fn.read_json_file(INPUTS_FILE)
+rules = fn.read_json_file(RULES_FILE)
+outputs = fn.read_json_file(OUTPUTS_FILE)
+metrics = fn.read_json_file(METRICS_FILE)
 
-# get inputs
-inputs = fn.read_json_file('./files/inputs.JSON')
-rules = fn.read_json_file('./files/rules.JSON')
-outputs = fn.read_json_file('./files/outputs.JSON')
-
-# Open browser
+# open browser
 option = webdriver.ChromeOptions()
 option.add_argument(argument="--incognito")
-browser = webdriver.Chrome(executable_path=r"C:\git\projects\SM-bot\chromedriver_win32\chromedriver.exe",
-                           options=option)
+browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=option)
+
+# activate logs
+logger = fn.get_logger(__name__ + '|' + credentials['username'])
+counter = fn.Counters()
+logs = dict(logger = logger, counter = counter)
 
 # open Instagram session
-session = ic.Session(**credentials,browser = browser, rules = rules)
+session = ic.Session(**credentials,browser = browser, rules = rules, logs = logs)
 session.connect()
 
 # like pictures
-session.like(inputs['hashtags'],outputs['clicked_links'])
-fn.write_json_file(outputs,'./files/outputs.JSON')
+now = datetime.now().strftime("%Y-%m-%dT%H:%M:%S%z")
+metrics[str(now)] = session.like(inputs['hashtags'],outputs['clicked_links']).counters
+fn.write_json_file(outputs, OUTPUTS_FILE)
+fn.write_json_file(metrics,METRICS_FILE)

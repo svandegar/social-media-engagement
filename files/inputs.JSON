@@ -1,8 +1,14 @@
-{"hashtags" : ["coder",
-            "programming",
-            "programmer",
-            "programminglife",
-            "coding",
-            "programmers",
-            "programmingisfun",
-            "codinglife"]}
+{
+  "hashtags": [
+    "coder"
+  ],
+  "full_list": [
+    "programming",
+    "programmer",
+    "programminglife",
+    "coding",
+    "programmers",
+    "programmingisfun",
+    "codinglife"
+  ]
+}
