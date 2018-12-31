@@ -1,9 +1,8 @@
 # Ignore credentials JSON file used in developement runtime
 credentials.json
 
-# Ignore playground
-playground.py
-
+# Ignore log files
+logs/
 
 # Lines hereunder are auto-generated
 

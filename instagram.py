@@ -31,7 +31,11 @@ session = ic.Session(**credentials,browser = browser, rules = rules, logs = logs
 session.connect()
 
 # like pictures
-now = datetime.now().strftime("%Y-%m-%dT%H:%M:%S%z")
-metrics[str(now)] = session.like(inputs['hashtags'],outputs['clicked_links']).counters
+now = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S%z")
+session_metrics = {str(now) : session.like(inputs['hashtags'],outputs['clicked_links']).counters}
+try :
+    metrics[session.username].append(session_metrics)
+except KeyError :
+    metrics[session.username] = [session_metrics]
 fn.write_json_file(outputs, OUTPUTS_FILE)
 fn.write_json_file(metrics,METRICS_FILE)
