@@ -1,6 +1,6 @@
 import functions as fn
 import random
-
+import timeit
 
 class Session:
     def __init__(self, username, password, browser, rules, no_repeat: dict, logs=None):
@@ -86,6 +86,7 @@ class Session:
 
     def like_from_hashtags(self, hashtags: list):
         """ Loops through the list of hashtags to like posts """
+        start = timeit.default_timer()
         logger = self.logs['logger']
         rules = self.rules['like']
         browser = self.browser
@@ -105,4 +106,16 @@ class Session:
                 self.like(link)
                 self.clicked_links.append(link)
                 fn.random_sleep(**rules['delay'], **self.logs)
+        stop = timeit.default_timer()
+        self.logs['counter'].increment('execution_time', stop-start)
         return self.logs['counter']
+
+    def open_activity_feed(self):
+        rules = self.rules['global']
+        url = r'https://www.instagram.com/accounts/activity/'
+        logger = self.logs['logger']
+        self.browser.get(url)
+        fn.random_sleep(**rules['delay'], **self.logs)
+        logger.debug('Back to previous page')
+        self.browser.back()
+

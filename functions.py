@@ -84,9 +84,19 @@ def get_file_handler():
     return file_handler
 
 
-def get_logger(logger_name):
+def get_logger(logger_name, level='Debug'):
     logger = logging.getLogger(logger_name)
-    logger.setLevel(logging.DEBUG)
+    level = level.title()
+    if level == 'Warn':
+        logger.setLevel(logging.WARN)
+    elif level == 'Debug':
+        logger.setLevel(logging.DEBUG)
+    elif level == 'Info':
+        logger.setLevel(logging.INFO)
+    elif level == 'Error':
+        logger.setLevel(logging.ERROR)
+    elif level == 'Critical':
+        logger.setLevel(logging.CRITICAL)
     logger.addHandler(get_console_handler())
     logger.addHandler(get_file_handler())
     logger.propagate = False
@@ -94,18 +104,18 @@ def get_logger(logger_name):
 
 
 class Counters:
-    def __init__(self, global_count = False,**elements ):
+    def __init__(self, global_count=False, **elements):
         """
         Counter object to count and increment different values.
         :param global_count: if True, add a global counter which is the sum of the sub-counters
         :param elements: optional **kwargs {counter_name : value} to initialize the counter with existing values
         """
+        self.global_count = global_count
         self.counters = {}
+        if global_count:
+            self.counters['global_count_value'] = 0
         for element in elements:
             self.counters[element] = elements[element]
-        if global_count:
-            self.counters['global_count'] = 0
-        self.global_count = global_count
 
     def increment(self, name='global', increment_value=1):
         """
@@ -119,7 +129,7 @@ class Counters:
         else:
             self.counters[name] = increment_value
         if self.global_count:
-            self.counters['global_count'] += increment_value
+            self.counters['global_count_value'] += increment_value
 
     def reset(self, name):
         """set the value of the named meter to 0"""

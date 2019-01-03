@@ -1,0 +1,27 @@
+{
+  "global": {
+    "timeout": 20,
+    "delay": {
+      "min": 2,
+      "max": 8
+    }
+  },
+  "connect": {
+    "delay": {
+      "min": 2,
+      "max": 8
+    }
+  },
+  "like": {
+    "postsPerHashtag": {
+      "min": 2,
+      "max": 2
+    },
+    "delay": {
+      "min": 2,
+      "max": 8
+    },
+    "probability": 0.8,
+    "likes_per_account": 1
+  }
+}

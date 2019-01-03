@@ -3,9 +3,11 @@ credentials.json
 
 # Ignore log files
 logs/
+DEV/logs/
 
 # Ignore outputs
 files/outputs.JSON
+DEV/files/outputs.JSON
 
 # Lines hereunder are auto-generated
 

@@ -1,11 +1,12 @@
 from selenium import webdriver
 import functions as fn
-import insta_functions as ic
-import importlib
-# importlib.reload(ic)
-# importlib.reload(fn)
+import insta_functions as ifn
 from datetime import datetime
 from settings import *
+# debug imports
+import importlib
+# importlib.reload(ifn)
+# importlib.reload(fn)
 
 # get account credentials
 credentials = fn.read_json_file(CREDENTIALS_FILE)
@@ -17,8 +18,15 @@ outputs = fn.read_json_file(OUTPUTS_FILE)
 metrics = fn.read_json_file(METRICS_FILE)
 
 # track repeated actions
-accounts_counter = fn.Counters(**outputs['accounts_counter'])
-no_repeat = dict(clicked_links = outputs['clicked_links'],accounts_counter = accounts_counter )
+try :
+    accounts_counter = fn.Counters(**outputs['accounts_counter'], global_count=True)
+except KeyError :
+    accounts_counter = fn.Counters(global_count=True)
+
+try :
+    no_repeat = dict(clicked_links = outputs['clicked_links'],accounts_counter = accounts_counter )
+except KeyError :
+    no_repeat = dict(clicked_links=[], accounts_counter=accounts_counter)
 
 # open browser
 option = webdriver.ChromeOptions()
@@ -31,8 +39,11 @@ counter = fn.Counters()
 logs = dict(logger = logger, counter = counter)
 
 # open Instagram session
-session = ic.Session(**credentials,browser = browser, rules = rules,  no_repeat = no_repeat,logs = logs)
+session = ifn.Session(**credentials, browser = browser, rules = rules, no_repeat = no_repeat, logs = logs)
 session.connect()
+
+# open notifications
+session.open_activity_feed()
 
 # like pictures
 session.like_from_hashtags(inputs['hashtags'])
