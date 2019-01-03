@@ -45,7 +45,7 @@ Although, i would be happy to get help of any kind. Please contact me if you hav
 ### Changelog
 
 ## Authors
-* **Seraphin Vandegar** - Initial work
+* [**Seraphin Vandegar**](https://github.com/svandegar) - Initial work
 
 ## Licence
 This project is under the GNU General Public Licence. See [LICENSE](LICENSE) file for details.
