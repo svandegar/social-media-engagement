@@ -1,6 +1,6 @@
 from selenium import webdriver
 import functions as fn
-import insta_connector as ic
+import insta_functions as ic
 import importlib
 # importlib.reload(ic)
 # importlib.reload(fn)
