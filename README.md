@@ -1,5 +1,5 @@
 # Social Media Engagement
-Research project about the usage of social medias. The aim of this project is to analyze the factors that influences the engagement generated on an account. 
+Research project about the usage of social medias. The aim of this project is to analyze the factors that influence the engagement generated on an account. 
 
 ## Disclaimer
 Some of the functions in this project can lead to infringe the usage rules of some social media if misused.
