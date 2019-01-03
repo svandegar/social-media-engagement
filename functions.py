@@ -94,18 +94,35 @@ def get_logger(logger_name):
 
 
 class Counters:
-    def __init__(self,**elements ):
+    def __init__(self, global_count = False,**elements ):
+        """
+        Counter object to count and increment different values.
+        :param global_count: if True, add a global counter which is the sum of the sub-counters
+        :param elements: optional **kwargs {counter_name : value} to initialize the counter with existing values
+        """
         self.counters = {}
         for element in elements:
             self.counters[element] = elements[element]
+        if global_count:
+            self.counters['global_count'] = 0
+        self.global_count = global_count
 
     def increment(self, name='global', increment_value=1):
+        """
+        If name not existing, create a counter with key = name and value = increment value
+        Otherwize, increment the named counter.
+        :param name: counter to create or increment
+        :param increment_value: increment value
+        """
         if name in self.counters:
             self.counters[name] += increment_value
         else:
             self.counters[name] = increment_value
+        if self.global_count:
+            self.counters['global_count'] += increment_value
 
     def reset(self, name):
+        """set the value of the named meter to 0"""
         self.counters[name] = 0
 
 
