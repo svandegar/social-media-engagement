@@ -38,6 +38,7 @@ def find_element(browser, XPATH: str, timeout=20):
         print("Timed out waiting for page to load")
         return False
 
+
 def find_elements(browser, XPATH: str, timeout=20):
     """ Wait till the elements are loaded, then returns the elements.
         if not loaded after 20 sec, throw Timeout error
@@ -49,6 +50,7 @@ def find_elements(browser, XPATH: str, timeout=20):
     except TimeoutException:
         print("Timed out waiting for page to load")
         return False
+
 
 """ Files """
 
@@ -90,20 +92,27 @@ def get_logger(logger_name):
     logger.propagate = False
     return logger
 
+
 class Counters:
-    def __init__(self):
+    def __init__(self,**elements ):
         self.counters = {}
-    def increment(self,name = 'global',increment_value =1):
+        for element in elements:
+            self.counters[element] = elements[element]
+
+    def increment(self, name='global', increment_value=1):
         if name in self.counters:
             self.counters[name] += increment_value
-        else :
+        else:
             self.counters[name] = increment_value
-    def reset(self,name):
+
+    def reset(self, name):
         self.counters[name] = 0
+
 
 """ Randomization """
 
-def random_sleep(min=2, max=5, logger = None, counter = None):
+
+def random_sleep(min=2, max=5, logger=None, counter=None):
     sleeptime = random.randint(min, max)
     time.sleep(sleeptime)
     if counter:

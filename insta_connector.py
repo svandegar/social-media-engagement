@@ -3,14 +3,15 @@ import random
 
 
 class Session:
-    def __init__(self, username, password, browser, rules, logs = None):
+    def __init__(self, username, password, browser, rules, no_repeat: dict, logs=None):
         self.username = username
         self.password = password
         self.browser = browser
         self.rules = rules
         self.timeout = rules['global']['timeout']
         self.logs = logs
-
+        self.clicked_links = no_repeat['clicked_links']
+        self.accounts_counter = no_repeat['accounts_counter']
 
     def connect(self):
         logger = self.logs['logger']
@@ -42,49 +43,66 @@ class Session:
         logger.debug('Notifications denied')
         fn.random_sleep(**rules_connect['delay'], **self.logs)
 
-    def like(self, hashtags: list, used_links: list):
-        # TODO : split in sub-functions
-        rules_like = self.rules['like']
+    def like(self, link):
+        """ Opens the post, see if it's not already liked
+        and like it depending on the probability set in rules"""
+        rules = self.rules['like']
         browser = self.browser
         logger = self.logs['logger']
         counter = self.logs['counter']
+        logger.debug('Open link: ' + link)
+        browser.get(link)
+        counter.increment('Links_opened')
+        fn.random_sleep(**rules['delay'], **self.logs)
+        # get account and stop if already liked two posts from this
+        account_link = fn.find_element(browser, "//h2//a")
+        account_name = account_link.get_attribute("title")
+        try:
+            if self.accounts_counter.counters[account_name] >= rules['likes_per_account']:
+                logger.info('Like per account limit reached. Post not liked')
+        except KeyError:
+            like_button = fn.find_element(browser, "//span[@aria-label='Like']")
+            # check if the post have already been liken
+            if like_button:  # this condition is not working
+                counter.increment('New_post_opened')
+                # like only certain pictures, depending on the probability set in rules
+                rand = random.random()
+                if rand <= rules['probability']:
+                    logger.debug(str(rand) + ' <= ' + str(rules['probability']))
+                    logger.info("Like post")
+                    like_button.click()
+                    counter.increment('Post_liked')
+                    self.accounts_counter.increment(account_name)
+                else:
+                    logger.debug(str(rand) + ' > ' + str(rules['probability']))
+                    logger.info("Don't like post")
+                    counter.increment('Post_not_liked')
+            else:
+                counter.increment('Already_liked_post_opened')
+                # go back to the previous page before opening a new link
+        fn.random_sleep(**rules['delay'], **self.logs)
+        logger.debug('Back to previous page')
+        browser.back()
+
+    def like_from_hashtags(self, hashtags: list):
+        """ Loops through the list of hashtags to like posts """
+        logger = self.logs['logger']
+        rules = self.rules['like']
+        browser = self.browser
         random.shuffle(hashtags)
         logger.debug('Hashtags order: ' + str(hashtags))
-        # loop through the list of hashtags
         for hashtag in hashtags:
+            # get all the links linked to one hashtag
             browser.get("https://www.instagram.com/explore/tags/" + hashtag)
-            # loop through a random number of pictures. Range defined in the rule 'postsPerHashtag'
-            for _ in range(random.randint(*rules_like['postsPerHashtag'].values())):
-                # TODO : refactor two next lines to get only pictures instead of every lines
-                picture = fn.find_element(browser, "//a/div/div[1]/img")
-                a = fn.find_elements(picture, "//ancestor::a")
-                counter.increment('Links_founds', len(a))
-                link = a[random.randint(0, len(a))].get_attribute("href")
-                logger.debug('Got link ' + link)
-                # check whether the link has already been clicked
-                if link not in used_links:
-                    logger.debug('Open link: ' + link)
-                    counter.increment('Links_opened')
-                    browser.get(link)
-                    fn.random_sleep(**rules_like['delay'], **self.logs)
-                    # check if already liked
-                    like_button = fn.find_element(browser, "//span[@aria-label='Like']")
-                    if like_button:
-                        counter.increment('Not_already_liked_post_opened')
-                        rand = random.random()
-                        # like only certain pictures, following the probability set in rules
-                        if rand <= rules_like['probability']:
-                            logger.debug(str(rand) + ' <= ' + str(rules_like['probability']))
-                            logger.info("Like picture")
-                            counter.increment('Post_liked')
-                            like_button.click()
-                        else:
-                            logger.debug(str(rand) + ' > ' + str(rules_like['probability']))
-                            logger.info("Don't like picture")
-                            counter.increment('Post_not_liked')
-                    # back to previous page
-                    fn.random_sleep(**rules_like['delay'], **self.logs)
-                    used_links.append(link)
-                    browser.back()
-                fn.random_sleep(**rules_like['delay'], **self.logs)
-        return counter
+            number_of_posts_to_like = random.randint(*self.rules['like']['postsPerHashtag'].values())
+            logger.info(str(number_of_posts_to_like) + ' posts to like')
+            posts = browser.find_element_by_tag_name('main')
+            links = posts.find_elements_by_tag_name('a')
+            links_filtered = [x for x in links if x not in self.clicked_links]
+            links_to_like = random.sample(links_filtered, number_of_posts_to_like)
+            links_urls = [x.get_attribute("href") for x in links_to_like]
+            for link in links_urls:
+                self.like(link)
+                self.clicked_links.append(link)
+                fn.random_sleep(**rules['delay'], **self.logs)
+        return self.logs['counter']
