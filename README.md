@@ -1,4 +1,4 @@
-# SM-bot
+# Social Media Engagement
 Research project about the usage of social medias. The aim of this project is to analyze the factors that influences the new followers on an account. 
 
 ## Disclaimer
