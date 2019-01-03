@@ -17,6 +17,7 @@
       "min": 2,
       "max": 8
     },
-    "probability": 0.8
+    "probability": 0.8,
+    "likes_per_account" : 2
   }
 }
