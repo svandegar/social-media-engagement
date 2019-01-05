@@ -1,6 +1,10 @@
 {
   "global": {
-    "timeout": 20
+    "timeout": 20,
+    "delay": {
+      "min": 2,
+      "max": 8
+    }
   },
   "connect": {
     "delay": {
@@ -8,16 +12,23 @@
       "max": 8
     }
   },
+  "get_followers": {
+    "delay": {
+      "min": 2,
+      "max": 8
+    }
+  },
+
   "like": {
     "postsPerHashtag": {
       "min": 2,
-      "max": 8
+      "max": 2
     },
     "delay": {
       "min": 2,
       "max": 8
     },
     "probability": 0.8,
-    "likes_per_account" : 2
+    "likes_per_account": 1
   }
 }

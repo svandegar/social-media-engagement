@@ -19,7 +19,7 @@ def wait_element(browser, element, timeout=20):
     """
     try:
         WebDriverWait(browser, timeout).until(
-            EC.visibility_of_element(element))
+            EC.visibility_of(element))
         return True
     except TimeoutException:
         print("Timed out waiting for page to load")

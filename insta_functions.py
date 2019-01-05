@@ -119,3 +119,98 @@ class Session:
         logger.debug('Back to previous page')
         self.browser.back()
 
+    def send_dm_to_list(self,contacts_list : list):
+        """ send a direct message to a given contacts lists """
+        for contact in contacts_list:
+            pass
+
+    def get_followers_list_from(self, account = None ):
+        browser = self.browser
+        logger = self.logs['logger']
+        rules = self.rules['get_followers']
+        if account:
+            account = account
+        else:
+            account = self.username
+        browser.get('https://www.instagram.com/' + account)
+        followers_link = fn.find_element(browser,"//a[text()=' followers']")
+        followers_link.click()
+        fn.random_sleep(**rules['delay'], **self.logs)
+        modal = browser.find_element_by_xpath("//div[@role='dialog']")
+        list_a = modal.find_elements_by_tag_name('a')
+        browser.execute_script("return arguments[0].scrollIntoView();", list_a[10])
+        print('scrolled from 10')
+        fn.random_sleep(**rules['delay'], **self.logs)
+        list_a = modal.find_elements_by_tag_name('a')
+        browser.execute_script("return arguments[0].scrollIntoView();", list_a[-1])
+        fn.wait_element(browser, list_a[-1])
+        old_last_element = list_a[-1].text
+        logger.debug('Last element of the list :' + old_last_element)
+        new_last_element = None
+        fn.random_sleep(**rules['delay'], **self.logs)
+        while old_last_element != new_last_element:
+            old_last_element = list_a[-1].text
+            fn.random_sleep(**rules['delay'], **self.logs)
+            list_a = modal.find_elements_by_tag_name('a')
+            browser.execute_script("return arguments[0].scrollIntoView();", list_a[-2])
+            new_last_element = list_a[-1].text
+            logger.debug('Last element of the list :' + new_last_element)
+        logger.debug('End of loop')
+        # get followers from elements list
+        names = []
+        for link in list_a:
+            name = link.text
+            names.append(name)
+            logger.debug('Follower added : ' + name)
+        followers = list(filter(None, names))
+        return followers
+
+
+
+
+
+
+
+
+        """ frames paradygm"""
+        # logger.debug('Switch to frame')
+        # frames = browser.find_elements_by_tag_name("iframe")
+        # logger.debug('Found ' + str(len(frames)) + 'frames')
+        # element = 1
+        # for frame in frames:
+        #     logger.debug('Entering a new frame')
+        #     browser.switch_to.frame(frame)
+        #     try:
+        #         logger.debug('find element')
+        #         element = fn.find_element(browser,"//a[@href = 'https://www.instagram.com/aothpython/']")
+        #     except:
+        #         pass
+        #     browser.switch_to_default_content()
+        # return element
+
+
+
+
+
+
+
+
+
+        # logger.debug('Switch to frame')
+        # frames = browser.find_elements_by_tag_name("iframe")
+        # logger.debug('Found ' + str(len(frames)) + 'frames')
+        # for frame in frames:
+            # browser.switch_to.frame(frame)
+        # logger.debug('Find modal')
+        # modal = fn.find_element(browser, "//div[@role='dialog]")
+        # logger.debug(modal.getattribute("role"))
+
+            # try:
+            #     modal = fn.find_element(browser,"//div[@role='dialog]")
+            #     logger.debug('Find Elements')
+            #     elements = fn.find_elements(modal,XPATH="//a")
+            #     logger.info(str(len(elements)) + " elements found")
+            #     followers_list = [x.get_attribute("href") for x in elements]
+            #     return followers_list
+            # except:
+            #     logger.debug('No element found in this frame')

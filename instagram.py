@@ -38,8 +38,11 @@ logger = fn.get_logger(__name__ + '|' + credentials['username'])
 counter = fn.Counters()
 logs = dict(logger = logger, counter = counter)
 
-# open Instagram session
+# create Instagram session
 session = ifn.Session(**credentials, browser = browser, rules = rules, no_repeat = no_repeat, logs = logs)
+
+
+# open browser
 session.connect()
 
 # open notifications
@@ -47,6 +50,9 @@ session.open_activity_feed()
 
 # like pictures
 session.like_from_hashtags(inputs['hashtags'])
+
+# get followers list by an account
+followers = session.get_followers_list_from('christian_ipina')
 
 # write metrics in files
 # TODO : save this in a database
@@ -59,3 +65,17 @@ except KeyError :
 outputs = dict(clicked_links = no_repeat['clicked_links'],accounts_counter =  no_repeat['accounts_counter'].counters)
 fn.write_json_file(outputs, OUTPUTS_FILE)
 fn.write_json_file(metrics, METRICS_FILE)
+
+
+
+
+
+""" Test zone """
+
+import time
+import copy
+importlib.reload(ifn)
+importlib.reload(fn)
+
+session = ifn.Session(**credentials, browser = browser, rules = rules, no_repeat = no_repeat, logs = logs)
+

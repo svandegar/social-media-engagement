@@ -12,6 +12,13 @@
       "max": 8
     }
   },
+  "get_followers": {
+    "delay": {
+      "min": 2,
+      "max": 8
+    }
+  },
+
   "like": {
     "postsPerHashtag": {
       "min": 2,
