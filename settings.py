@@ -1,7 +1,7 @@
 import logging
 
 # Environment
-ENVIRONMENT = 'DEVELOPEMENT'
+ENVIRONMENT = 'PRODUCTION'
 DEBUG = True
 
 # Files
@@ -9,14 +9,14 @@ if ENVIRONMENT == 'DEVELOPEMENT':
     CREDENTIALS_FILE = './DEV/files/credentials.json'
     INPUTS_FILE = './DEV/files/inputs.JSON'
     RULES_FILE = './DEV/files/rules.JSON'
-    OUTPUTS_FILE = './DEV/files/outputs.JSON'
+    HISTORY_FILE = './DEV/files/history.JSON'
     LOG_FILE = './DEV/logs/instagram.log'
     METRICS_FILE = './DEV/logs/metrics.JSON'
 elif ENVIRONMENT == 'PRODUCTION':
     CREDENTIALS_FILE = './files/credentials.json'
     INPUTS_FILE = './files/inputs.JSON'
     RULES_FILE = './files/rules.JSON'
-    OUTPUTS_FILE = './files/outputs.JSON'
+    HISTORY_FILE = './files/history.JSON'
     LOG_FILE = './logs/instagram.log'
     METRICS_FILE = './logs/metrics.JSON'
 

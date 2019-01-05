@@ -1,17 +1,20 @@
 import functions as fn
 import random
 import timeit
+from datetime import datetime
+
 
 class Session:
-    def __init__(self, username, password, browser, rules, no_repeat: dict, logs=None):
+    def __init__(self, username, password, browser, rules, history, logs):
         self.username = username
         self.password = password
         self.browser = browser
         self.rules = rules
         self.timeout = rules['global']['timeout']
+        self.clicked_links = history.clicked_links
+        self.accounts_counter = history.accounts_counter
         self.logs = logs
-        self.clicked_links = no_repeat['clicked_links']
-        self.accounts_counter = no_repeat['accounts_counter']
+        self.start_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S%z")
 
     def connect(self):
         logger = self.logs['logger']
@@ -27,7 +30,7 @@ class Session:
         # Fill username and password and login
         input_username.send_keys(self.username)
         input_password.send_keys(self.password)
-        logger.info('Connection to the account :' + self.username)
+        logger.info('New connection to the account :' + self.username)
         counter.increment('Connection')
         login_button.click()
         fn.random_sleep(**rules_connect['delay'], **self.logs)
@@ -58,7 +61,7 @@ class Session:
         account_link = fn.find_element(browser, "//h2//a")
         account_name = account_link.get_attribute("title")
         try:
-            if self.accounts_counter.counters[account_name] >= rules['likes_per_account']:
+            if self.accounts_counter.counters[account_name] >= rules['likesPerAccount']:
                 logger.info('Like per account limit reached. Post not liked')
         except KeyError:
             like_button = fn.find_element(browser, "//span[@aria-label='Like']")
@@ -84,18 +87,20 @@ class Session:
         logger.debug('Back to previous page')
         browser.back()
 
+
     def like_from_hashtags(self, hashtags: list):
         """ Loops through the list of hashtags to like posts """
         start = timeit.default_timer()
         logger = self.logs['logger']
         rules = self.rules['like']
         browser = self.browser
+        counter = self.logs['counter']
         random.shuffle(hashtags)
         logger.debug('Hashtags order: ' + str(hashtags))
         for hashtag in hashtags:
             # get all the links linked to one hashtag
             browser.get("https://www.instagram.com/explore/tags/" + hashtag)
-            number_of_posts_to_like = random.randint(*self.rules['like']['postsPerHashtag'].values())
+            number_of_posts_to_like = random.randint(*rules['postsPerHashtag'].values())
             logger.info(str(number_of_posts_to_like) + ' posts to like')
             posts = browser.find_element_by_tag_name('main')
             links = posts.find_elements_by_tag_name('a')
@@ -106,9 +111,17 @@ class Session:
                 self.like(link)
                 self.clicked_links.append(link)
                 fn.random_sleep(**rules['delay'], **self.logs)
+                if counter.counters['Post_liked'] >= rules['totalLikesMax']:
+                    logger.info('Max posts to like reached : ' + str(counter.counters['Post_liked']))
+                    break
+            if counter.counters['Post_liked'] >= rules['totalLikesMax']:
+                logger.info('Max posts to like reached : ' + str(counter.counters['Post_liked']))
+                break
         stop = timeit.default_timer()
-        self.logs['counter'].increment('execution_time', stop-start)
+        logger.info('Like session finished after ' + str(stop - start) + ' seconds')
+        self.logs['counter'].increment('execution_time', stop - start)
         return self.logs['counter']
+
 
     def open_activity_feed(self):
         rules = self.rules['global']
@@ -119,12 +132,8 @@ class Session:
         logger.debug('Back to previous page')
         self.browser.back()
 
-    def send_dm_to_list(self,contacts_list : list):
-        """ send a direct message to a given contacts lists """
-        for contact in contacts_list:
-            pass
 
-    def get_followers_list_from(self, account = None ):
+    def get_followers_list_from(self, account=None):
         browser = self.browser
         logger = self.logs['logger']
         rules = self.rules['get_followers']
@@ -133,7 +142,7 @@ class Session:
         else:
             account = self.username
         browser.get('https://www.instagram.com/' + account)
-        followers_link = fn.find_element(browser,"//a[text()=' followers']")
+        followers_link = fn.find_element(browser, "//a[text()=' followers']")
         followers_link.click()
         fn.random_sleep(**rules['delay'], **self.logs)
         modal = browser.find_element_by_xpath("//div[@role='dialog']")
@@ -160,57 +169,8 @@ class Session:
         names = []
         for link in list_a:
             name = link.text
-            names.append(name)
-            logger.debug('Follower added : ' + name)
+            if name != '':
+                names.append(name)
+                logger.debug('Follower added : ' + name)
         followers = list(filter(None, names))
         return followers
-
-
-
-
-
-
-
-
-        """ frames paradygm"""
-        # logger.debug('Switch to frame')
-        # frames = browser.find_elements_by_tag_name("iframe")
-        # logger.debug('Found ' + str(len(frames)) + 'frames')
-        # element = 1
-        # for frame in frames:
-        #     logger.debug('Entering a new frame')
-        #     browser.switch_to.frame(frame)
-        #     try:
-        #         logger.debug('find element')
-        #         element = fn.find_element(browser,"//a[@href = 'https://www.instagram.com/aothpython/']")
-        #     except:
-        #         pass
-        #     browser.switch_to_default_content()
-        # return element
-
-
-
-
-
-
-
-
-
-        # logger.debug('Switch to frame')
-        # frames = browser.find_elements_by_tag_name("iframe")
-        # logger.debug('Found ' + str(len(frames)) + 'frames')
-        # for frame in frames:
-            # browser.switch_to.frame(frame)
-        # logger.debug('Find modal')
-        # modal = fn.find_element(browser, "//div[@role='dialog]")
-        # logger.debug(modal.getattribute("role"))
-
-            # try:
-            #     modal = fn.find_element(browser,"//div[@role='dialog]")
-            #     logger.debug('Find Elements')
-            #     elements = fn.find_elements(modal,XPATH="//a")
-            #     logger.info(str(len(elements)) + " elements found")
-            #     followers_list = [x.get_attribute("href") for x in elements]
-            #     return followers_list
-            # except:
-            #     logger.debug('No element found in this frame')

@@ -8,6 +8,7 @@ import time
 from settings import *
 import logging
 import sys
+from datetime import datetime
 from logging.handlers import TimedRotatingFileHandler
 
 """ Scrapping """
@@ -134,6 +135,33 @@ class Counters:
     def reset(self, name):
         """set the value of the named meter to 0"""
         self.counters[name] = 0
+
+class Repeated_Actions_Tracker :
+
+    def __init__(self,history_file: None):
+
+        if history_file:
+            self.clicked_links = history_file['clicked_links']
+            try:
+                self.accounts_counter = Counters(**history_file['accounts_counter'], global_count=True)
+            except KeyError:
+                self.accounts_counter = Counters(global_count=True)
+        else :
+            self.clicked_links = []
+            self.accounts_counter = Counters(global_count=True)
+
+
+    def get_history(self):
+        history = dict(clicked_links = self.clicked_links,accounts_counter= self.accounts_counter.counters)
+        return history
+
+def update_metrics_file(metrics_file,session):
+        session_metrics = {str(session.start_time): session.logs['counter'].counters}
+        try:
+            metrics_file[session.username].append(session_metrics)
+        except KeyError:
+            metrics_file[session.username] = [session_metrics]
+        return metrics_file
 
 
 """ Randomization """

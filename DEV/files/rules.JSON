@@ -18,17 +18,17 @@
       "max": 8
     }
   },
-
   "like": {
     "postsPerHashtag": {
       "min": 2,
-      "max": 2
+      "max": 3
     },
+    "totalLikesMax": 3,
     "delay": {
       "min": 2,
       "max": 8
     },
     "probability": 0.8,
-    "likes_per_account": 1
+    "likesPerAccount": 2
   }
 }
