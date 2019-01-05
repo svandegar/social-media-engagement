@@ -3,10 +3,6 @@ import functions as fn
 import insta_functions as ifn
 from datetime import datetime
 from settings import *
-# debug imports
-import importlib
-# importlib.reload(ifn)
-# importlib.reload(fn)
 
 # get account credentials
 credentials = fn.read_json_file(CREDENTIALS_FILE)
@@ -74,6 +70,7 @@ fn.write_json_file(metrics, METRICS_FILE)
 
 import time
 import copy
+import importlib
 importlib.reload(ifn)
 importlib.reload(fn)
 
