@@ -5,10 +5,9 @@ from selenium.common.exceptions import TimeoutException
 import json
 import random
 import time
-from settings import *
+from settings.settings import *
 import logging
 import sys
-from datetime import datetime
 from logging.handlers import TimedRotatingFileHandler
 
 """ Scrapping """
@@ -136,9 +135,10 @@ class Counters:
         """set the value of the named meter to 0"""
         self.counters[name] = 0
 
-class Repeated_Actions_Tracker :
 
-    def __init__(self,history_file: None):
+class Repeated_Actions_Tracker:
+
+    def __init__(self, history_file: None):
 
         if history_file:
             self.clicked_links = history_file['clicked_links']
@@ -146,22 +146,22 @@ class Repeated_Actions_Tracker :
                 self.accounts_counter = Counters(**history_file['accounts_counter'], global_count=True)
             except KeyError:
                 self.accounts_counter = Counters(global_count=True)
-        else :
+        else:
             self.clicked_links = []
             self.accounts_counter = Counters(global_count=True)
 
-
     def get_history(self):
-        history = dict(clicked_links = self.clicked_links,accounts_counter= self.accounts_counter.counters)
+        history = dict(clicked_links=self.clicked_links, accounts_counter=self.accounts_counter.counters)
         return history
 
-def update_metrics_file(metrics_file,session):
-        session_metrics = {str(session.start_time): session.logs['counter'].counters}
-        try:
-            metrics_file[session.username].append(session_metrics)
-        except KeyError:
-            metrics_file[session.username] = [session_metrics]
-        return metrics_file
+
+def update_metrics_file(metrics_file, session):
+    session_metrics = {str(session.start_time): session.logs['counter'].counters}
+    try:
+        metrics_file[session.username].append(session_metrics)
+    except KeyError:
+        metrics_file[session.username] = [session_metrics]
+    return metrics_file
 
 
 """ Randomization """
@@ -175,3 +175,17 @@ def random_sleep(min=2, max=5, logger=None, counter=None):
     if logger:
         logger.debug('Sleep :' + str(sleeptime))
     return sleeptime
+
+
+""" Data connections """
+
+
+def get_data_from_files(user_inputs, rules, history, metrics):
+    user_inputs_file = read_json_file(user_inputs)
+    rules_file = read_json_file(rules)
+    history_file = read_json_file(history)
+    metrics_file = read_json_file(metrics)
+    return dict(user_inputs_file = user_inputs_file,
+                rules_file = rules_file,
+                history_file=history_file,
+                metrics_file = metrics_file)
