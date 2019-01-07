@@ -2,8 +2,8 @@
 credentials.json
 
 # Ignore config files
-./DEV/files/
-./files
+DEV/files/
+files
 
 
 # Ignore log files
