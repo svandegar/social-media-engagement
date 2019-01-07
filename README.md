@@ -27,10 +27,7 @@ More info here : https://pypi.org/project/selenium/
 urllib3 is a powerful, sanity-friendly HTTP client for Python.
 You can install it using the command `pip install urllib3`
 More info here : https://pypi.org/project/urllib3/
-##### urllib3
-urllib3 is a powerful, sanity-friendly HTTP client for Python.
-You can install it using the command `pip install urllib3`
-More info here : https://pypi.org/project/urllib3/
+
 
 **Note** : all these packages are already installed on the virtual environment of this project
 
