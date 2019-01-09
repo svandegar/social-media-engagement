@@ -1,5 +1,5 @@
-# Ignore credentials JSON file used in developement runtime
-credentials.json
+# Ignore config JSON file used in developement runtime
+config.json
 
 # Ignore config files
 DEV/files/

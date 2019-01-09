@@ -2,23 +2,36 @@ from selenium import webdriver
 import insta_functions as ifn
 from settings.settings import *
 import functions as fn
+import mongo
+import mongoengine
 
-def daily_routine(credentials: dict, connect = True):
+def daily_routine(insta_user: str, connect = True):
     """
 
-    :param credentials: user credentials
+    :param credentials: user config
     :param connect: if connects = True, open a new session. If not, uses the already opened
     :return:
     """
 
-    # get inputs
-    inputs = fn.get_data_from_files(USER_INPUTS_FILE, RULES_FILE, HISTORY_FILE, METRICS_FILE)
+    # get config
+    config = fn.read_json_file(CONFIG_FILE)
+
+    #get inputs
+    mongoengine.connect(host=config['databases']['Mongo'])
+    user_inputs = mongo.UserInputs.objects(insta_user = insta_user)
+    rules = mongo.Rules.objects(insta_user = insta_user)
+    history = mongo.History.objects(insta_user = insta_user)
+    # metrics = mongo.Metrics.objects(insta_user = insta_user)
+
+
+    # inputs = fn.get_data_from_files(USER_INPUTS_FILE, RULES_FILE, HISTORY_FILE, METRICS_FILE)
+
 
     # set actions tracking
-    history = fn.Repeated_Actions_Tracker(inputs['history_file'])
+    history = fn.Repeated_Actions_Tracker(history)
 
     # activate logs
-    logger = fn.get_logger(__name__ + '|' + credentials['username'])
+    logger = fn.get_logger(__name__ + '|' + config['credentials']['username'])
     counter = fn.Counters()
     logs = dict(logger=logger, counter=counter)
 
@@ -28,11 +41,7 @@ def daily_routine(credentials: dict, connect = True):
     browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=option)
 
     # create session
-    session = ifn.Session(**credentials,
-                          browser=browser,
-                          rules=inputs['rules_file'],
-                          history=history,
-                          logs=logs)
+    session = ifn.Session(config['credentials'],browser,rules,history,logs)
 
     # connect
     if connect : session.connect()

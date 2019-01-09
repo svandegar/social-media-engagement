@@ -5,9 +5,9 @@ from datetime import datetime
 
 
 class Session:
-    def __init__(self, username, password, browser, rules, history, logs):
-        self.username = username
-        self.password = password
+    def __init__(self, credentials : dict, browser, rules, history, logs):
+        self.username = credentials['username']
+        self.password = credentials['password']
         self.browser = browser
         self.rules = rules
         self.timeout = rules['global']['timeout']
