@@ -9,6 +9,7 @@ from settings.settings import *
 import logging
 import sys
 from logging.handlers import TimedRotatingFileHandler
+import mongo
 
 """ Scrapping """
 
@@ -135,15 +136,28 @@ class Counters:
         """set the value of the named meter to 0"""
         self.counters[name] = 0
 
+def counter_to_mongo(counter : Counters):
+    mongo = []
+    for key in counter.counters:
+        mongo.append(dict(name = key, value = counter.counters[key]))
+    return mongo
+
+def counter_from_mongo(mongo : list):
+    elements = {}
+    for counter in mongo:
+        elements = {counter['name'] : counter['value']}
+    return Counters(**elements, global_count=True)
+
+
+
 
 class Repeated_Actions_Tracker:
+    def __init__(self, history_document = None):
 
-    def __init__(self, history_file: None):
-
-        if history_file:
-            self.clicked_links = history_file['clicked_links']
+        if history_document:
+            self.clicked_links = history_document.clicked_links
             try:
-                self.accounts_counter = Counters(**history_file['accounts_counter'], global_count=True)
+                self.accounts_counter = counter_from_mongo(history_document.accounts_counter)
             except KeyError:
                 self.accounts_counter = Counters(global_count=True)
         else:
@@ -151,7 +165,7 @@ class Repeated_Actions_Tracker:
             self.accounts_counter = Counters(global_count=True)
 
     def get_history(self):
-        history = dict(clicked_links=self.clicked_links, accounts_counter=self.accounts_counter.counters)
+        history = mongo.History(clicked_links=self.clicked_links, accounts_counter=counter_to_mongo(self.accounts_counter))
         return history
 
 
@@ -160,9 +174,14 @@ def update_metrics_file(metrics_file, session):
     try:
         metrics_file[session.username].append(session_metrics)
     except KeyError:
-        metrics_file[session.username] = [session_metrics]
+        metrics_file[session.username] = session_metrics
     return metrics_file
 
+def save_to_mongo(object):
+    object.save()
+
+def update_mongo(object, **parameters):
+    object.modify(**parameters)
 
 """ Randomization """
 

@@ -5,21 +5,21 @@ from datetime import datetime
 
 
 class Session:
-    def __init__(self, username, password, browser, rules, history, logs):
-        self.username = username
-        self.password = password
+    def __init__(self, credentials : dict, browser, rules, history, logs):
+        self.username = credentials['username']
+        self.password = credentials['password']
         self.browser = browser
         self.rules = rules
-        self.timeout = rules['global']['timeout']
+        self.timeout = rules.general['timeout']
         self.clicked_links = history.clicked_links
         self.accounts_counter = history.accounts_counter
         self.logs = logs
-        self.start_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S%z")
+        self.start_time = datetime.utcnow()
 
     def connect(self):
         logger = self.logs['logger']
         counter = self.logs['counter']
-        rules_connect = self.rules['connect']
+        rules_connect = self.rules.connection
         self.browser.get("https://www.instagram.com/accounts/login/?source=auth_switcher")
         # Find username, password and login input fields
         input_username = fn.find_element(self.browser, "//input[@name='username']", timeout=self.timeout)
@@ -49,7 +49,7 @@ class Session:
     def like(self, link):
         """ Opens the post, see if it's not already liked
         and like it depending on the probability set in rules"""
-        rules = self.rules['like']
+        rules = self.rules.like
         browser = self.browser
         logger = self.logs['logger']
         counter = self.logs['counter']
@@ -82,6 +82,7 @@ class Session:
                     counter.increment('Post_not_liked')
             else:
                 counter.increment('Already_liked_post_opened')
+                logger.info('Already_liked post opened')
                 # go back to the previous page before opening a new link
         fn.random_sleep(**rules['delay'], **self.logs)
         logger.debug('Back to previous page')
@@ -92,7 +93,7 @@ class Session:
         """ Loops through the list of hashtags to like posts """
         start = timeit.default_timer()
         logger = self.logs['logger']
-        rules = self.rules['like']
+        rules = self.rules.like
         browser = self.browser
         counter = self.logs['counter']
         random.shuffle(hashtags)
@@ -111,9 +112,12 @@ class Session:
                 self.like(link)
                 self.clicked_links.append(link)
                 fn.random_sleep(**rules['delay'], **self.logs)
-                if counter.counters['Post_liked'] >= rules['totalLikesMax']:
-                    logger.info('Max posts to like reached : ' + str(counter.counters['Post_liked']))
-                    break
+                try:
+                    if counter.counters['Post_liked'] >= rules['totalLikesMax']:
+                        logger.info('Max posts to like reached : ' + str(counter.counters['Post_liked']))
+                        break
+                except:
+                    counter.counters['Post_liked'] =0
             if counter.counters['Post_liked'] >= rules['totalLikesMax']:
                 logger.info('Max posts to like reached : ' + str(counter.counters['Post_liked']))
                 break
@@ -124,7 +128,7 @@ class Session:
 
 
     def open_activity_feed(self):
-        rules = self.rules['global']
+        rules = self.rules.general
         url = r'https://www.instagram.com/accounts/activity/'
         logger = self.logs['logger']
         self.browser.get(url)
@@ -136,7 +140,7 @@ class Session:
     def get_followers_list_from(self, account=None):
         browser = self.browser
         logger = self.logs['logger']
-        rules = self.rules['get_followers']
+        rules = self.rules.get_followers
         if account:
             account = account
         else:
@@ -144,7 +148,7 @@ class Session:
         browser.get('https://www.instagram.com/' + account)
         followers_link = fn.find_element(browser, "//a[text()=' followers']")
         followers_link.click()
-        fn.random_sleep(**rules['delay'], **self.logs)
+        fn.random_sleep(rules['delay'], **self.logs)
         modal = browser.find_element_by_xpath("//div[@role='dialog']")
         list_a = modal.find_elements_by_tag_name('a')
         browser.execute_script("return arguments[0].scrollIntoView();", list_a[10])
