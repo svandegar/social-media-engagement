@@ -145,20 +145,19 @@ def counter_to_mongo(counter : Counters):
 def counter_from_mongo(mongo : list):
     elements = {}
     for counter in mongo:
-        elements = {counter.key() : counter.value()}
+        elements = {counter['name'] : counter['value']}
     return Counters(**elements, global_count=True)
 
 
 
 
 class Repeated_Actions_Tracker:
+    def __init__(self, history_document = None):
 
-    def __init__(self, history_file = None):
-
-        if history_file:
-            self.clicked_links = history_file.clicked_links
+        if history_document:
+            self.clicked_links = history_document.clicked_links
             try:
-                self.accounts_counter = counter_from_mongo(history_file.accounts_counter)
+                self.accounts_counter = counter_from_mongo(history_document.accounts_counter)
             except KeyError:
                 self.accounts_counter = Counters(global_count=True)
         else:
@@ -178,6 +177,11 @@ def update_metrics_file(metrics_file, session):
         metrics_file[session.username] = session_metrics
     return metrics_file
 
+def save_to_mongo(object):
+    object.save()
+
+def update_mongo(object, **parameters):
+    object.modify(**parameters)
 
 """ Randomization """
 

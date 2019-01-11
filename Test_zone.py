@@ -2,15 +2,17 @@ import functions as fn
 import insta_functions as ifn
 from settings.settings import *
 import routines as rt
-import pymongo
 
-username = ''
+insta_username = 'all_you_need_is_code'
+username = 'Scott'
 
 # launch daily routine
-session = rt.daily_routine(username, connect=True)
+session = rt.daily_routine(username = username, insta_username = insta_username, connect=True)
 
 # get followers list by an account
 followers = session.get_followers_list_from()
+
+
 
 
 """ Test zone """
@@ -20,16 +22,31 @@ importlib.reload(ifn)
 importlib.reload(fn)
 
 # import dns
-# from pymongo import MongoClient
+from pymongo import MongoClient
 import mongoengine
 import mongo
 import functions as fn
-importlib.reload(mongo)
+import datetime
+# importlib.reload(mongo)
 
 # get  config
 config = fn.read_json_file(CONFIG_FILE)
 
-mongoengine.connect(host = "mongodb+srv://SM-E:vPo7QS7J8lDaesvu@social-media-engagement-khrv2.mongodb.net/insta-dev?retryWrites=true" )
+mongoengine.connect(host = config['databases'] )
+
+
+metrics = mongo.Metrics(
+    username='user',
+    insta_username = 'insta_user',
+    datetime = datetime.datetime.now()
+)
+
+metrics.save()
+
+
+
+
+
 
 history_1 = mongo.History(
     username = 'user1',
@@ -37,15 +54,15 @@ history_1 = mongo.History(
     clicked_links = ['link1','link2']
 )
 
-inputs = fn.get_data_from_files(USER_INPUTS_FILE, RULES_FILE, HISTORY_FILE, METRICS_FILE)
-user_inputs = inputs['user_inputs_file']
-rules = inputs['rules_file']
-history = inputs['history_file']
-metrics = inputs['metrics_file']
-
-userInputs_db = mongo.UserInputs(**user_inputs)
-history2_db = mongo.History(**history2)
-metrics_db = mongo.Metrics(**metrics)
+# inputs = fn.get_data_from_files(USER_INPUTS_FILE, RULES_FILE, HISTORY_FILE, METRICS_FILE)
+# user_inputs = inputs['user_inputs_file']
+# rules = inputs['rules_file']
+# history = inputs['history_file']
+# metrics = inputs['metrics_file']
+#
+# userInputs_db = mongo.UserInputs(**user_inputs)
+# history2_db = mongo.History(**history2)
+# metrics_db = mongo.Metrics(**metrics)
 
 time = dict(
     timeout = 20,
@@ -71,37 +88,23 @@ rules_db = mongo.Rules(
     like = limits
 
 )
-result = history2_db.save()
-
-
-
-print(result.id)
-
-test = mongo.History.objects(username = 'user2')
-
-
-
-
-
-
-
-
-
-
-
-# client = MongoClient("mongodb+srv://SM-E:vPo7QS7J8lDaesvu@social-media-engagement-khrv2.mongodb.net/test?retryWrites=true")
+# result = history2_db.save()
 #
-# db = client['insta-dev']
-# posts = db.posts
-
-# post_data = {
-#     'a':3,
-#     'b' : 'bonjour'
-# }
 #
-# result = posts.insert_one(post_data)
-# print(result.inserted_id)
-
-# get = posts.find_one({'a':3})
 #
-# print(get)
+# print(result.id)
+
+test = mongo.Users(username = 'jean',
+                   insta_username = 'jean_petit',
+                   email_address = 'jean@mail.com')
+
+test.save()
+
+
+history = mongo.History.objects(insta_username='all_you_need_is_code')
+
+metrics = mongo.Metrics(
+    username='user',
+insta_username = 'insta_user',
+datetime = datetime.datetime.now()
+)

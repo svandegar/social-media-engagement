@@ -15,8 +15,8 @@ class Users(mongoengine.Document):
 
 
 class Metrics(mongoengine.Document):
-    username = mongoengine.StringField(required=True, unique=True)
-    insta_username = mongoengine.StringField(required=True, unique=True)
+    username = mongoengine.StringField(required=True)
+    insta_username = mongoengine.StringField(required=True)
     datetime = mongoengine.DateTimeField(required=True, unique=True)
     Sleeptime = mongoengine.FloatField()
     Connection = mongoengine.IntField()
