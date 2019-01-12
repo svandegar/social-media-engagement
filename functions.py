@@ -5,7 +5,6 @@ from selenium.common.exceptions import TimeoutException
 import json
 import random
 import time
-import mongo
 
 """ Scrapping """
 
@@ -25,7 +24,7 @@ def wait_element(browser, element, timeout=20):
 
 def find_element(browser, XPATH: str, timeout=20):
     """ Wait till the element is loaded, then returns the element.
-        if not loaded after 20 sec, throw Timeout error
+        if not loaded after 20 sec, throw Timeout error and return False
     """
     try:
         WebDriverWait(browser, timeout).until(
@@ -38,7 +37,7 @@ def find_element(browser, XPATH: str, timeout=20):
 
 def find_elements(browser, XPATH: str, timeout=20):
     """ Wait till the elements are loaded, then returns the elements.
-        if not loaded after 20 sec, throw Timeout error
+        if not loaded after 20 sec, throw Timeout error and return False
     """
     try:
         WebDriverWait(browser, timeout).until(
@@ -53,7 +52,7 @@ def find_elements(browser, XPATH: str, timeout=20):
 
 
 def read_json_file(file):
-    """read a JSON file to store its content on a variable"""
+    """read a JSON file and return a dict """
     with open(file, encoding='utf-8') as file:
         result = json.load(file)
         return result
@@ -66,7 +65,7 @@ def write_json_file(data: dict, filename: str):
         json.dump(data, file)
 
 
-""" Logging """
+""" Counter """
 
 
 class Counters:
@@ -112,40 +111,10 @@ class Counters:
 
         :return: list of dicts [{name : str, value : int}]
         """
-        list=[]
+        list = []
         for counter in self.counters:
-            list.append(dict(name=counter,value=self.counters[counter]))
+            list.append(dict(name=counter, value=self.counters[counter]))
         return list
-
-def counter_to_mongo(counter: Counters):
-    mongo = []
-    for key in counter.counters:
-        mongo.append(dict(name=key, value=counter.counters[key]))
-    return mongo
-
-
-def counter_from_mongo(mongo: list):
-    elements = {}
-    for counter in mongo:
-        elements = {counter['name']: counter['value']}
-    return Counters(**elements, global_count=True)
-
-
-def update_metrics_file(metrics_file, session):
-    session_metrics = {str(session.start_time): session.logs['counter'].counters}
-    try:
-        metrics_file[session.username].append(session_metrics)
-    except KeyError:
-        metrics_file[session.username] = session_metrics
-    return metrics_file
-
-
-def save_to_mongo(object):
-    object.save()
-
-
-def update_mongo(object, **parameters):
-    object.modify(**parameters)
 
 
 """ Randomization """
