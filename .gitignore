@@ -1,18 +1,21 @@
-# Ignore config JSON file used in developement runtime
+# config JSON file used in developement runtime
 config.json
 
-# Ignore config files
+# config files
 DEV/files/
 files
 
 
-# Ignore log files
+# log files
 logs/
 DEV/logs/
 
-# Ignore outputs
+# outputs
 files/outputs.JSON
 DEV/files/outputs.JSON
+
+# Tests
+tests.py
 
 # Lines hereunder are auto-generated
 

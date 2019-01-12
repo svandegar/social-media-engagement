@@ -5,10 +5,6 @@ from selenium.common.exceptions import TimeoutException
 import json
 import random
 import time
-from settings.settings import *
-import logging
-import sys
-from logging.handlers import TimedRotatingFileHandler
 import mongo
 
 """ Scrapping """
@@ -73,43 +69,13 @@ def write_json_file(data: dict, filename: str):
 """ Logging """
 
 
-def get_console_handler():
-    console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setFormatter(FORMATTER)
-    return console_handler
-
-
-def get_file_handler():
-    file_handler = TimedRotatingFileHandler(LOG_FILE, when='midnight', utc=True)
-    file_handler.setFormatter(FORMATTER)
-    return file_handler
-
-
-def get_logger(logger_name, level='Debug'):
-    logger = logging.getLogger(logger_name)
-    level = level.title()
-    if level == 'Warn':
-        logger.setLevel(logging.WARN)
-    elif level == 'Debug':
-        logger.setLevel(logging.DEBUG)
-    elif level == 'Info':
-        logger.setLevel(logging.INFO)
-    elif level == 'Error':
-        logger.setLevel(logging.ERROR)
-    elif level == 'Critical':
-        logger.setLevel(logging.CRITICAL)
-    logger.addHandler(get_console_handler())
-    logger.addHandler(get_file_handler())
-    logger.propagate = False
-    return logger
-
-
 class Counters:
-    def __init__(self, global_count=False, **elements):
+    def __init__(self, global_count=False, *counters, **elements):
         """
         Counter object to count and increment different values.
         :param global_count: if True, add a global counter which is the sum of the sub-counters
-        :param elements: optional **kwargs {counter_name : value} to initialize the counter with existing values
+        :param elements: optional **kwargs {counter_name : value} to initialize the counter based on a dict
+        :param counters: optional *args [{name : str, value : int}] to initialize the counter based on a list of dicts
         """
         self.global_count = global_count
         self.counters = {}
@@ -117,6 +83,8 @@ class Counters:
             self.counters['global_count_value'] = 0
         for element in elements:
             self.counters[element] = elements[element]
+        for counter in counters:
+            self.counters[counter['name']] = counter['value']
 
     def increment(self, name='global', increment_value=1):
         """
@@ -136,37 +104,31 @@ class Counters:
         """set the value of the named meter to 0"""
         self.counters[name] = 0
 
-def counter_to_mongo(counter : Counters):
+    def __getitem__(self, item):
+        return self.counters[item]
+
+    def get_list(self):
+        """
+
+        :return: list of dicts [{name : str, value : int}]
+        """
+        list=[]
+        for counter in self.counters:
+            list.append(dict(name=counter,value=self.counters[counter]))
+        return list
+
+def counter_to_mongo(counter: Counters):
     mongo = []
     for key in counter.counters:
-        mongo.append(dict(name = key, value = counter.counters[key]))
+        mongo.append(dict(name=key, value=counter.counters[key]))
     return mongo
 
-def counter_from_mongo(mongo : list):
+
+def counter_from_mongo(mongo: list):
     elements = {}
     for counter in mongo:
-        elements = {counter['name'] : counter['value']}
+        elements = {counter['name']: counter['value']}
     return Counters(**elements, global_count=True)
-
-
-
-
-class Repeated_Actions_Tracker:
-    def __init__(self, history_document = None):
-
-        if history_document:
-            self.clicked_links = history_document.clicked_links
-            try:
-                self.accounts_counter = counter_from_mongo(history_document.accounts_counter)
-            except KeyError:
-                self.accounts_counter = Counters(global_count=True)
-        else:
-            self.clicked_links = []
-            self.accounts_counter = Counters(global_count=True)
-
-    def get_history(self):
-        history = mongo.History(clicked_links=self.clicked_links, accounts_counter=counter_to_mongo(self.accounts_counter))
-        return history
 
 
 def update_metrics_file(metrics_file, session):
@@ -177,11 +139,14 @@ def update_metrics_file(metrics_file, session):
         metrics_file[session.username] = session_metrics
     return metrics_file
 
+
 def save_to_mongo(object):
     object.save()
 
+
 def update_mongo(object, **parameters):
     object.modify(**parameters)
+
 
 """ Randomization """
 
@@ -190,21 +155,7 @@ def random_sleep(min=2, max=5, logger=None, counter=None):
     sleeptime = random.randint(min, max)
     time.sleep(sleeptime)
     if counter:
-        counter.increment('Sleeptime', sleeptime)
+        counter.increment('sleeptime', sleeptime)
     if logger:
         logger.debug('Sleep :' + str(sleeptime))
     return sleeptime
-
-
-""" Data connections """
-
-
-def get_data_from_files(user_inputs, rules, history, metrics):
-    user_inputs_file = read_json_file(user_inputs)
-    rules_file = read_json_file(rules)
-    history_file = read_json_file(history)
-    metrics_file = read_json_file(metrics)
-    return dict(user_inputs_file = user_inputs_file,
-                rules_file = rules_file,
-                history_file=history_file,
-                metrics_file = metrics_file)

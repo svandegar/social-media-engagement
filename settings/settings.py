@@ -1,15 +1,13 @@
-import logging
 
 # Environment
-ENVIRONMENT = 'PRODUCTION'
-DEBUG = True
+ENVIRONMENT = 'DEVELOPMENT'
 
 # import environment-specific settings
-if ENVIRONMENT == 'DEVELOPEMENT':
-    from settings.developement import *
+if ENVIRONMENT == 'DEVELOPMENT':
+    from settings.development import *
 elif ENVIRONMENT == 'PRODUCTION':
     from settings.production import *
 
-# Logs
-FORMATTER =  logging.Formatter("%(asctime)s — %(name)s — %(levelname)s — %(message)s")
+
+
 

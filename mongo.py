@@ -11,32 +11,26 @@ class History(mongoengine.Document):
 class Users(mongoengine.Document):
     username = mongoengine.StringField(required=True, unique=True)
     email_address = mongoengine.EmailField(required=True)
+    password = mongoengine.StringField(required=True)
+
+
+class Accounts(mongoengine.Document):
+    username = mongoengine.StringField(required=True, unique=True)
     insta_username = mongoengine.StringField(required=True, unique=True)
+    insta_password = mongoengine.StringField(required=True)
 
 
 class Metrics(mongoengine.Document):
     username = mongoengine.StringField(required=True)
     insta_username = mongoengine.StringField(required=True)
     datetime = mongoengine.DateTimeField(required=True, unique=True)
-    Sleeptime = mongoengine.FloatField()
-    Connection = mongoengine.IntField()
-    Links_opened = mongoengine.IntField()
-    New_post_opened = mongoengine.IntField()
-    Post_liked = mongoengine.IntField()
-    Post_not_liked = mongoengine.IntField()
+    sleeptime = mongoengine.FloatField()
+    connection = mongoengine.IntField()
+    links_opened = mongoengine.IntField()
+    new_post_opened = mongoengine.IntField()
+    post_liked = mongoengine.IntField()
+    post_not_liked = mongoengine.IntField()
     execution_time = mongoengine.FloatField()
-
-
-# class Time(mongoengine.EmbeddedDocument):
-#     timeout = mongoengine.IntField(min_value=10, max_value=30)
-#     delay_min = mongoengine.IntField(required=True)
-#     delay_max = mongoengine.IntField(required=True)
-#
-#
-# class Limits(mongoengine.EmbeddedDocument):
-#     posts_per_hashtage_min = mongoengine.IntField(min_value=1, required=True)
-#     posts_per_hashtage_max = mongoengine.IntField(min_value=1, required=True)
-#     total_likes_max = mongoengine.IntField(min_value=1, required=True)
 
 
 class Rules(mongoengine.Document):
