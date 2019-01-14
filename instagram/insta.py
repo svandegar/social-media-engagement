@@ -76,44 +76,48 @@ class Session:
         counter.increment('links_opened')
         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
 
-        # Get account name and stop if already liked two posts from this account
-        account_link = fn.find_element(browser, "//h2//a")
-        if account_link:
-            account_name = account_link.get_attribute("title")
-            try:
-                if self.accounts_counter.counters[account_name] >= rules['likesPerAccount']:
-                    logger.info('Like per account limit reached. Post not liked')
+        try:
+            # Get account name and stop if already liked two posts from this account
+            account_link = fn.find_element(browser, "//h2//a")
+            if account_link:
+                account_name = account_link.get_attribute("title")
+                try:
+                    if self.accounts_counter.counters[account_name] >= rules['likesPerAccount']:
+                        logger.info('Like per account limit reached. Post not liked')
 
-                    # Go back to the previous page before exiting the function
-                    fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
-                    logger.debug('Back to previous page')
-                    browser.back()
-                    return None
-            except KeyError:
-                pass
-                like_button = fn.find_element(browser, "//span[@aria-label='Like']")
+                        # Go back to the previous page before exiting the function
+                        fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
+                        logger.debug('Back to previous page')
+                        browser.back()
+                        return None
+                except KeyError:
+                    pass
+                    like_button = fn.find_element(browser, "//span[@aria-label='Like']")
 
-                # Check if the post have already been liked
-                if like_button:  # TODO : this condition is not working,
-                    counter.increment('new_post_opened')
+                    # Check if the post have already been liked
+                    if like_button:  # TODO : this condition is not working,
+                        counter.increment('new_post_opened')
 
-                    # Like only certain pictures, depending on the probability set in rules
-                    rand = random.random()
-                    if rand <= rules['probability']:
-                        logger.debug(str(rand) + ' <= ' + str(rules['probability']))
-                        logger.info("Like post")
-                        like_button.click()
-                        counter.increment('post_liked')
-                        self.accounts_counter.increment(account_name)
+                        # Like only certain pictures, depending on the probability set in rules
+                        rand = random.random()
+                        if rand <= rules['probability']:
+                            logger.debug(str(rand) + ' <= ' + str(rules['probability']))
+                            logger.info("Like post")
+                            like_button.click()
+                            counter.increment('post_liked')
+                            self.accounts_counter.increment(account_name)
+                        else:
+                            logger.debug(str(rand) + ' > ' + str(rules['probability']))
+                            logger.info("Don't like post")
+                            counter.increment('post_not_liked')
                     else:
-                        logger.debug(str(rand) + ' > ' + str(rules['probability']))
-                        logger.info("Don't like post")
-                        counter.increment('post_not_liked')
-                else:
-                    counter.increment('Already_liked_post_opened')
-                    logger.info('Already_liked post opened')
-        else:
-            logger.info('No account name found')
+                        counter.increment('Already_liked_post_opened')
+                        logger.info('Already_liked post opened')
+            else:
+                logger.info('No account name found')
+
+        except:
+            logger.error('Loop on this post ended unexpectedly: ' + link)
 
             # Go back to the previous page before opening a new link
         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
@@ -134,36 +138,40 @@ class Session:
         random.shuffle(hashtags)
         logger.debug('Hashtags order: ' + str(hashtags))
         for hashtag in hashtags:
-
-            # get all the links linked to one hashtag
-            browser.get("https://www.instagram.com/explore/tags/" + hashtag)
-            number_of_posts_to_like = random.randint(*rules['postsPerHashtag'].values())
-            logger.info(str(number_of_posts_to_like) + ' posts to like')
-# TODO : add more robustness here
-            posts = browser.find_element_by_tag_name('main')
-            links = posts.find_elements_by_tag_name('a')
-            links_filtered = [x for x in links if x not in self.clicked_links]
-
-            # get a subset of the links to like
-            try:
-                links_to_like = random.sample(links_filtered, number_of_posts_to_like)
-            except ValueError:
-                logger.warning('Not enough links to fill the sample of :' + str(number_of_posts_to_like))
-                break
-            links_urls = [x.get_attribute("href") for x in links_to_like]
-            for link in links_urls:
-                self.like(link)
-                self.clicked_links.append(link)
-                fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
+            try :
+                # get all the links linked to one hashtag
+                browser.get("https://www.instagram.com/explore/tags/" + hashtag)
+                number_of_posts_to_like = random.randint(*rules['postsPerHashtag'].values())
+                logger.info(str(number_of_posts_to_like) + ' posts to like')
                 try:
-                    if counter.counters['post_liked'] >= rules['totalLikesMax']:
-                        logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
-                        break
+                    posts = browser.find_element_by_tag_name('main')
+                    links = posts.find_elements_by_tag_name('a')
                 except:
-                    counter.counters['post_liked'] = 0
-            if counter.counters['post_liked'] >= rules['totalLikesMax']:
-                logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
-                break
+                    logger.warning('No links found on page https://www.instagram.com/explore/tags/' + hashtag)
+                    break
+                else :
+                    links_filtered = [x for x in links if x not in self.clicked_links]
+
+                    # get a subset of the links to like
+                    try:
+                        links_to_like = random.sample(links_filtered, number_of_posts_to_like)
+                    except ValueError:
+                        logger.warning('Not enough links to fill the sample of :' + str(number_of_posts_to_like))
+                        break
+                    links_urls = [x.get_attribute("href") for x in links_to_like]
+                    for link in links_urls:
+                        self.like(link)
+                        self.clicked_links.append(link)
+                        fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
+                        try:
+                            if counter.counters['post_liked'] >= rules['totalLikesMax']:
+                                logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
+                                return
+                        except:
+                            counter.counters['post_liked'] = 0
+
+            except:
+                logger.error('Loop on this hashtag ended unexpectedly: ' + str(hashtag))
         stop = timeit.default_timer()
         logger.info('Like session finished after ' + str(stop - start) + ' seconds')
         self.counter.increment('execution_time', stop - start)

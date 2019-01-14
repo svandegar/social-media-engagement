@@ -9,6 +9,7 @@ files
 # log files
 logs/
 DEV/logs/
+*.log
 
 # outputs
 files/outputs.JSON
