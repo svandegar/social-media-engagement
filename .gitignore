@@ -11,9 +11,10 @@ logs/
 DEV/logs/
 *.log
 
-# outputs
-files/outputs.JSON
-DEV/files/outputs.JSON
+# executable files
+/dist
+/build
+
 
 # Tests
 tests.py

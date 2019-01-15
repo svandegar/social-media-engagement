@@ -166,7 +166,10 @@ class Session:
                         try:
                             if counter.counters['post_liked'] >= rules['totalLikesMax']:
                                 logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
-                                return
+                                stop = timeit.default_timer()
+                                logger.info('Like session finished after ' + str(stop - start) + ' seconds')
+                                self.counter.increment('execution_time', stop - start)
+                                return self.counter
                         except:
                             counter.counters['post_liked'] = 0
 
