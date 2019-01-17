@@ -14,7 +14,7 @@ DEV/logs/
 # executable files
 /dist
 /build
-
+*.spec
 
 # Tests
 tests.py

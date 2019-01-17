@@ -5,21 +5,23 @@ from instagram.settings.settings import *
 import click
 from selenium.webdriver.chrome import options
 
+
 @click.command()
-@click.option('--username', '-u', prompt = True)
-@click.option('--debug', default = False)
+@click.option('--username', '-u', prompt=True)
+@click.option('--debug', default=False)
 @click.option('--connect', '-c', default=True)
 @click.option('--like_from_hashtags', '-h', prompt=True)
-def main(username: str, connect=False, like_from_hashtags=False,get_followers = False, debug = False):
+def main(username: str, like_from_hashtags: str, get_followers = 'No', connect=False,  debug=False):
+
     # set logging config
     logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
     logger = logging.getLogger(__name__)
     if debug:
-             logging._handlers['console'].setLevel('DEBUG')
+        logging._handlers['console'].setLevel('DEBUG')
     logger.info('Start script')
     try:
         logger.debug('Environment = ' + os.environ['ENVIRONMENT'])
-        logger.debug('Environment is set to: '+ os.environ['ENVIRONMENT'])
+        logger.debug('Environment is set to: ' + os.environ['ENVIRONMENT'])
     except KeyError:
         logger.debug('No ENVIRONMENT variable set')
 
@@ -34,8 +36,8 @@ def main(username: str, connect=False, like_from_hashtags=False,get_followers = 
     browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=chrome_options)
 
     # check user credentials
-    #TODO : check user credentials
-    user = mongo.Users.objects(username = username)
+    # TODO : check user credentials
+    user = mongo.Users.objects(username=username).first()
     try:
         if not user:
             raise ValueError('This user is not existing: ' + username)
@@ -44,7 +46,7 @@ def main(username: str, connect=False, like_from_hashtags=False,get_followers = 
     else:
         # get account information
         logger.debug('get account information')
-        account = mongo.Accounts.objects(user.username).first()
+        account = mongo.Accounts.objects(username=user.username).first()
         try:
             if account:
                 credentials = dict(username=account.insta_username, password=account.insta_password)
@@ -63,12 +65,12 @@ def main(username: str, connect=False, like_from_hashtags=False,get_followers = 
             logger.debug('open session')
             session = ifn.Session(credentials, browser, rules, history)
 
-            if connect: # while testing, no need to reconnect every time
+            if connect:  # while testing, no need to reconnect every time
                 logger.info('connect to Instagram')
                 session.connect()
 
             # scripts
-            if like_from_hashtags:
+            if like_from_hashtags.lower() in ['true', 't', 'y', 'yes', 'oui', 'ok']:
                 try:
                     logger.info('Start like_from_hashtags')
                     counters = session.like_from_hashtags(user_inputs.hashtags)
@@ -98,8 +100,8 @@ def main(username: str, connect=False, like_from_hashtags=False,get_followers = 
                 except:
                     logger.error('like_from_hashtags ended unexpectedly')
 
-            if get_followers:
-                #TODO : add the get_followers function usage here
+            if get_followers.lower() in ['true', 't', 'y', 'yes', 'oui', 'ok']:
+                # TODO : add the get_followers function usage here
                 pass
 
     logger.info('End of script')

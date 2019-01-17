@@ -1,11 +1,15 @@
 import os
-cwd = os.getcwd()
+import sys
+try :
+    cwd = sys._MEIPASS # get working directory is app bundled in .exe
+except AttributeError :
+    cwd = os.getcwd()
 
 # Config
 CONFIG_FILE = os.path.join(cwd, 'instagram','files','config.json')
 
 # Browser path
-CHROMEDRIVER_PATH = r"..\chromedriver_win32\chromedriver.exe"
+CHROMEDRIVER_PATH = os.path.join(os.getcwd(), 'chromedriver_win32','chromedriver.exe')
 
 # Logging
 LEVEL = 'DEBUG'
