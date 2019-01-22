@@ -3,6 +3,9 @@ import random
 import timeit
 from datetime import datetime
 import logging
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.common import exceptions
 
 
 class Session:
@@ -116,14 +119,13 @@ class Session:
             else:
                 logger.info('No account name found')
 
-        except :
+        except:
             logger.error('Loop on this post ended unexpectedly: ' + link)
 
         finally:
             # Go back to the previous page before opening a new link
             fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
             logger.debug('Back to previous page')
-            #TODO : return to home page instead of back
             browser.back()
 
     def like_from_hashtags(self, hashtags: list):
@@ -139,7 +141,8 @@ class Session:
         random.shuffle(hashtags)
         logger.debug('Hashtags order: ' + str(hashtags))
         for hashtag in hashtags:
-            try :
+            try:
+
                 # get all the links linked to one hashtag
                 browser.get("https://www.instagram.com/explore/tags/" + hashtag)
                 number_of_posts_to_like = random.randint(*rules['postsPerHashtag'].values())
@@ -149,15 +152,15 @@ class Session:
                     links = posts.find_elements_by_tag_name('a')
                 except:
                     logger.warning('No links found on page https://www.instagram.com/explore/tags/' + hashtag)
-                else :
+                else:
                     links_filtered = [x for x in links if x not in self.clicked_links]
 
                     # get a subset of the links to like
                     try:
-                        links_to_like = random.sample(links_filtered, min(number_of_posts_to_like,len(links_filtered)))
+                        links_to_like = random.sample(links_filtered, min(number_of_posts_to_like, len(links_filtered)))
                     except ValueError:
                         logger.warning('Not enough links to fill the sample of :' + str(number_of_posts_to_like))
-                    else :
+                    else:
                         links_urls = [x.get_attribute("href") for x in links_to_like]
                         for link in links_urls:
                             self.like(link)
@@ -175,6 +178,8 @@ class Session:
 
             except:
                 logger.error('Loop on this hashtag ended unexpectedly: ' + str(hashtag))
+
+        # timer
         stop = timeit.default_timer()
         logger.info('Like session finished after ' + str(stop - start) + ' seconds')
         self.counter.increment('execution_time', stop - start)
@@ -193,46 +198,107 @@ class Session:
         logger.debug('Back to previous page')
         self.browser.back()
 
-    def get_followers_list(self, account=None):
+    def get_user_followers(self, account=None, max_followers = None):
         browser = self.browser
         logger = self.logger
         counter = self.counter
         rules = self.rules.get_followers
+        start = timeit.default_timer()
+        counter.increment('followers', 0)
         if account:
             account = account
         else:
             account = self.username
+        got_same_list = 0  # counter to avoid infinite loops in followers list
+
+        # go to the account page and get the followers count string
         browser.get('https://www.instagram.com/' + account)
         followers_link = fn.find_element(browser, "//a[text()=' followers']")
-        followers_link.click()
-        fn.random_sleep(rules['delay'], logger=logger, counter=counter)
-        modal = browser.find_element_by_xpath("//div[@role='dialog']")
-        list_a = modal.find_elements_by_tag_name('a')
-        browser.execute_script("return arguments[0].scrollIntoView();", list_a[10])
-        print('scrolled from 10')
-        fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
-        list_a = modal.find_elements_by_tag_name('a')
-        browser.execute_script("return arguments[0].scrollIntoView();", list_a[-1])
-        fn.wait_element(browser, list_a[-1])
-        old_last_element = list_a[-1].text
-        logger.debug('Last element of the list :' + old_last_element)
-        new_last_element = None
-        fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
-        while old_last_element != new_last_element:
-            old_last_element = list_a[-1].text
-            fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
-            list_a = modal.find_elements_by_tag_name('a')
-            browser.execute_script("return arguments[0].scrollIntoView();", list_a[-2])
-            new_last_element = list_a[-1].text
-            logger.debug('Last element of the list :' + new_last_element)
-        logger.debug('End of loop')
+        if '\n' in followers_link.text:
+            followers_count_string = followers_link.text.split('\n')[0]
+        else:
+            followers_count_string = followers_link.text.split(' ')[0]
 
-        # get followers from elements list
-        names = []
-        for link in list_a:
-            name = link.text
-            if name != '':
-                names.append(name)
-                logger.debug('Follower added : ' + name)
-        followers = list(filter(None, names))
+        # convert the followers count string to int
+        followers_count = int(fn.human_to_int(followers_count_string))
+
+        # open the followers modal
+        followers_link.click()
+        fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
+
+        # define the number of followers to get
+        if not max_followers:
+            max_followers = followers_count
+
+        # get the initial followers list length
+        modal = fn.find_element(browser, "//div[@role='dialog']")
+        list_size = len(modal.find_elements_by_tag_name('li'))
+
+        # scroll in the modal until the list size equals max_followers
+        ActionChains(browser).move_to_element(modal).click().key_down(Keys.SPACE).perform()
+        logger.debug('first scroll in the modal')
+        fn.random_sleep(2, 2, logger, counter)
+        while list_size < max_followers:
+
+            # try to click on the 3rd last element to focus on the modal before hitting space to scroll
+            modal = fn.find_element(browser, "//div[@role='dialog']")
+            try:
+                modal.find_elements_by_xpath("//li//div//div[1]//div[2]//div[2]")[-3].click()
+            except exceptions.ElementNotVisibleException as e:
+                logger.warning(e)
+
+                # if not working, try the 4th last
+                try:
+                    modal.find_elements_by_xpath("//li//div//div[1]//div[2]//div[2]")[-4].click()
+                except exceptions.ElementNotVisibleException as e:
+
+                    # if not working, try the 5th last
+                    try:
+                        modal.find_elements_by_xpath("//li//div//div[1]//div[2]//div[2]")[-5].click()
+                    except exceptions.ElementNotVisibleException as e:
+                        logger.warning(e)
+
+                        # if still not working, break
+                        break
+                except AttributeError as e:
+                    logger.error(e)
+                    break
+            except AttributeError as e:
+                logger.error(e)
+                break
+
+            # scroll by hitting SPACE
+            ActionChains(browser).send_keys(Keys.SPACE).perform()
+
+            fn.random_sleep(1, 1, logger, counter)
+            list_size = len(modal.find_elements_by_tag_name('li'))
+
+            # compare new list size to the previous to see if it continues to grow.
+            logger.info('Followers list size: ' + str(list_size))
+            if list_size == counter['followers']:
+                got_same_list += 1
+
+            # if list size is five time the same, exit the loop
+            if got_same_list == 5:
+                logger.warning('got same list ' + str(got_same_list) + ' times')
+                break
+            counter.counters['followers'] = list_size
+
+        logger.debug('loop ended')
+        logger.info('got ' + str(list_size) + ' followers')
+        if list_size < max_followers: logger.warning(
+            'got only the firsts ' + str(list_size) + ' / ' + str(max_followers) + ' followers')
+
+        # get the followers from the browser elements list
+        followers = []
+        modal = fn.find_element(browser, "//div[@role='dialog']")
+        for user in modal.find_elements_by_tag_name('li'):
+            username = user.text.split('\n')[0]
+            followers.append(username)
+
+        # timer
+        stop = timeit.default_timer()
+        logger.info('Get user followers session finished after ' + str(stop - start) + ' seconds')
+        self.counter.increment('execution_time', stop - start)
+
         return followers

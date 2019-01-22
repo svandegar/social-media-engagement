@@ -17,8 +17,8 @@ def wait_element(browser, element, timeout=20):
         WebDriverWait(browser, timeout).until(
             EC.visibility_of(element))
         return True
-    except TimeoutException:
-        print("Timed out waiting for page to load")
+    except TimeoutException as e:
+        print(e)
         return False
 
 
@@ -30,8 +30,8 @@ def find_element(browser, XPATH: str, timeout=20):
         WebDriverWait(browser, timeout).until(
             EC.visibility_of_element_located((By.XPATH, XPATH)))
         return browser.find_element_by_xpath(XPATH)
-    except TimeoutException:
-        print("Timed out waiting for page to load")
+    except TimeoutException as e:
+        print(e)
         return False
 
 
@@ -128,3 +128,18 @@ def random_sleep(min=2, max=5, logger=None, counter=None):
     if logger:
         logger.debug('Sleep :' + str(sleeptime))
     return sleeptime
+
+""" Diverses """
+
+def human_to_int(string : str):
+    string = string.lower()
+    string = string.replace(',','')
+    if 'k' in string:
+        total_string = float(string.replace('k',''))*1000
+    elif 'm' in string:
+        total_string = float(string.replace('m',''))*1000000
+    elif 'b' in string:
+        total_string = float(string.replace('b',''))*1000000000
+    else:
+        total_string = float(string)
+    return float(total_string)

@@ -1,4 +1,4 @@
-import logging.config, sys, mongoengine
+import logging.config, mongoengine
 from instagram import insta as ifn, functions as fn, mongo
 from selenium import webdriver
 from instagram.settings.settings import *
@@ -12,7 +12,7 @@ from selenium.webdriver.chrome import options
 @click.option('--connect', '-c', default=True)
 @click.option('--like_from_hashtags', '-h', prompt=True)
 def main(username: str, like_from_hashtags: str, get_followers = 'No', connect=False,  debug=False):
-
+    username = username.title()
     # set logging config
     logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
     logger = logging.getLogger(__name__)
