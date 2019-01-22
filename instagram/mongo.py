@@ -46,3 +46,10 @@ class UserInputs(mongoengine.Document):
     username = mongoengine.StringField(required=True, unique=True)
     insta_username = mongoengine.StringField(required=True, unique=True)
     hashtags = mongoengine.ListField()
+
+class Followers(mongoengine.Document) :
+    account = mongoengine.StringField(required=True, unique=True)
+    date = mongoengine.DateField(required=True, unique=False)
+    followers = mongoengine.ListField(required=True)
+    followers_count = mongoengine.IntField(required=True)
+

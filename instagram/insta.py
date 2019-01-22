@@ -301,4 +301,4 @@ class Session:
         logger.info('Get user followers session finished after ' + str(stop - start) + ' seconds')
         self.counter.increment('execution_time', stop - start)
 
-        return followers
+        return {'account' : account,'followers' : followers}
