@@ -23,22 +23,15 @@ def main(username: str, like_from_hashtags = True, debug=False):
         logging._handlers['console'].setLevel('DEBUG')
     logger.info('Start script')
     try:
-        logger.debug('Environment = ' + os.environ['ENVIRONMENT'])
         logger.debug('Environment is set to: ' + os.environ['ENVIRONMENT'])
     except KeyError:
         logger.debug('No ENVIRONMENT variable set. Default environment is PRODUCTION')
 
-    logger.info('Version: '+VERSION)
+    logger.info('Version: '+ VERSION)
 
     # connect to MongoDB
     logger.debug('connect to MongoDB')
     mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
-
-    # open browser
-    logger.debug('open browser')
-    chrome_options = options.Options()
-    chrome_options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
-    browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=chrome_options)
 
     # check user credentials
     # TODO : check user credentials
@@ -66,10 +59,27 @@ def main(username: str, like_from_hashtags = True, debug=False):
             history = mongo.History.objects(username=username).first()
             user_inputs = mongo.UserInputs.objects(username=username).first()
 
+            # get proxy information
+            if user.use_proxy:
+                proxies = mongo.Proxies.objects(username=user.username).first()
+                logger.debug('Got proxies information')
+            else :
+                proxies = None
+                logger.debug('No proxies available')
+
+            # open browser
+            logger.debug('Open browser')
+            chrome_options = options.Options()
+            if proxies :
+                logger.debug('Connect through proxy ' + proxies.proxies['address'])
+                chrome_options.add_argument('--proxy-server=%s:%s' %(proxies.proxies['address'],proxies.proxies['port']))
+            chrome_options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
+            browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=chrome_options)
+
             # open Instagram session
-            logger.debug('open session')
+            logger.debug('Open session')
             session = ifn.Session(credentials, browser, rules, history)
-            logger.info('connect to Instagram')
+            logger.info('Connect to Instagram')
             session.connect()
 
             # scripts

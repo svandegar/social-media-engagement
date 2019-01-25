@@ -12,6 +12,7 @@ class Users(mongoengine.Document):
     username = mongoengine.StringField(required=True, unique=True)
     email_address = mongoengine.EmailField(required=True)
     password = mongoengine.StringField(required=True)
+    use_proxy = mongoengine.BooleanField(False)
 
 
 class Accounts(mongoengine.Document):
@@ -47,9 +48,14 @@ class UserInputs(mongoengine.Document):
     insta_username = mongoengine.StringField(required=True, unique=True)
     hashtags = mongoengine.ListField()
 
-class Followers(mongoengine.Document) :
+
+class Followers(mongoengine.Document):
     account = mongoengine.StringField(required=True, unique=True)
     date = mongoengine.DateField(required=True, unique=False)
     followers = mongoengine.ListField(required=True)
     followers_count = mongoengine.IntField(required=True)
 
+
+class Proxies(mongoengine.Document):
+    username = mongoengine.StringField(required=True, unique=True)
+    proxies = mongoengine.DictField(required=False)
