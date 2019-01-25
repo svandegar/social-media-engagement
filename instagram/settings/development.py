@@ -5,13 +5,11 @@ try :
 except AttributeError :
     cwd = os.getcwd()
 
-print(cwd)
 # Config
 CONFIG_FILE = os.path.join(cwd, 'instagram','DEV','files','config.json')
 
 # Browser path
 CHROMEDRIVER_PATH = os.path.join(os.getcwd(), 'chromedriver_win32','chromedriver.exe')
-print(CHROMEDRIVER_PATH)
 
 # Logging
 

@@ -7,12 +7,15 @@ from selenium.webdriver.chrome import options
 
 
 @click.command()
-@click.option('--username', '-u', prompt=True)
-@click.option('--debug', default=False)
-@click.option('--connect', '-c', default=True)
-@click.option('--like_from_hashtags', '-h', prompt=True)
-def main(username: str, like_from_hashtags: str, get_followers = 'No', connect=False,  debug=False):
+@click.option('--username', '-u', prompt=True, help='Scott username')
+@click.option('--debug', is_flag=True, help='Set logger level to debug')
+@click.version_option(version=VERSION)
+def main(username: str, like_from_hashtags = True, debug=False):
+    """
+    Follow the Instagram routine defined by rules set for the account
+    """
     username = username.title()
+
     # set logging config
     logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
     logger = logging.getLogger(__name__)
@@ -23,7 +26,9 @@ def main(username: str, like_from_hashtags: str, get_followers = 'No', connect=F
         logger.debug('Environment = ' + os.environ['ENVIRONMENT'])
         logger.debug('Environment is set to: ' + os.environ['ENVIRONMENT'])
     except KeyError:
-        logger.debug('No ENVIRONMENT variable set')
+        logger.debug('No ENVIRONMENT variable set. Default environment is PRODUCTION')
+
+    logger.info('Version: '+VERSION)
 
     # connect to MongoDB
     logger.debug('connect to MongoDB')
@@ -61,20 +66,20 @@ def main(username: str, like_from_hashtags: str, get_followers = 'No', connect=F
             history = mongo.History.objects(username=username).first()
             user_inputs = mongo.UserInputs.objects(username=username).first()
 
-            # open session
+            # open Instagram session
             logger.debug('open session')
             session = ifn.Session(credentials, browser, rules, history)
-
-            if connect:  # while testing, no need to reconnect every time
-                logger.info('connect to Instagram')
-                session.connect()
+            logger.info('connect to Instagram')
+            session.connect()
 
             # scripts
-            if like_from_hashtags.lower() in ['true', 't', 'y', 'yes', 'oui', 'ok']:
+            session.open_activity_feed()
+
+            if like_from_hashtags:
                 try:
-                    logger.info('Start like_from_hashtags')
+                    logger.info('Start like_from_hashtags. Max posts to like: ' + str(session.rules.like['totalLikesMax']))
                     counters = session.like_from_hashtags(user_inputs.hashtags)
-                    logger.info('End like_from_hashtags')
+                    logger.info('End like_from_hashtags. Number of posts liked: ' + str(session.counter['post_liked']))
 
                     # save like metrics
                     metrics = mongo.Metrics(username=username,
@@ -100,12 +105,7 @@ def main(username: str, like_from_hashtags: str, get_followers = 'No', connect=F
                 except:
                     logger.error('like_from_hashtags ended unexpectedly')
 
-            if get_followers.lower() in ['true', 't', 'y', 'yes', 'oui', 'ok']:
-                # TODO : add the get_followers function usage here
-                pass
-
     logger.info('End of script')
 
 
 main(sys.argv[1:])
-

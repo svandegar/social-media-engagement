@@ -8,6 +8,9 @@ if ENVIRONMENT == 'DEVELOPMENT':
 elif ENVIRONMENT == 'PRODUCTION':
     from instagram.settings.production import *
 
+# version
+VERSION = '1.0.1'
+
 
 
 

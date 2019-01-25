@@ -145,8 +145,6 @@ class Session:
 
                 # get all the links linked to one hashtag
                 browser.get("https://www.instagram.com/explore/tags/" + hashtag)
-                number_of_posts_to_like = random.randint(*rules['postsPerHashtag'].values())
-                logger.info(str(number_of_posts_to_like) + ' posts to like')
                 try:
                     posts = browser.find_element_by_tag_name('main')
                     links = posts.find_elements_by_tag_name('a')
@@ -156,25 +154,28 @@ class Session:
                     links_filtered = [x for x in links if x not in self.clicked_links]
 
                     # get a subset of the links to like
-                    try:
-                        links_to_like = random.sample(links_filtered, min(number_of_posts_to_like, len(links_filtered)))
-                    except ValueError:
-                        logger.warning('Not enough links to fill the sample of :' + str(number_of_posts_to_like))
-                    else:
-                        links_urls = [x.get_attribute("href") for x in links_to_like]
-                        for link in links_urls:
-                            self.like(link)
-                            self.clicked_links.append(link)
-                            fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
-                            try:
-                                if counter.counters['post_liked'] >= rules['totalLikesMax']:
-                                    logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
-                                    stop = timeit.default_timer()
-                                    logger.info('Like session finished after ' + str(stop - start) + ' seconds')
-                                    self.counter.increment('execution_time', stop - start)
-                                    return self.counter
-                            except:
-                                counter.counters['post_liked'] = 0
+                    number_of_posts_to_like = random.randint(*rules['postsPerHashtag'].values())
+                    subset_size = min(number_of_posts_to_like, len(links_filtered))
+                    logger.info(str(subset_size) + ' posts selected for the hashtag ' + hashtag)
+                    links_to_like = random.sample(links_filtered, subset_size)
+
+                    # get the links urls and lanche like function for each one of them
+                    links_urls = [x.get_attribute("href") for x in links_to_like]
+                    for link in links_urls:
+                        self.like(link)
+                        self.clicked_links.append(link)
+                        fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
+                        try:
+                            if counter.counters['post_liked'] >= rules['totalLikesMax']:
+                                logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
+                                stop = timeit.default_timer()
+
+                                # timer
+                                logger.info('Like session finished after ' + str(stop - start) + ' seconds')
+                                self.counter.increment('execution_time', stop - start)
+                                return self.counter
+                        except:
+                            counter.counters['post_liked'] = 0
 
             except:
                 logger.error('Loop on this hashtag ended unexpectedly: ' + str(hashtag))
