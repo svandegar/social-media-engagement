@@ -1,4 +1,3 @@
-from instagram.settings.settings import *
 import logging
 import os
 from logging.handlers import TimedRotatingFileHandler
@@ -9,11 +8,12 @@ class LocalFileHandler(logging.handlers.TimedRotatingFileHandler):
                  when  = "h",
                  encoding  = None,
                  utc = False):
-        path = os.path.join(cwd, 'instagram','logs')
+        path = os.path.join(os.getcwd(), 'instagram','logs')
         try:
             os.makedirs(path)
+            print('Logs located at :' + path)
         except FileExistsError:
-            print('Path already exists')
+            print('Logs located at :' + path)
         finally:
             super(LocalFileHandler, self).__init__(filename = path+"\\"+filename,
                                                    when = when,
@@ -21,14 +21,4 @@ class LocalFileHandler(logging.handlers.TimedRotatingFileHandler):
                                                    utc = utc)
 
 
-test = {
-
-            "filename": "info.log",
-            "when": "midnight",
-            "encoding": "utf8",
-			"utc" : True
-        }
-
-
-essai = LocalFileHandler(**test)
 

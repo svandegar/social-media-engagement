@@ -4,6 +4,7 @@ from selenium import webdriver
 from instagram.settings.settings import *
 import click
 from selenium.webdriver.chrome import options
+import instagram.loggers
 
 
 @click.command()
@@ -76,7 +77,14 @@ def main(username: str, like_from_hashtags = True, debug=False):
             else :
                 logger.info('Connect without proxy')
             chrome_options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
-            browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=chrome_options)
+            try :
+                browser = webdriver.Chrome(options=chrome_options)
+            except :
+                try :
+                    browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=chrome_options)
+                except Exception as e :
+                    logger.error(e)
+                    raise(e)
 
             # open Instagram session
             logger.debug('Open session')
