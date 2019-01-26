@@ -1,0 +1,905 @@
+2019-01-06 12:08:57,667 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:08:58,058 — __main__|all_you_need_is_code — INFO — New connection to the account :all_you_need_is_code
+2019-01-06 12:09:06,141 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:09:06,172 — __main__|all_you_need_is_code — DEBUG — App download denied
+2019-01-06 12:09:07,506 — __main__|all_you_need_is_code — DEBUG — Notifications denied
+2019-01-06 12:09:11,506 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:09:19,666 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:09:19,666 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:09:21,555 — __main__|all_you_need_is_code — DEBUG — Hashtags order: ['programminglife', 'programmer', 'programming', 'programmingisfun', 'codinglife', 'coder', 'coding', 'programmers']
+2019-01-06 12:09:25,474 — __main__|all_you_need_is_code — INFO — 16 posts to like
+2019-01-06 12:09:25,613 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsPuIxbBpOn/
+2019-01-06 12:09:32,274 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:09:32,363 — __main__|all_you_need_is_code — DEBUG — 0.06738345017787695 <= 0.8
+2019-01-06 12:09:32,363 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:09:35,441 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:09:35,441 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:09:45,522 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:09:45,522 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTechZhpSv/
+2019-01-06 12:09:55,008 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:09:55,077 — __main__|all_you_need_is_code — DEBUG — 0.7034938038729287 <= 0.8
+2019-01-06 12:09:55,077 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:09:57,164 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:09:57,164 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:10:02,368 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:10:02,368 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTgso5n_gb/
+2019-01-06 12:10:09,803 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:10:09,865 — __main__|all_you_need_is_code — DEBUG — 0.5130430016454072 <= 0.8
+2019-01-06 12:10:09,865 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:10:16,931 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:10:16,931 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:10:27,894 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:10:27,894 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTc1_hFgIh/
+2019-01-06 12:10:32,871 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:10:32,940 — __main__|all_you_need_is_code — DEBUG — 0.7657486482674203 <= 0.8
+2019-01-06 12:10:32,940 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:10:36,026 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:10:36,026 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:10:47,278 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:10:47,278 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsQAJMshsHo/
+2019-01-06 12:10:57,215 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:10:57,284 — __main__|all_you_need_is_code — DEBUG — 0.17082434960068005 <= 0.8
+2019-01-06 12:10:57,284 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:11:04,366 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:11:04,366 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:11:13,117 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:11:13,117 — __main__|all_you_need_is_code — INFO — Max posts to like reached : 5
+2019-01-06 12:11:13,117 — __main__|all_you_need_is_code — INFO — Max posts to like reached : 5
+2019-01-06 12:11:13,117 — __main__|all_you_need_is_code — INFO — Like session finished after 111.56270981200001 seconds
+2019-01-06 12:17:00,623 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:23:09,460 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:23:09,811 — __main__|all_you_need_is_code — INFO — New connection to the account :all_you_need_is_code
+2019-01-06 12:23:15,897 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:23:15,935 — __main__|all_you_need_is_code — DEBUG — App download denied
+2019-01-06 12:23:16,772 — __main__|all_you_need_is_code — DEBUG — Notifications denied
+2019-01-06 12:23:20,772 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:23:25,480 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:23:25,480 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:23:27,312 — __main__|all_you_need_is_code — DEBUG — Hashtags order: ['coder', 'programmingisfun', 'programmers', 'codinglife', 'programminglife', 'programmer', 'coding', 'programming']
+2019-01-06 12:23:37,005 — __main__|all_you_need_is_code — INFO — 18 posts to like
+2019-01-06 12:23:37,129 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsQTv_RB_tj/
+2019-01-06 12:23:44,010 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:23:44,092 — __main__|all_you_need_is_code — DEBUG — 0.7346944604050836 <= 0.8
+2019-01-06 12:23:44,092 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:23:52,164 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:23:52,164 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:23:58,674 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:23:58,674 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTm311Bf0U/
+2019-01-06 12:24:03,277 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:24:03,339 — __main__|all_you_need_is_code — DEBUG — 0.5784822033021273 <= 0.8
+2019-01-06 12:24:03,339 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:24:11,434 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:24:11,434 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:24:22,166 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:24:22,166 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTkujJHVsZ/
+2019-01-06 12:24:32,547 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:24:32,616 — __main__|all_you_need_is_code — DEBUG — 0.4518560093624565 <= 0.8
+2019-01-06 12:24:32,616 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:24:35,693 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:24:35,693 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:24:44,810 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:24:44,810 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmB_OhOyf/
+2019-01-06 12:24:55,571 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:24:55,634 — __main__|all_you_need_is_code — DEBUG — 0.2901593854043326 <= 0.8
+2019-01-06 12:24:55,634 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:24:58,728 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:24:58,728 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:25:04,368 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:25:04,368 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmXMZBtQh/
+2019-01-06 12:25:09,842 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:25:09,911 — __main__|all_you_need_is_code — DEBUG — 0.6662902076570024 <= 0.8
+2019-01-06 12:25:09,911 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:25:16,013 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:25:16,013 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:25:24,227 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:25:24,227 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsSiuYiBZD-/
+2019-01-06 12:25:32,875 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:25:32,944 — __main__|all_you_need_is_code — DEBUG — 0.9774573956301126 > 0.8
+2019-01-06 12:25:32,944 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:25:37,956 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:25:37,956 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:25:47,061 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:25:47,061 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsSzGQ8BZV5/
+2019-01-06 12:25:56,395 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:25:56,457 — __main__|all_you_need_is_code — DEBUG — 0.34088636856035226 <= 0.8
+2019-01-06 12:25:56,457 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:26:03,532 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:26:03,532 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:26:17,770 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:26:17,770 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmprmhtbl/
+2019-01-06 12:26:27,288 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:26:27,357 — __main__|all_you_need_is_code — DEBUG — 0.27022297018429886 <= 0.8
+2019-01-06 12:26:27,357 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:26:34,430 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:26:34,430 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:26:42,623 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:26:42,623 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmRsyBpRt/
+2019-01-06 12:26:53,646 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:26:53,715 — __main__|all_you_need_is_code — DEBUG — 0.008568720071721825 <= 0.8
+2019-01-06 12:26:53,715 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:26:59,819 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:26:59,819 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:27:07,197 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:27:07,197 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTl0KVg4zl/
+2019-01-06 12:27:15,697 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:27:15,750 — __main__|all_you_need_is_code — DEBUG — 0.19029700841744246 <= 0.8
+2019-01-06 12:27:15,750 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:27:19,839 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:27:19,839 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:27:32,928 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:27:32,928 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTl5yJBRQb/
+2019-01-06 12:27:40,838 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:27:48,996 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:27:48,996 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:27:54,696 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:27:54,696 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmnJAB4M1/
+2019-01-06 12:28:06,357 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:28:09,397 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:28:09,397 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:28:16,671 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:28:16,671 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTEQjSBlkl/
+2019-01-06 12:28:21,838 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:28:21,902 — __main__|all_you_need_is_code — DEBUG — 0.3028077087656642 <= 0.8
+2019-01-06 12:28:21,902 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:28:27,989 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:28:27,989 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:28:39,302 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:28:39,302 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTlAMWhKr6/
+2019-01-06 12:28:48,474 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:28:48,543 — __main__|all_you_need_is_code — DEBUG — 0.41190255588517755 <= 0.8
+2019-01-06 12:28:48,543 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:28:52,620 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:28:52,620 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:29:01,521 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:29:01,521 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTj8bwHG-L/
+2019-01-06 12:29:18,348 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:29:18,417 — __main__|all_you_need_is_code — DEBUG — 0.7057127213276133 <= 0.8
+2019-01-06 12:29:18,417 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:29:23,494 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:29:23,494 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:29:32,979 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:29:32,979 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsQ6JgYHKVj/
+2019-01-06 12:29:43,828 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:29:43,897 — __main__|all_you_need_is_code — DEBUG — 0.25933189655968303 <= 0.8
+2019-01-06 12:29:43,897 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:29:51,986 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:29:51,986 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:30:04,089 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:30:04,089 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTlAFUhBwv/
+2019-01-06 12:30:09,146 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:30:09,217 — __main__|all_you_need_is_code — DEBUG — 0.0922418831227696 <= 0.8
+2019-01-06 12:30:09,217 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:30:13,298 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:30:13,298 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:30:19,250 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:30:19,250 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsS_ZhvhI3W/
+2019-01-06 12:30:24,034 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:30:24,096 — __main__|all_you_need_is_code — DEBUG — 0.11805535441726978 <= 0.8
+2019-01-06 12:30:24,096 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:30:26,172 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:30:26,172 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:30:37,817 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:30:44,361 — __main__|all_you_need_is_code — INFO — 16 posts to like
+2019-01-06 12:30:44,475 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTKRUfnaFM/
+2019-01-06 12:30:51,198 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:30:51,266 — __main__|all_you_need_is_code — DEBUG — 0.5484543285764438 <= 0.8
+2019-01-06 12:30:51,266 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:30:53,341 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:30:53,341 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:31:01,098 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:31:01,098 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTGoWBAlV6/
+2019-01-06 12:31:09,091 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:31:09,160 — __main__|all_you_need_is_code — DEBUG — 0.11702361581065301 <= 0.8
+2019-01-06 12:31:09,160 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:31:17,233 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:31:17,233 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:31:29,160 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:31:29,160 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsS86tdlnme/
+2019-01-06 12:31:34,993 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:31:35,062 — __main__|all_you_need_is_code — DEBUG — 0.861002148995356 > 0.8
+2019-01-06 12:31:35,062 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:31:37,070 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:31:37,070 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:31:48,693 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:31:48,693 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsKq-xOBvy7/
+2019-01-06 12:31:58,532 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:31:58,595 — __main__|all_you_need_is_code — DEBUG — 0.7852686043084175 <= 0.8
+2019-01-06 12:31:58,595 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:32:01,671 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:32:01,671 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:32:08,007 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:32:08,007 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/Br_zT9ohBKO/
+2019-01-06 12:32:17,855 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:32:17,908 — __main__|all_you_need_is_code — DEBUG — 0.07874141557677561 <= 0.8
+2019-01-06 12:32:17,908 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:32:24,993 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:32:24,993 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:32:36,452 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:32:36,452 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/Brfa_PfBsV4/
+2019-01-06 12:32:45,932 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:32:46,004 — __main__|all_you_need_is_code — DEBUG — 0.2512868167009308 <= 0.8
+2019-01-06 12:32:46,004 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:32:49,073 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:32:49,073 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:32:57,460 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:32:57,460 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTQTWvBcAT/
+2019-01-06 12:33:06,992 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:33:07,060 — __main__|all_you_need_is_code — DEBUG — 0.027019290883627423 <= 0.8
+2019-01-06 12:33:07,060 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:33:09,133 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:33:09,133 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:33:16,703 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:33:16,703 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTIQ1Phkc9/
+2019-01-06 12:33:20,304 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:33:20,366 — __main__|all_you_need_is_code — DEBUG — 0.5880203840108164 <= 0.8
+2019-01-06 12:33:20,366 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:33:22,441 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:33:22,441 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:33:31,731 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:33:31,731 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTasiwgvwz/
+2019-01-06 12:33:39,197 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:33:39,251 — __main__|all_you_need_is_code — DEBUG — 0.7721843804898106 <= 0.8
+2019-01-06 12:33:39,251 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:33:45,320 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:33:45,320 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:33:52,170 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:33:52,170 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTSW5znzxI/
+2019-01-06 12:33:59,595 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:33:59,664 — __main__|all_you_need_is_code — DEBUG — 0.24433505553765966 <= 0.8
+2019-01-06 12:33:59,664 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:34:03,746 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:34:03,746 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:34:13,382 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:34:13,382 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTh3IBBQt5/
+2019-01-06 12:34:20,207 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:34:20,274 — __main__|all_you_need_is_code — DEBUG — 0.5546307681063309 <= 0.8
+2019-01-06 12:34:20,274 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:34:23,349 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:34:23,349 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:34:31,857 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:34:31,857 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTR42phVwr/
+2019-01-06 12:34:35,265 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:34:43,308 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:34:43,308 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:34:50,187 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:34:50,187 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTNCNXlkwo/
+2019-01-06 12:34:57,722 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:35:01,759 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:35:01,759 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:35:07,592 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:35:07,592 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsFCx41hv_q/
+2019-01-06 12:35:17,249 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:35:22,281 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:35:22,281 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:35:31,681 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:35:31,681 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTLGCVnfe1/
+2019-01-06 12:35:37,817 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:35:37,888 — __main__|all_you_need_is_code — DEBUG — 0.24414499167293824 <= 0.8
+2019-01-06 12:35:37,888 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:35:41,961 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:35:41,961 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:35:53,422 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:35:53,422 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTkrS4hHYo/
+2019-01-06 12:36:00,125 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:36:00,200 — __main__|all_you_need_is_code — DEBUG — 0.17225559100661603 <= 0.8
+2019-01-06 12:36:00,200 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:36:05,288 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:36:05,288 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:36:14,876 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:36:21,117 — __main__|all_you_need_is_code — INFO — 14 posts to like
+2019-01-06 12:36:21,223 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTnGQOhGNX/
+2019-01-06 12:36:26,940 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:36:27,002 — __main__|all_you_need_is_code — DEBUG — 0.2131287876674276 <= 0.8
+2019-01-06 12:36:27,002 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:36:29,076 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:36:29,076 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:36:38,385 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:36:38,385 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTlUvJAQVq/
+2019-01-06 12:36:42,685 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:36:42,794 — __main__|all_you_need_is_code — DEBUG — 0.7921970024163791 <= 0.8
+2019-01-06 12:36:42,794 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:36:45,870 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:36:45,870 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:36:54,390 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:36:54,390 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTlT9CASxV/
+2019-01-06 12:37:00,257 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:37:00,326 — __main__|all_you_need_is_code — DEBUG — 0.6736308546630061 <= 0.8
+2019-01-06 12:37:00,326 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:37:08,396 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:37:08,396 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:37:18,584 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:37:18,584 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmwUTAxhL/
+2019-01-06 12:37:24,494 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:37:24,563 — __main__|all_you_need_is_code — DEBUG — 0.8561305916834444 > 0.8
+2019-01-06 12:37:24,563 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:37:32,572 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:37:32,572 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:37:41,834 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:37:41,834 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTjPXPhlUG/
+2019-01-06 12:37:50,863 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:37:50,944 — __main__|all_you_need_is_code — DEBUG — 0.8521878863906642 > 0.8
+2019-01-06 12:37:50,944 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:37:54,949 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:37:54,949 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:38:04,479 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:38:04,479 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTkScVBhHN/
+2019-01-06 12:38:10,108 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:38:10,186 — __main__|all_you_need_is_code — DEBUG — 0.0861710255576259 <= 0.8
+2019-01-06 12:38:10,186 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:38:16,269 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:38:16,269 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:38:26,733 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:38:26,733 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTm6HbFrOg/
+2019-01-06 12:38:35,505 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:38:35,590 — __main__|all_you_need_is_code — DEBUG — 0.04473795710649897 <= 0.8
+2019-01-06 12:38:35,590 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:38:42,668 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:38:42,668 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:38:51,628 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:38:51,628 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTm0bwBr1S/
+2019-01-06 12:38:57,892 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:38:57,961 — __main__|all_you_need_is_code — DEBUG — 0.18682437250508577 <= 0.8
+2019-01-06 12:38:57,961 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:39:02,025 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:39:02,025 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:39:09,235 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:39:09,235 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTnc71BXQA/
+2019-01-06 12:39:16,015 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:39:16,084 — __main__|all_you_need_is_code — DEBUG — 0.6655246376981965 <= 0.8
+2019-01-06 12:39:16,084 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:39:20,162 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:39:20,162 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:39:27,247 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:39:27,247 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsIYdgRh1Gz/
+2019-01-06 12:39:36,550 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:39:36,635 — __main__|all_you_need_is_code — DEBUG — 0.40811323026920243 <= 0.8
+2019-01-06 12:39:36,635 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:39:41,706 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:39:41,706 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:39:49,324 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:39:49,324 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTkHX8htrR/
+2019-01-06 12:39:54,027 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:40:02,077 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:40:02,077 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:40:12,594 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:40:12,594 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTm311Bf0U/
+2019-01-06 12:40:22,705 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:40:28,740 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:40:28,740 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:40:37,128 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:40:37,128 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsK4rHvBxYw/
+2019-01-06 12:40:46,761 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:40:46,830 — __main__|all_you_need_is_code — DEBUG — 0.9598335107703043 > 0.8
+2019-01-06 12:40:46,830 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:40:54,832 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:40:54,832 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:41:05,031 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:41:05,031 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTje9hBVio/
+2019-01-06 12:41:14,501 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:41:14,570 — __main__|all_you_need_is_code — DEBUG — 0.9505050653328733 > 0.8
+2019-01-06 12:41:14,570 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:41:21,580 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:41:21,580 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:41:29,572 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:41:33,596 — __main__|all_you_need_is_code — INFO — 15 posts to like
+2019-01-06 12:41:33,738 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmnJAB4M1/
+2019-01-06 12:41:43,293 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:41:47,324 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:41:47,324 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:41:57,946 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:41:57,946 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTnlylhTnT/
+2019-01-06 12:42:06,854 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:42:06,923 — __main__|all_you_need_is_code — DEBUG — 0.5832485933634185 <= 0.8
+2019-01-06 12:42:06,923 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:42:15,002 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:42:15,002 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:42:20,690 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:42:20,690 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsQil9OBoaK/
+2019-01-06 12:42:26,264 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:42:26,318 — __main__|all_you_need_is_code — DEBUG — 0.5145890837357626 <= 0.8
+2019-01-06 12:42:26,318 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:42:30,394 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:42:30,394 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:42:36,788 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:42:36,788 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTl5yJBRQb/
+2019-01-06 12:42:40,502 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:42:46,571 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:42:46,571 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:42:51,664 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:42:51,664 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTEQjSBlkl/
+2019-01-06 12:42:59,451 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:43:05,505 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:43:05,505 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:43:12,596 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:43:12,596 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTlW1BBTNq/
+2019-01-06 12:43:19,210 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:43:19,279 — __main__|all_you_need_is_code — DEBUG — 0.22359817684738947 <= 0.8
+2019-01-06 12:43:19,279 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:43:23,354 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:43:23,354 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:43:29,527 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:43:29,527 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTovYQleTL/
+2019-01-06 12:43:36,909 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:43:36,977 — __main__|all_you_need_is_code — DEBUG — 0.0697938037012038 <= 0.8
+2019-01-06 12:43:36,977 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:43:43,063 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:43:43,063 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:43:51,447 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:43:51,447 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmprmhtbl/
+2019-01-06 12:43:57,570 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:44:03,614 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:44:03,614 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:44:13,900 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:44:13,900 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsOIdsCBaHm/
+2019-01-06 12:44:22,206 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:44:22,275 — __main__|all_you_need_is_code — DEBUG — 0.48095272645936515 <= 0.8
+2019-01-06 12:44:22,275 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:44:28,339 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:44:28,339 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:44:34,684 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:44:34,684 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmXMZBtQh/
+2019-01-06 12:44:39,666 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:44:45,716 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:44:45,716 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:44:54,642 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:44:54,642 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTmqT9h1bf/
+2019-01-06 12:45:01,118 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:45:01,187 — __main__|all_you_need_is_code — DEBUG — 0.9832642107335371 > 0.8
+2019-01-06 12:45:01,187 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:45:05,201 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:45:05,201 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:45:10,825 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:45:10,825 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTn7dBBolH/
+2019-01-06 12:45:19,439 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:45:19,502 — __main__|all_you_need_is_code — DEBUG — 0.041927354843294684 <= 0.8
+2019-01-06 12:45:19,502 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:45:26,579 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:45:26,579 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:45:35,713 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:45:35,713 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTl9XGHIrh/
+2019-01-06 12:45:45,242 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:45:45,307 — __main__|all_you_need_is_code — DEBUG — 0.13903566661975575 <= 0.8
+2019-01-06 12:45:45,307 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:45:51,405 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:45:51,405 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:45:58,383 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:45:58,383 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsKzYNpBiLt/
+2019-01-06 12:46:06,948 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:46:07,002 — __main__|all_you_need_is_code — DEBUG — 0.1758883436748816 <= 0.8
+2019-01-06 12:46:07,002 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:46:10,073 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:46:10,073 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:46:21,530 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:46:21,530 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsL7V1MhRrr/
+2019-01-06 12:46:29,623 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:46:29,692 — __main__|all_you_need_is_code — DEBUG — 0.1886868838159178 <= 0.8
+2019-01-06 12:46:29,692 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:46:36,761 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:46:36,761 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:46:47,012 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:46:52,177 — __main__|all_you_need_is_code — INFO — 6 posts to like
+2019-01-06 12:46:52,263 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTn8FDFUBx/
+2019-01-06 12:46:59,992 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:47:00,076 — __main__|all_you_need_is_code — DEBUG — 0.18765812636369428 <= 0.8
+2019-01-06 12:47:00,076 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:47:02,165 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:47:02,165 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:47:12,793 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:47:12,793 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTlpVUlEsr/
+2019-01-06 12:47:20,786 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:47:20,855 — __main__|all_you_need_is_code — DEBUG — 0.8646840753986741 > 0.8
+2019-01-06 12:47:20,855 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:47:27,876 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:47:27,876 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:47:34,849 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:47:34,849 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsThMI5hMWv/
+2019-01-06 12:47:41,890 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:47:41,952 — __main__|all_you_need_is_code — DEBUG — 0.3621496703007461 <= 0.8
+2019-01-06 12:47:41,952 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:47:44,033 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:47:44,033 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:47:49,088 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:47:49,088 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsQAJMshsHo/
+2019-01-06 12:47:58,814 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:48:00,877 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:48:00,877 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:48:13,017 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:48:13,017 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTlbZiB1gS/
+2019-01-06 12:48:16,577 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:48:16,646 — __main__|all_you_need_is_code — DEBUG — 0.4123641848385188 <= 0.8
+2019-01-06 12:48:16,646 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:48:23,714 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:48:23,714 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:48:29,874 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:48:29,874 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsThFulHK9q/
+2019-01-06 12:48:34,541 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:48:34,610 — __main__|all_you_need_is_code — DEBUG — 0.337244619282952 <= 0.8
+2019-01-06 12:48:34,610 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:48:36,677 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:48:36,677 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:48:43,630 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:48:49,594 — __main__|all_you_need_is_code — INFO — 24 posts to like
+2019-01-06 12:48:49,755 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTpRQbnlHA/
+2019-01-06 12:48:53,346 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:48:53,415 — __main__|all_you_need_is_code — DEBUG — 0.40658862706441823 <= 0.8
+2019-01-06 12:48:53,415 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:49:01,505 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:49:01,505 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:49:12,151 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:49:12,151 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsSiuYiBZD-/
+2019-01-06 12:49:20,380 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:49:20,481 — __main__|all_you_need_is_code — DEBUG — 0.7910681721566881 <= 0.8
+2019-01-06 12:49:20,481 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:49:24,576 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:49:24,576 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:49:34,760 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:49:34,760 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTovYQleTL/
+2019-01-06 12:49:40,926 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:49:43,986 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:49:43,986 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:49:53,131 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:49:53,131 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsP7jyjBRWL/
+2019-01-06 12:49:56,936 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:50:02,970 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:50:02,970 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:50:10,302 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:50:10,302 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTo_n1hcqe/
+2019-01-06 12:50:16,703 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:50:16,772 — __main__|all_you_need_is_code — DEBUG — 0.8833328344798543 > 0.8
+2019-01-06 12:50:16,772 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:50:23,775 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:50:23,775 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:50:32,267 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:50:32,267 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTovhQHvQK/
+2019-01-06 12:50:35,737 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:50:35,794 — __main__|all_you_need_is_code — DEBUG — 0.6349736613135794 <= 0.8
+2019-01-06 12:50:35,794 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:50:42,862 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:50:42,862 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:50:49,139 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:50:49,139 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTodkXh7Js/
+2019-01-06 12:50:52,935 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:50:53,019 — __main__|all_you_need_is_code — DEBUG — 0.13139349551683688 <= 0.8
+2019-01-06 12:50:53,019 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:51:01,128 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:51:01,128 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:51:09,950 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:51:09,950 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsSx9sPBAWJ/
+2019-01-06 12:51:17,646 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:51:17,715 — __main__|all_you_need_is_code — DEBUG — 0.40122141473026807 <= 0.8
+2019-01-06 12:51:17,715 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:51:20,788 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:51:20,788 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:51:30,226 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:51:30,226 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTpehFB7LY/
+2019-01-06 12:51:34,034 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:51:34,110 — __main__|all_you_need_is_code — DEBUG — 0.9661790301121558 > 0.8
+2019-01-06 12:51:34,110 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:51:40,111 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:51:40,111 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:51:49,889 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:51:49,889 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsToslTnb-y/
+2019-01-06 12:51:55,858 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:51:55,927 — __main__|all_you_need_is_code — DEBUG — 0.8043269163740577 > 0.8
+2019-01-06 12:51:55,927 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:52:01,931 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:52:01,931 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:52:13,139 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:52:13,139 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsQ6JgYHKVj/
+2019-01-06 12:52:22,880 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:52:29,980 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:52:29,980 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:52:38,134 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:52:38,134 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTpaWmhcG1/
+2019-01-06 12:52:43,505 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:52:43,574 — __main__|all_you_need_is_code — DEBUG — 0.6323816315925441 <= 0.8
+2019-01-06 12:52:43,574 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:52:49,659 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:52:49,659 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:52:58,838 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:52:58,838 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTohLvhBtl/
+2019-01-06 12:53:02,820 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:53:02,905 — __main__|all_you_need_is_code — DEBUG — 0.443414812364162 <= 0.8
+2019-01-06 12:53:02,905 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:53:09,971 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:53:09,971 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:53:18,372 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:53:18,372 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTptspgweA/
+2019-01-06 12:53:23,034 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:53:23,118 — __main__|all_you_need_is_code — DEBUG — 0.6660692776275771 <= 0.8
+2019-01-06 12:53:23,118 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:53:30,201 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:53:30,201 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:53:42,016 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:53:42,016 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTplwsnqO9/
+2019-01-06 12:53:49,518 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:53:57,550 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:53:57,550 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:54:03,493 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:54:03,493 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsToonHBV7O/
+2019-01-06 12:54:10,096 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:54:10,162 — __main__|all_you_need_is_code — DEBUG — 0.4352813503228212 <= 0.8
+2019-01-06 12:54:10,162 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:54:14,240 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:54:14,240 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:54:19,502 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:54:19,502 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTn8FDFUBx/
+2019-01-06 12:54:25,581 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:54:28,625 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:54:28,625 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:54:39,104 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:54:39,104 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsQCJJVnWpZ/
+2019-01-06 12:54:47,822 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:54:49,865 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:54:49,865 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:55:01,279 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:55:01,279 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTolnjAPlB/
+2019-01-06 12:55:06,846 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:55:06,931 — __main__|all_you_need_is_code — DEBUG — 0.6841318945364713 <= 0.8
+2019-01-06 12:55:06,931 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:55:11,009 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:55:11,009 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:55:17,648 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:55:17,648 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTpg3tlcSC/
+2019-01-06 12:55:26,176 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:55:26,245 — __main__|all_you_need_is_code — DEBUG — 0.7827548955030137 <= 0.8
+2019-01-06 12:55:26,245 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:55:32,325 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:55:32,325 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:55:39,889 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:55:39,889 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsScL-pDHxl/
+2019-01-06 12:55:46,714 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:55:46,797 — __main__|all_you_need_is_code — DEBUG — 0.8380796442238133 > 0.8
+2019-01-06 12:55:46,797 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 12:55:50,809 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:55:50,809 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:55:58,589 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:55:58,589 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTpRlghJ3M/
+2019-01-06 12:56:08,678 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:56:08,763 — __main__|all_you_need_is_code — DEBUG — 0.3806226844088484 <= 0.8
+2019-01-06 12:56:08,763 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:56:19,862 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:56:19,862 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:56:30,390 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:56:30,390 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsToRBwn8-A/
+2019-01-06 12:56:37,124 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:56:37,202 — __main__|all_you_need_is_code — DEBUG — 0.705735588542278 <= 0.8
+2019-01-06 12:56:37,202 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:56:44,273 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:56:44,273 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:56:54,787 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:56:54,787 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTEQjSBlkl/
+2019-01-06 12:57:00,817 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:57:07,855 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:57:07,855 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:57:13,138 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:57:19,332 — __main__|all_you_need_is_code — INFO — 20 posts to like
+2019-01-06 12:57:19,475 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTptL7FgqP/
+2019-01-06 12:57:26,085 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:57:26,154 — __main__|all_you_need_is_code — DEBUG — 0.11252961412680962 <= 0.8
+2019-01-06 12:57:26,154 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:57:32,218 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:57:32,218 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:57:44,276 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:57:44,276 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqNjsHErX/
+2019-01-06 12:57:52,917 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:57:52,986 — __main__|all_you_need_is_code — DEBUG — 0.606519242938025 <= 0.8
+2019-01-06 12:57:52,986 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:57:56,066 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:57:56,066 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:58:03,033 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:58:03,033 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsToc91iZIs/
+2019-01-06 12:58:08,987 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:58:09,049 — __main__|all_you_need_is_code — DEBUG — 0.4361152059873731 <= 0.8
+2019-01-06 12:58:09,049 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:58:17,129 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:58:17,129 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:58:26,807 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 12:58:26,807 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqZginROu/
+2019-01-06 12:58:30,971 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 12:58:31,040 — __main__|all_you_need_is_code — DEBUG — 0.045221026146597065 <= 0.8
+2019-01-06 12:58:31,040 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:58:39,111 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:58:39,111 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:58:45,478 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 12:58:45,478 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTpsPOggH-/
+2019-01-06 12:58:52,619 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:58:52,682 — __main__|all_you_need_is_code — DEBUG — 0.06959000616741762 <= 0.8
+2019-01-06 12:58:52,682 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:58:57,751 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:58:57,751 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:59:05,908 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 12:59:05,908 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTplhPHGlu/
+2019-01-06 12:59:11,876 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:59:11,951 — __main__|all_you_need_is_code — DEBUG — 0.7106709631286999 <= 0.8
+2019-01-06 12:59:11,951 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 12:59:19,015 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:59:19,015 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:59:30,068 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 12:59:30,068 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTptspgweA/
+2019-01-06 12:59:38,789 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 12:59:42,832 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:59:42,832 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 12:59:50,376 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:59:50,376 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqeFMBmuO/
+2019-01-06 12:59:56,330 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 12:59:56,392 — __main__|all_you_need_is_code — DEBUG — 0.027056413042627403 <= 0.8
+2019-01-06 12:59:56,392 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:00:00,474 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:00:00,474 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:00:14,508 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:00:14,508 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsQCJJVnWpZ/
+2019-01-06 13:00:20,254 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:00:26,302 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:00:26,302 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:00:35,002 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:00:35,002 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqYbuAatm/
+2019-01-06 13:00:40,709 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:00:40,771 — __main__|all_you_need_is_code — DEBUG — 0.542136895357416 <= 0.8
+2019-01-06 13:00:40,771 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:00:47,839 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:00:47,839 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:00:55,233 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:00:55,233 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTp7jtB8zI/
+2019-01-06 13:01:03,235 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:01:03,301 — __main__|all_you_need_is_code — DEBUG — 0.3333496946789065 <= 0.8
+2019-01-06 13:01:03,301 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:01:07,377 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:01:07,377 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:01:17,462 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:01:17,462 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTprMhB6Uc/
+2019-01-06 13:01:21,997 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 13:01:22,060 — __main__|all_you_need_is_code — DEBUG — 0.4076094590086339 <= 0.8
+2019-01-06 13:01:22,060 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:01:24,134 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:01:24,134 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:01:31,672 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:01:31,672 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTppBJBw3V/
+2019-01-06 13:01:37,306 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:01:37,365 — __main__|all_you_need_is_code — DEBUG — 0.29121987025122953 <= 0.8
+2019-01-06 13:01:37,365 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:01:45,435 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:01:45,435 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:01:51,586 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 13:01:51,586 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTpXV4h9tb/
+2019-01-06 13:01:55,760 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:01:55,829 — __main__|all_you_need_is_code — DEBUG — 0.698158994798771 <= 0.8
+2019-01-06 13:01:55,829 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:02:00,899 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:02:00,899 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:02:09,584 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:02:09,584 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsSSP1HgJei/
+2019-01-06 13:02:13,794 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:02:13,863 — __main__|all_you_need_is_code — DEBUG — 0.5591671226153414 <= 0.8
+2019-01-06 13:02:13,863 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:02:19,943 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:02:19,943 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:02:30,259 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:02:30,259 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsSJQUQlu-9/
+2019-01-06 13:02:38,466 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:02:38,535 — __main__|all_you_need_is_code — DEBUG — 0.6485026399794109 <= 0.8
+2019-01-06 13:02:38,535 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:02:46,608 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:02:46,608 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:02:54,535 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:02:54,535 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqHCbFNpb/
+2019-01-06 13:03:02,427 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:03:02,496 — __main__|all_you_need_is_code — DEBUG — 0.9789158805102596 > 0.8
+2019-01-06 13:03:02,496 — __main__|all_you_need_is_code — INFO — Don't like post
+2019-01-06 13:03:09,517 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:03:09,517 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:03:15,667 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 13:03:15,667 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqoXBhC_T/
+2019-01-06 13:03:22,579 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:03:22,642 — __main__|all_you_need_is_code — DEBUG — 0.6181202289566767 <= 0.8
+2019-01-06 13:03:22,642 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:03:24,711 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:03:24,711 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:03:30,078 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:03:30,078 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTptbBBkTI/
+2019-01-06 13:03:37,602 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:03:37,680 — __main__|all_you_need_is_code — DEBUG — 0.6358307892298312 <= 0.8
+2019-01-06 13:03:37,686 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:03:42,748 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:03:42,748 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:03:54,222 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:03:54,222 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTEQjSBlkl/
+2019-01-06 13:04:05,366 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:04:13,422 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:04:13,422 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:04:19,776 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 13:04:23,802 — __main__|all_you_need_is_code — INFO — 15 posts to like
+2019-01-06 13:04:23,955 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTrX6ghkIX/
+2019-01-06 13:04:32,542 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:04:32,615 — __main__|all_you_need_is_code — DEBUG — 0.618319494606016 <= 0.8
+2019-01-06 13:04:32,615 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:04:34,683 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:04:34,683 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:04:43,438 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:04:43,438 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTq1qOhHUP/
+2019-01-06 13:04:48,160 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 13:04:48,229 — __main__|all_you_need_is_code — DEBUG — 0.1501710771788065 <= 0.8
+2019-01-06 13:04:48,229 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:04:56,299 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:04:56,299 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:05:06,817 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:05:06,817 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqoXBhC_T/
+2019-01-06 13:05:16,854 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:05:18,890 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:05:18,890 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:05:29,170 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:05:29,170 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTrGSxgqCA/
+2019-01-06 13:05:35,849 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:05:35,908 — __main__|all_you_need_is_code — DEBUG — 0.33642311745795095 <= 0.8
+2019-01-06 13:05:35,908 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:05:42,994 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:05:42,994 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:05:48,297 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:05:48,297 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsS_L14nvPw/
+2019-01-06 13:05:51,783 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:05:51,852 — __main__|all_you_need_is_code — DEBUG — 0.7087487065101553 <= 0.8
+2019-01-06 13:05:51,852 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:05:55,926 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:05:55,926 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:06:04,897 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:06:04,897 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqZginROu/
+2019-01-06 13:06:13,567 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:06:20,606 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:06:20,606 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:06:25,954 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:06:25,954 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTrcGvBdwO/
+2019-01-06 13:06:35,807 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:06:35,876 — __main__|all_you_need_is_code — DEBUG — 0.38677535845268785 <= 0.8
+2019-01-06 13:06:35,876 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:06:43,954 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:06:43,954 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:06:52,448 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:06:52,448 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTrKnAhKPN/
+2019-01-06 13:07:01,375 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:07:01,444 — __main__|all_you_need_is_code — DEBUG — 0.07467860129213522 <= 0.8
+2019-01-06 13:07:01,444 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:07:07,530 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:07:07,530 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:07:14,676 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:07:14,676 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTq08Whtkx/
+2019-01-06 13:07:20,545 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:07:20,608 — __main__|all_you_need_is_code — DEBUG — 0.0696755821769166 <= 0.8
+2019-01-06 13:07:20,608 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:07:22,691 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:07:22,691 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:07:29,157 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 13:07:29,157 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqt68BZOD/
+2019-01-06 13:07:32,687 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:07:32,756 — __main__|all_you_need_is_code — DEBUG — 0.5783436930947125 <= 0.8
+2019-01-06 13:07:32,756 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:07:40,829 — __main__|all_you_need_is_code — DEBUG — Sleep :8
+2019-01-06 13:07:40,829 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:07:51,393 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:07:51,393 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqroMhumN/
+2019-01-06 13:07:58,864 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 13:07:58,939 — __main__|all_you_need_is_code — DEBUG — 0.44815244928513076 <= 0.8
+2019-01-06 13:07:58,939 — __main__|all_you_need_is_code — INFO — Like post
+2019-01-06 13:08:03,000 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:08:03,000 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:08:08,058 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:08:08,058 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqeFMBmuO/
+2019-01-06 13:08:14,976 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:08:22,018 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:08:22,018 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:08:32,058 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:08:32,058 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsPuIxbBpOn/
+2019-01-06 13:08:36,693 — __main__|all_you_need_is_code — DEBUG — Sleep :3
+2019-01-06 13:08:43,735 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:08:43,735 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:08:53,487 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:08:53,487 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsTqo-DAXG9/
+2019-01-06 13:09:00,902 — __main__|all_you_need_is_code — DEBUG — Sleep :4
+2019-01-06 13:09:07,931 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:09:07,931 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:09:24,952 — __main__|all_you_need_is_code — DEBUG — Sleep :7
+2019-01-06 13:09:24,952 — __main__|all_you_need_is_code — DEBUG — Open link: https://www.instagram.com/p/BsSJQUQlu-9/
+2019-01-06 13:09:29,038 — __main__|all_you_need_is_code — DEBUG — Sleep :2
+2019-01-06 13:09:35,073 — __main__|all_you_need_is_code — DEBUG — Sleep :6
+2019-01-06 13:09:35,073 — __main__|all_you_need_is_code — DEBUG — Back to previous page
+2019-01-06 13:09:43,277 — __main__|all_you_need_is_code — DEBUG — Sleep :5
+2019-01-06 13:09:43,277 — __main__|all_you_need_is_code — INFO — Like session finished after 2775.96461156 seconds

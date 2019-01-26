@@ -1,7 +1,7 @@
 import os
 import sys
 try :
-    cwd = sys._MEIPASS # get working directory is app bundled in .exe
+    cwd = sys._MEIPASS # get working directory if app bundled in .exe
 except AttributeError :
     cwd = os.getcwd()
 

@@ -1,0 +1,106 @@
+2019-01-13 18:46:15,677 - __main__ - INFO - End of script
+2019-01-13 18:49:10,484 - __main__ - INFO - start script
+2019-01-13 18:52:38,787 - __main__ - INFO - start script
+2019-01-13 18:52:43,709 - __main__ - INFO - End of script
+2019-01-14 13:53:05,855 - instagram.main - INFO - start script
+2019-01-14 13:53:11,126 - instagram.main - INFO - End of script
+2019-01-14 13:54:16,102 - instagram.main - INFO - start script
+2019-01-14 13:54:20,675 - instagram.main - INFO - connect to Instagram
+2019-01-14 13:54:20,675 - instagram.main - INFO - End of script
+2019-01-14 14:02:32,581 - instagram.main - INFO - start script
+2019-01-14 14:02:37,115 - instagram.main - INFO - Start like_from_hashtags
+2019-01-14 14:03:04,424 - instagram.insta - INFO - 13 posts to like
+2019-01-14 14:03:10,694 - instagram.insta - INFO - Like post
+2019-01-14 14:03:26,137 - instagram.insta - ERROR - Loop on this hashtag ended unexpectedly: coding
+2019-01-14 14:03:26,153 - instagram.insta - ERROR - Loop on this hashtag ended unexpectedly: programming
+2019-01-14 14:03:27,179 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B8096DD8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:28,210 - instagram.insta - ERROR - Loop on this hashtag ended unexpectedly: programmer
+2019-01-14 14:03:29,241 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B8168630>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:30,257 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B81A7828>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:31,288 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B81A74A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:32,311 - instagram.insta - ERROR - Loop on this hashtag ended unexpectedly: codinglife
+2019-01-14 14:03:33,342 - instagram.insta - ERROR - Loop on this hashtag ended unexpectedly: programmers
+2019-01-14 14:03:34,373 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B8168278>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:36,123 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B8191FD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:37,139 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B8096C50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:38,155 - instagram.insta - ERROR - Loop on this hashtag ended unexpectedly: coder
+2019-01-14 14:03:39,186 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B81A7710>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:40,217 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B81A7D68>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:41,233 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B81A7EB8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:42,264 - instagram.insta - ERROR - Loop on this hashtag ended unexpectedly: programminglife
+2019-01-14 14:03:43,284 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B81BE0F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:44,299 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B81BE320>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:45,330 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000168B81BE470>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7d95e08a5b1b8c20e9aca6d37b4dea91/url
+2019-01-14 14:03:46,361 - instagram.insta - ERROR - Loop on this hashtag ended unexpectedly: programmingisfun
+2019-01-14 14:03:46,361 - instagram.insta - INFO - Like session finished after 69.2438614 seconds
+2019-01-14 14:03:46,361 - instagram.main - INFO - End like_from_hashtags
+2019-01-14 14:03:46,892 - instagram.main - INFO - End of script
+2019-01-14 14:07:05,592 - instagram.main - INFO - start script
+2019-01-14 14:07:10,018 - instagram.main - INFO - connect to Instagram
+2019-01-14 14:07:19,905 - instagram.insta - INFO - New connection to the account :all_you_need_is_code
+2019-01-14 14:07:27,268 - instagram.main - INFO - Start like_from_hashtags
+2019-01-14 14:07:30,642 - instagram.insta - INFO - 8 posts to like
+2019-01-14 14:07:38,249 - instagram.insta - INFO - Like post
+2019-01-14 14:08:02,867 - instagram.insta - INFO - Like post
+2019-01-14 14:08:21,518 - instagram.insta - INFO - Don't like post
+2019-01-14 14:08:39,108 - instagram.insta - INFO - Like post
+2019-01-14 14:08:56,243 - instagram.insta - INFO - Max posts to like reached : 3
+2019-01-14 14:08:56,244 - instagram.insta - INFO - Max posts to like reached : 3
+2019-01-14 14:08:56,245 - instagram.insta - INFO - Like session finished after 88.975522 seconds
+2019-01-14 14:08:56,246 - instagram.main - INFO - End like_from_hashtags
+2019-01-14 14:08:56,561 - instagram.main - INFO - Metrics saved
+2019-01-14 14:08:56,766 - instagram.main - INFO - History saved
+2019-01-14 14:08:56,767 - instagram.main - INFO - End of script
+2019-01-14 15:00:50,921 - instagram.main - INFO - start script
+2019-01-14 15:00:55,726 - instagram.main - INFO - connect to Instagram
+2019-01-14 15:01:02,702 - instagram.insta - INFO - New connection to the account :all_you_need_is_code
+2019-01-14 15:01:09,092 - instagram.main - INFO - Start like_from_hashtags
+2019-01-14 15:01:12,622 - instagram.insta - INFO - 9 posts to like
+2019-01-14 15:01:21,125 - instagram.insta - INFO - Like post
+2019-01-14 15:01:45,792 - instagram.insta - INFO - Like post
+2019-01-14 15:02:08,952 - instagram.insta - INFO - Like post
+2019-01-14 15:02:24,024 - instagram.insta - INFO - Max posts to like reached : 3
+2019-01-14 15:02:24,026 - instagram.main - INFO - End like_from_hashtags
+2019-01-14 15:02:24,027 - instagram.main - ERROR - like_from_hashtags ended unexpectedly
+2019-01-14 15:02:24,028 - instagram.main - INFO - End of script
+2019-01-14 15:04:22,003 - instagram.main - INFO - start script
+2019-01-14 15:04:26,512 - instagram.main - INFO - connect to Instagram
+2019-01-14 15:04:33,646 - instagram.insta - INFO - New connection to the account :all_you_need_is_code
+2019-01-14 15:04:41,082 - instagram.main - INFO - Start like_from_hashtags
+2019-01-14 15:04:44,838 - instagram.insta - INFO - 12 posts to like
+2019-01-14 15:04:52,890 - instagram.insta - INFO - Like per account limit reached. Post not liked
+2019-01-14 15:05:08,457 - instagram.insta - INFO - Like post
+2019-01-14 15:05:32,934 - instagram.insta - INFO - Like post
+2019-01-14 15:05:50,309 - instagram.insta - INFO - Don't like post
+2019-01-14 15:06:10,459 - instagram.insta - INFO - Like post
+2019-01-14 15:06:28,491 - instagram.insta - INFO - Max posts to like reached : 3
+2019-01-14 15:06:28,495 - instagram.main - INFO - End like_from_hashtags
+2019-01-14 15:06:28,496 - instagram.main - ERROR - like_from_hashtags ended unexpectedly
+2019-01-14 15:06:28,497 - instagram.main - INFO - End of script
+2019-01-14 15:53:05,406 - instagram.main - INFO - start script
+2019-01-14 15:53:10,173 - instagram.main - INFO - connect to Instagram
+2019-01-14 15:53:14,964 - instagram.insta - INFO - New connection to the account :all_you_need_is_code
+2019-01-14 15:53:26,343 - instagram.main - INFO - Start like_from_hashtags
+2019-01-14 15:53:30,211 - instagram.insta - INFO - 29 posts to like
+2019-01-14 15:53:38,168 - instagram.insta - INFO - Like post
+2019-01-14 15:53:54,675 - instagram.insta - INFO - Like post
+2019-01-14 15:54:40,577 - instagram.insta - INFO - Like post
+2019-01-14 15:54:54,626 - instagram.insta - INFO - Max posts to like reached : 3
+2019-01-14 15:54:54,628 - instagram.main - INFO - End like_from_hashtags
+2019-01-14 15:54:54,628 - instagram.main - ERROR - like_from_hashtags ended unexpectedly
+2019-01-14 15:54:54,629 - instagram.main - INFO - End of script
+2019-01-14 15:57:15,920 - instagram.main - INFO - start script
+2019-01-14 15:57:20,685 - instagram.main - INFO - connect to Instagram
+2019-01-14 15:57:26,619 - instagram.insta - INFO - New connection to the account :all_you_need_is_code
+2019-01-14 15:57:35,519 - instagram.main - INFO - Start like_from_hashtags
+2019-01-14 15:57:38,871 - instagram.insta - INFO - 24 posts to like
+2019-01-14 15:57:47,685 - instagram.insta - INFO - Like post
+2019-01-14 15:58:29,563 - instagram.insta - INFO - Don't like post
+2019-01-14 15:58:50,676 - instagram.insta - INFO - Like post
+2019-01-14 15:59:10,466 - instagram.insta - INFO - Like post
+2019-01-14 15:59:26,544 - instagram.insta - INFO - Max posts to like reached : 3
+2019-01-14 15:59:26,546 - instagram.insta - INFO - Like session finished after 111.02560620000001 seconds
+2019-01-14 15:59:26,547 - instagram.main - INFO - End like_from_hashtags
+2019-01-14 15:59:26,883 - instagram.main - INFO - Metrics saved
+2019-01-14 15:59:27,113 - instagram.main - INFO - History saved
+2019-01-14 15:59:27,113 - instagram.main - INFO - End of script

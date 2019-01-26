@@ -18,21 +18,21 @@
         },
 
         "info_file_handler": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
+            "class": "instagram.loggers.LocalFileHandler",
             "level": "INFO",
             "formatter": "standard",
-            "filename": "instagram/logs/info.log",
-            "when": "midnight",
+            "filename": "info.log",
+            "when": "d",
             "encoding": "utf8",
 			"utc" : true
         },
 
         "error_file_handler": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
+            "class": "instagram.loggers.LocalFileHandler",
             "level": "ERROR",
             "formatter": "standard",
-            "filename": "instagram/logs/errors.log",
-            "when": "midnight",
+            "filename": "errors.log",
+            "when": "d",
             "encoding": "utf8",
 			"utc" : true
         }
