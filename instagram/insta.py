@@ -86,20 +86,26 @@ class Session:
                 account_name = account_link.get_attribute("title")
                 try:
                     if self.accounts_counter.counters[account_name] >= rules['likesPerAccount']:
-                        logger.info('Like per account limit reached. Post not liked')
+                        logger.info('Like per account limit reached. Post not opened')
 
                         # Go back to the previous page before exiting the function
                         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
                         logger.debug('Back to previous page')
                         browser.back()
-                        return None
+                        return
+                    else:
+                        logger.debug('Post from account under the like per account limit. Open post.')
                 except KeyError:
-                    pass
+                    logger.debug('Post from account not in list. Open post.')
+                    self.accounts_counter.counters[account_name] = 0
+
+                finally:
                     like_button = fn.find_element(browser, "//span[@aria-label='Like']")
 
                     # Check if the post have already been liked
-                    if like_button:  # TODO : this condition is not working,
+                    if like_button:
                         counter.increment('new_post_opened')
+                        # TODO : improve this part. Not line button != post have already liked. (e.g.: timeout)
 
                         # Like only certain pictures, depending on the probability set in rules
                         rand = random.random()
@@ -159,8 +165,9 @@ class Session:
                     logger.info(str(subset_size) + ' posts selected for the hashtag ' + hashtag)
                     links_to_like = random.sample(links_filtered, subset_size)
 
-                    # get the links urls and lanche like function for each one of them
+                    # get the links urls and run like function for each one of them
                     links_urls = [x.get_attribute("href") for x in links_to_like]
+                    logger.info('Got %s links for these posts' %len(links_urls))
                     for link in links_urls:
                         self.like(link)
                         self.clicked_links.append(link)
@@ -168,9 +175,9 @@ class Session:
                         try:
                             if counter.counters['post_liked'] >= rules['totalLikesMax']:
                                 logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
-                                stop = timeit.default_timer()
 
                                 # timer
+                                stop = timeit.default_timer()
                                 logger.info('Like session finished after ' + str(stop - start) + ' seconds')
                                 self.counter.increment('execution_time', stop - start)
                                 return self.counter

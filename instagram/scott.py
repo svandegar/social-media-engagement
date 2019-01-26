@@ -71,7 +71,7 @@ def main(username: str, like_from_hashtags = True, debug=False):
             logger.debug('Open browser')
             chrome_options = options.Options()
             if proxies :
-                logger.debug('Connect through proxy ' + proxies.proxies['address'])
+                logger.info('Connect through proxy ' + proxies.proxies['address'])
                 chrome_options.add_argument('--proxy-server=%s:%s' %(proxies.proxies['address'],proxies.proxies['port']))
             chrome_options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
             browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=chrome_options)
