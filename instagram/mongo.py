@@ -1,5 +1,7 @@
 import mongoengine
 
+""" MongoDb document classes """
+
 
 class History(mongoengine.Document):
     username = mongoengine.StringField(required=True, unique=True)
@@ -58,4 +60,11 @@ class Followers(mongoengine.Document):
 
 class Proxies(mongoengine.Document):
     username = mongoengine.StringField(required=True, unique=True)
-    proxies = mongoengine.DictField(required=False)
+    proxies = mongoengine.DictField(default=False)
+
+
+class Schedules(mongoengine.Document):
+    username = mongoengine.StringField(required=True, unique=False)
+    insta_username = mongoengine.StringField(required=True, unique=True)
+    schedule_activated = mongoengine.BooleanField(default=False)
+    schedules = mongoengine.ListField(required=False)

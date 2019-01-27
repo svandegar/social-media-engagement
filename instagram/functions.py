@@ -5,6 +5,7 @@ from selenium.common.exceptions import TimeoutException
 import json
 import random
 import time
+import datetime
 
 """ Scrapping """
 
@@ -128,6 +129,17 @@ def random_sleep(min=2, max=5, logger=None, counter=None):
     if logger:
         logger.debug('Sleep :' + str(sleeptime))
     return sleeptime
+
+def random_time(time1 : str, time2 : str):
+    datetime1 = datetime.datetime.strptime(time1,'%H:%M')
+    datetime2 = datetime.datetime.strptime(time2,'%H:%M')
+    seconds1 = datetime1.hour*3600 + datetime1.minute*60
+    seconds2 = datetime2.hour*3600 + datetime2.minute*60
+    sec_random = random.randint(seconds1,seconds2)
+    midnight = datetime.datetime.strptime('00:00','%H:%M')
+    result = midnight + datetime.timedelta(seconds=sec_random)
+    return (datetime.datetime.strftime(result,'%H:%M'))
+
 
 """ Diverses """
 
