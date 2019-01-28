@@ -19,7 +19,7 @@ def wait_element(browser, element, timeout=20):
             EC.visibility_of(element))
         return True
     except TimeoutException as e:
-        print(e)
+        print(e, 'element not found')
         return False
 
 
@@ -32,7 +32,7 @@ def find_element(browser, XPATH: str, timeout=20):
             EC.visibility_of_element_located((By.XPATH, XPATH)))
         return browser.find_element_by_xpath(XPATH)
     except TimeoutException as e:
-        print(e)
+        print(e, 'element not found')
         return False
 
 

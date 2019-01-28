@@ -86,7 +86,7 @@ class Session:
                 account_name = account_link.get_attribute("title")
                 try:
                     if self.accounts_counter.counters[account_name] >= rules['likesPerAccount']:
-                        logger.info('Like per account limit reached. Post not opened')
+                        logger.info('Like per account limit reached. Post not liked')
 
                         # Go back to the previous page before exiting the function
                         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
@@ -111,7 +111,7 @@ class Session:
                         rand = random.random()
                         if rand <= rules['probability']:
                             logger.debug(str(rand) + ' <= ' + str(rules['probability']))
-                            logger.info("Like post")
+                            logger.info("Like post {}".format(counter['post_liked']))
                             like_button.click()
                             counter.increment('post_liked')
                             self.accounts_counter.increment(account_name)
@@ -167,7 +167,7 @@ class Session:
 
                     # get the links urls and run like function for each one of them
                     links_urls = [x.get_attribute("href") for x in links_to_like]
-                    logger.info('Got %s links for these posts' %len(links_urls))
+                    logger.debug('Got %s links for these posts' % len(links_urls))
                     for link in links_urls:
                         self.like(link)
                         self.clicked_links.append(link)
@@ -206,7 +206,7 @@ class Session:
         logger.debug('Back to previous page')
         self.browser.back()
 
-    def get_user_followers(self, account=None, max_followers = None):
+    def get_user_followers(self, account=None, max_followers=None):
         browser = self.browser
         logger = self.logger
         counter = self.counter
@@ -309,4 +309,4 @@ class Session:
         logger.info('Get user followers session finished after ' + str(stop - start) + ' seconds')
         self.counter.increment('execution_time', stop - start)
 
-        return {'account' : account,'followers' : followers}
+        return {'account': account, 'followers': followers}
