@@ -133,6 +133,8 @@ def random_sleep(min=2, max=5, logger=None, counter=None):
 def random_time(time1 : str, time2 : str):
     datetime1 = datetime.datetime.strptime(time1,'%H:%M')
     datetime2 = datetime.datetime.strptime(time2,'%H:%M')
+    if datetime2 < datetime1:
+        raise ValueError('End of period must be post to beginning')
     seconds1 = datetime1.hour*3600 + datetime1.minute*60
     seconds2 = datetime2.hour*3600 + datetime2.minute*60
     sec_random = random.randint(seconds1,seconds2)

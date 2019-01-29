@@ -100,14 +100,20 @@ class Session:
                     self.accounts_counter.counters[account_name] = 0
 
                 finally:
-                    like_button = fn.find_element(browser, "//span[@aria-label='Like']")
 
                     # Check if the post have already been liked
-                    if like_button:
+                    unlike_button = fn.find_element(browser, "//span[@aria-label='Unlike']")
+                    if unlike_button:
+                        counter.increment('Already_liked_post_opened')
+                        logger.info('Already_liked post opened')
+                    else:
+                        modal = fn.find_element(browser, "//div[@role='dialog']")
+                        sections = modal.find_elements_by_tag_name("section")
+                        buttons = sections[0].find_elements_by_tag_name("button")
+                        like_button = buttons[0]
                         counter.increment('new_post_opened')
-                        # TODO : improve this part. Not line button != post have already liked. (e.g.: timeout)
 
-                        # Like only certain pictures, depending on the probability set in rules
+                        # Like only certain posts, depending on the probability set in rules
                         rand = random.random()
                         if rand <= rules['probability']:
                             logger.debug(str(rand) + ' <= ' + str(rules['probability']))
@@ -119,9 +125,7 @@ class Session:
                             logger.debug(str(rand) + ' > ' + str(rules['probability']))
                             logger.info("Don't like post")
                             counter.increment('post_not_liked')
-                    else:
-                        counter.increment('Already_liked_post_opened')
-                        logger.info('Already_liked post opened')
+
             else:
                 logger.info('No account name found')
 
