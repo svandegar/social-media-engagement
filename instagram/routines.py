@@ -1,9 +1,8 @@
 import logging.config, mongoengine
-from instagram import insta as ifn, functions as fn, mongo, proxy
+from instagram import insta as ifn, functions as fn, mongo, proxy, loggers
 from selenium import webdriver
 from instagram.settings.settings import *
 from selenium.webdriver.chrome import options
-import instagram.loggers #do not remove even if PyCharm thinks is not used
 
 def likes(username: str, like_from_hashtags = True, debug=False):
     """
@@ -13,8 +12,9 @@ def likes(username: str, like_from_hashtags = True, debug=False):
         username = username.title()
 
         # set logging config
-        # logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
+        logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
         logger = logging.getLogger(__name__)
+        logger.addFilter(loggers.ContextFilter())
         if debug:
             logging._handlers['console'].setLevel('DEBUG')
         logger.info('Start script')
@@ -135,4 +135,8 @@ def likes(username: str, like_from_hashtags = True, debug=False):
             logger.info('End of script')
 
     except Exception as e:
-        print(e, 'Routine ended unexpectly')
+        print(e, 'Routine ended unexpectedtly')
+        try:
+            session.browser.quit()
+        except:
+            pass

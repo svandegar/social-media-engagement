@@ -1,6 +1,8 @@
 import logging
 import os
-from logging.handlers import TimedRotatingFileHandler
+from logging.handlers import TimedRotatingFileHandler, SysLogHandler
+import socket
+
 
 class LocalFileHandler(logging.handlers.TimedRotatingFileHandler):
     def __init__(self,
@@ -20,5 +22,9 @@ class LocalFileHandler(logging.handlers.TimedRotatingFileHandler):
                                                    encoding =encoding,
                                                    utc = utc)
 
+class ContextFilter(logging.Filter):
+    hostname = socket.gethostname()
 
-
+    def filter(self, record):
+        record.hostname = ContextFilter.hostname
+        return True

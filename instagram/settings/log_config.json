@@ -1,45 +1,51 @@
 {
-    "version": 1,
-    "disable_existing_loggers": true,
-    "formatters": {
-        "standard": {
-            "format": "%(asctime)s - %(threadName)s - %(name)s - %(levelname)s - %(message)s"
-        },
+	"version": 1,
+	"disable_existing_loggers": true,
+	"formatters": {
+		"standard": {
+			"format": "%(asctime)s - %(threadName)s - %(name)s - %(levelname)s - %(message)s"
+		},
 		"brief": {
-            "format": "%(asctime)s - %(levelname)s - %(message)s"
-        }
-    },
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-            "level": "INFO",
-            "formatter": "brief",
-            "stream": "ext://sys.stdout"
-        },
+			"format": "%(asctime)s - %(levelname)s - %(message)s"
+		}
+	},
+	"handlers": {
+		"console": {
+			"class": "logging.StreamHandler",
+			"level": "INFO",
+			"formatter": "brief",
+			"stream": "ext://sys.stdout"
+		},
 
-        "info_file_handler": {
-            "class": "instagram.loggers.LocalFileHandler",
-            "level": "INFO",
-            "formatter": "standard",
-            "filename": "info.log",
-            "when": "d",
-            "encoding": "utf8",
-			"utc" : true
-        },
+		"info_file_handler": {
+			"class": "instagram.loggers.LocalFileHandler",
+			"level": "INFO",
+			"formatter": "standard",
+			"filename": "info.log",
+			"when": "d",
+			"encoding": "utf8",
+			"utc": true
+		},
 
-        "error_file_handler": {
-            "class": "instagram.loggers.LocalFileHandler",
-            "level": "ERROR",
-            "formatter": "standard",
-            "filename": "errors.log",
-            "when": "d",
-            "encoding": "utf8",
-			"utc" : true
-        }
-    },
+		"error_file_handler": {
+			"class": "instagram.loggers.LocalFileHandler",
+			"level": "ERROR",
+			"formatter": "standard",
+			"filename": "errors.log",
+			"when": "d",
+			"encoding": "utf8",
+			"utc": true
+		},
+		"syslogger-papertrail": {
+			"class": "logging.handlers.SysLogHandler",
+			"address": ["logs7.papertrailapp.com",32012],
+			"level" : "DEBUG",
+			"formatter": "standard"
+		}
+	},
 
-    "root": {
-        "level": "DEBUG",
-        "handlers": ["console", "info_file_handler", "error_file_handler"]
-    }
+	"root": {
+		"level": "DEBUG",
+		"handlers": ["console", "info_file_handler", "error_file_handler","syslogger-papertrail"]
+	}
 }

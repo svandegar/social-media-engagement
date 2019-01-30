@@ -10,7 +10,7 @@ import datetime
 """ Scrapping """
 
 
-def wait_element(browser, element, timeout=20):
+def wait_element(browser, element, timeout=10):
     """ Wait till the element is loaded, then select the element.
         if not loaded after 20 sec, throw Timeout error
     """
@@ -19,11 +19,11 @@ def wait_element(browser, element, timeout=20):
             EC.visibility_of(element))
         return True
     except TimeoutException as e:
-        print(e, 'element not found')
+        print(e, '{} not found after {} seconds'.format(element, timeout))
         return False
 
 
-def find_element(browser, XPATH: str, timeout=20):
+def find_element(browser, XPATH: str, timeout=10):
     """ Wait till the element is loaded, then returns the element.
         if not loaded after 20 sec, throw Timeout error and return False
     """
@@ -32,11 +32,11 @@ def find_element(browser, XPATH: str, timeout=20):
             EC.visibility_of_element_located((By.XPATH, XPATH)))
         return browser.find_element_by_xpath(XPATH)
     except TimeoutException as e:
-        print(e, 'element not found')
+        print(e, '{} not found after {} seconds'.format(XPATH, timeout))
         return False
 
 
-def find_elements(browser, XPATH: str, timeout=20):
+def find_elements(browser, XPATH: str, timeout=10):
     """ Wait till the elements are loaded, then returns the elements.
         if not loaded after 20 sec, throw Timeout error and return False
     """
@@ -44,8 +44,8 @@ def find_elements(browser, XPATH: str, timeout=20):
         WebDriverWait(browser, timeout).until(
             EC.visibility_of_element_located((By.XPATH, XPATH)))
         return browser.find_elements_by_xpath(XPATH)
-    except TimeoutException:
-        print("Timed out waiting for page to load")
+    except TimeoutException as e:
+        print(e, '{} not found after {} seconds'.format(XPATH, timeout))
         return False
 
 

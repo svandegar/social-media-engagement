@@ -8,8 +8,10 @@ import copy
 import time
 import click
 
+
 logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
 logger = logging.getLogger(__name__)
+logger.addFilter(loggers.ContextFilter())
 
 """ Define functions """
 

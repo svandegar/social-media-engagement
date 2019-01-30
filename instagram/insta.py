@@ -101,14 +101,17 @@ class Session:
 
                 finally:
 
+                    # wait for the page to load
+                    main = fn.find_element(browser, "//main")
+
                     # Check if the post have already been liked
-                    unlike_button = fn.find_element(browser, "//span[@aria-label='Unlike']")
-                    if unlike_button:
+                    try:
+                        browser.find_element_by_xpath("//span[@aria-label='Unlike']")
                         counter.increment('Already_liked_post_opened')
                         logger.info('Already_liked post opened')
-                    else:
-                        modal = fn.find_element(browser, "//div[@role='dialog']")
-                        sections = modal.find_elements_by_tag_name("section")
+                    except exceptions.NoSuchElementException:
+                        # main = fn.find_element(browser, "//main")
+                        sections = main.find_elements_by_tag_name("section")
                         buttons = sections[0].find_elements_by_tag_name("button")
                         like_button = buttons[0]
                         counter.increment('new_post_opened')
@@ -129,8 +132,8 @@ class Session:
             else:
                 logger.info('No account name found')
 
-        except:
-            logger.error('Loop on this post ended unexpectedly: ' + link)
+        except Exception as e:
+            logger.error(e,'Loop on this post ended unexpectedly: ' + link)
 
         finally:
             # Go back to the previous page before opening a new link
