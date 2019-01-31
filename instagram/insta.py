@@ -80,7 +80,8 @@ class Session:
         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
 
         try:
-            # Get account name and stop if already liked two posts from this account
+
+            # Get account name and stop if reached account limit
             account_link = fn.find_element(browser, "//h2//a")
             if account_link:
                 account_name = account_link.get_attribute("title")
@@ -94,41 +95,41 @@ class Session:
                         browser.back()
                         return
                     else:
-                        logger.debug('Post from account under the like per account limit. Open post.')
+                        logger.debug('Post from account under the like per account limit. Evaluate post.')
                 except KeyError:
-                    logger.debug('Post from account not in list. Open post.')
+                    logger.debug('Post from account not in list. Evaluate post.')
                     self.accounts_counter.counters[account_name] = 0
 
-                    # wait for the page to load
-                    main = fn.find_element(browser, "//main")
+                # wait for the page to load
+                main = fn.find_element(browser, "//main")
 
-                    # Check if the post have already been liked
-                    try:
-                        browser.find_element_by_xpath("//span[@aria-label='Unlike']")
-                        counter.increment('Already_liked_post_opened')
-                        logger.info('Already_liked post opened')
-                    except exceptions.NoSuchElementException:
-                        # main = fn.find_element(browser, "//main")
-                        sections = main.find_elements_by_tag_name("section")
-                        buttons = sections[0].find_elements_by_tag_name("button")
-                        like_button = buttons[0]
-                        counter.increment('new_post_opened')
+                # Check if the post have already been liked
+                try:
+                    browser.find_element_by_xpath("//span[@aria-label='Unlike']")
+                    counter.increment('Already_liked_post_opened')
+                    logger.info('Already_liked post opened')
+                except exceptions.NoSuchElementException:
+                    # main = fn.find_element(browser, "//main")
+                    sections = main.find_elements_by_tag_name("section")
+                    buttons = sections[0].find_elements_by_tag_name("button")
+                    like_button = buttons[0]
+                    counter.increment('new_post_opened')
 
-                        # Like only certain posts, depending on the probability set in rules
-                        rand = random.random()
-                        if rand <= rules['probability']:
-                            logger.debug(str(rand) + ' <= ' + str(rules['probability']))
-                            logger.info("Like post {}".format(counter['post_liked']))
-                            like_button.click()
-                            counter.increment('post_liked')
-                            self.accounts_counter.increment(account_name)
-                        else:
-                            logger.debug(str(rand) + ' > ' + str(rules['probability']))
-                            logger.info("Don't like post")
-                            counter.increment('post_not_liked')
+                    # Like only certain posts, depending on the probability set in rules
+                    rand = random.random()
+                    if rand <= rules['probability']:
+                        logger.debug(str(rand) + ' <= ' + str(rules['probability']))
+                        logger.info("Like post {}".format(counter['post_liked']))
+                        like_button.click()
+                        counter.increment('post_liked')
+                        self.accounts_counter.increment(account_name)
+                    else:
+                        logger.debug(str(rand) + ' > ' + str(rules['probability']))
+                        logger.info("Don't like post")
+                        counter.increment('post_not_liked')
 
             else:
-                logger.info('No account name found')
+                logger.info('No account name found. No action on this link')
 
         except Exception as e:
             logger.error(e,'Loop on this post ended unexpectedly: ' + link)
