@@ -13,9 +13,8 @@ class LocalFileHandler(logging.handlers.TimedRotatingFileHandler):
         path = os.path.join(os.getcwd(), 'instagram','logs')
         try:
             os.makedirs(path)
-            print(filename + ' located at: ' + path)
         except FileExistsError:
-            print(filename + ' located at: ' + path)
+            pass
         finally:
             super(LocalFileHandler, self).__init__(filename = path+"\\"+filename,
                                                    when = when,

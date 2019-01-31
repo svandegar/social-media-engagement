@@ -99,8 +99,6 @@ class Session:
                     logger.debug('Post from account not in list. Open post.')
                     self.accounts_counter.counters[account_name] = 0
 
-                finally:
-
                     # wait for the page to load
                     main = fn.find_element(browser, "//main")
 
@@ -295,14 +293,14 @@ class Session:
 
             # if list size is five time the same, exit the loop
             if got_same_list == 5:
-                logger.warning('got same list ' + str(got_same_list) + ' times')
+                logger.warning(f'got same list {got_same_list} times')
                 break
             counter.counters['followers'] = list_size
 
         logger.debug('loop ended')
-        logger.info('got ' + str(list_size) + ' followers')
-        if list_size < max_followers: logger.warning(
-            'got only the firsts ' + str(list_size) + ' / ' + str(max_followers) + ' followers')
+        logger.info(f'got {list_size} followers')
+        if list_size < max_followers:
+            logger.warning(f'got only the firsts  {list_size} / {max_followers} followers')
 
         # get the followers from the browser elements list
         followers = []
