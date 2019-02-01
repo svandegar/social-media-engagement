@@ -11,8 +11,7 @@ def likes(username: str, like_from_hashtags = True, debug=False):
     try :
         username = username.title()
 
-        # set logging config
-        logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
+        # configure logging
         logger = logging.getLogger(__name__)
         logger.addFilter(loggers.ContextFilter())
         if debug:
@@ -73,7 +72,6 @@ def likes(username: str, like_from_hashtags = True, debug=False):
                     # build chrome extension for proxy authentication
                     chrome_extension = proxy.build_chrome_ext(proxies)
                     chrome_options.add_extension(chrome_extension)
-                    # chrome_options.add_argument('--proxy-server=%s:%s' %(proxies.proxies['address'],proxies.proxies['port']))
                 else :
                     logger.info('Connect without proxy')
 
@@ -96,7 +94,10 @@ def likes(username: str, like_from_hashtags = True, debug=False):
                 session.connect()
 
                 # scripts
-                session.open_activity_feed()
+                # session.open_activity_feed()
+                logger.debug('Get user followers count')
+                followers = session.get_user_followers_count()
+                logger.info(f'{followers} followers on this account')
 
                 if like_from_hashtags:
                     try:
@@ -115,6 +116,7 @@ def likes(username: str, like_from_hashtags = True, debug=False):
                                                 post_liked=counters['post_liked'],
                                                 post_not_liked=counters['post_not_liked'],
                                                 execution_time=counters['execution_time'],
+                                                followers = followers
                                                 )
                         metrics.save()
                         logger.info('Metrics saved')

@@ -8,58 +8,61 @@ import copy
 import time
 import click
 
-
 logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
-logger = logging.getLogger('Scheduler')
-logger.addFilter(loggers.ContextFilter())
 
-""" Define functions """
+""" Define Scheduler """
 
+class Scheduler:
 
-def get_schedules():
-    """
-    get schedules defined in database
-    :return: dictionary of schedules to add to scheduler
-    """
-    logger.debug('Get schedules from database')
-    mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
-    schedules = mongo.Schedules.objects()
-    result = {}
-    for schedule in schedules:
-        if schedule.schedule_activated:
-            starts = []
-            for times in schedule.schedules:
-                try:
-                    start = fn.random_time(times[0], times[1])
-                    starts.append(start)
-                except ValueError as e:
-                    logger.error(e)
-                    raise e
-            result[schedule.username] = copy.deepcopy(starts)
-    global schedules_to_run
-    schedules_to_run = result
-    logger.debug('Got {} schedules'.format(len(result)))
-    return result
+    def __init__(self):
+        self.logger = logging.getLogger('Scheduler')
+        self.logger.addFilter(loggers.ContextFilter())
 
 
-def update_scheduler():
-    """
-    delete user schedules and recreate them using the actual parameters
-    """
-    try:
-        schedules_to_run = get_schedules()
-    except Exception as e:
-        logger.error(e)
-        raise e
-    else:
-        scheduler.clear(tag='user')
-        logger.debug('Cleared user schedules from scheduler')
-        schedules = schedules_to_run
-        for username in schedules:
-            for time in schedules[username]:
-                logger.info('Set schedule for {} at {}'.format(username, time))
-                scheduler.every().day.at(time).do(run_threaded, routines.likes, username).tag('user', 'daily')
-        logger.debug('Added user schedules to scheduler')
+    def get_schedules(self):
+        """
+        get schedules defined in database
+        :return: dictionary of schedules to add to scheduler
+        """
+        self.logger.debug('Get schedules from database')
+        mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
+        schedules = mongo.Schedules.objects()
+        result = {}
+        for schedule in schedules:
+            if schedule.schedule_activated:
+                starts = []
+                for times in schedule.schedules:
+                    try:
+                        start = fn.random_time(times[0], times[1])
+                        starts.append(start)
+                    except ValueError as e:
+                        self.logger.error(e)
+                        raise e
+                result[schedule.username] = copy.deepcopy(starts)
+        global schedules_to_run
+        schedules_to_run = result
+        self.logger.debug('Got {} schedules'.format(len(result)))
+        return result
+
+
+    def update(self):
+        """
+        delete user schedules and recreate them using the actual parameters
+        """
+        try:
+            schedules_to_run = self.get_schedules()
+        except Exception as e:
+            self.logger.error(e)
+            raise e
+        else:
+            scheduler.clear(tag='user')
+            self.logger.debug('Cleared user schedules from scheduler')
+            schedules = schedules_to_run
+            for username in schedules:
+                for time in schedules[username]:
+                    self.logger.info('Set schedule for {} at {}'.format(username, time))
+                    scheduler.every().day.at(time).do(run_threaded, routines.likes, username).tag('user', 'daily')
+                    self.logger.debug('Added user schedules to scheduler')
 
 
 def run_threaded(job_func, *args):
@@ -75,17 +78,21 @@ def run_threaded(job_func, *args):
 
 """ Run the scheduler """
 
-
 @click.command()
 @click.option('--debug', is_flag=True, help='Set logger level to debug')
 def main(debug=False):
-    logger.info('Version: ' + VERSION)
-    # configure the logs level
+
+    # set logs level
     if debug:
         logging._handlers['console'].setLevel('DEBUG')
 
+    sched = Scheduler()
+    logger = sched.logger
+
+    logger.info('Version: ' + VERSION)
+
     # configure the scheduler
-    scheduler.every().day.at('00:00').do(run_threaded, update_scheduler).tag('system', 'daily')
+    scheduler.every().day.at('00:00').do(run_threaded, sched.update).tag('system', 'daily')
     logger.info('Initial scheduler setting')
     scheduler.jobs[0].run()
 

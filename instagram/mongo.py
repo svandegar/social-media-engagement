@@ -23,7 +23,7 @@ class Accounts(mongoengine.Document):
     insta_password = mongoengine.StringField(required=True)
 
 
-class Metrics(mongoengine.Document):
+class Metrics(mongoengine.DynamicDocument):
     username = mongoengine.StringField(required=True)
     insta_username = mongoengine.StringField(required=True)
     datetime = mongoengine.DateTimeField(required=True, unique=True)
@@ -34,6 +34,7 @@ class Metrics(mongoengine.Document):
     post_liked = mongoengine.IntField()
     post_not_liked = mongoengine.IntField()
     execution_time = mongoengine.FloatField()
+    followers = mongoengine.IntField()
 
 
 class Rules(mongoengine.Document):
@@ -53,7 +54,7 @@ class UserInputs(mongoengine.Document):
 
 class Followers(mongoengine.Document):
     account = mongoengine.StringField(required=True, unique=True)
-    date = mongoengine.DateField(required=True, unique=False)
+    dateTime = mongoengine.DateField(required=True, unique=False)
     followers = mongoengine.ListField(required=True)
     followers_count = mongoengine.IntField(required=True)
 
