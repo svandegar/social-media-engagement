@@ -54,9 +54,11 @@ class UserInputs(mongoengine.Document):
 
 class Followers(mongoengine.Document):
     account = mongoengine.StringField(required=True, unique=True)
-    dateTime = mongoengine.DateField(required=True, unique=False)
+    date = mongoengine.DateField(required=True, unique=False)
     followers = mongoengine.ListField(required=True)
     followers_count = mongoengine.IntField(required=True)
+    new_followers = mongoengine.ListField(required=True)
+    new_followers_count = mongoengine.IntField(required=True)
 
 
 class Proxies(mongoengine.Document):

@@ -9,16 +9,19 @@ from selenium.common import exceptions
 
 
 class Session:
-    def __init__(self, credentials: dict, browser, rules, history):
+    def __init__(self, credentials: dict, browser, rules, history=None):
         self.username = credentials['username']
         self.password = credentials['password']
         self.browser = browser
         self.rules = rules
         self.timeout = rules.general['timeout']
-        self.clicked_links = history.clicked_links
-        self.accounts_counter = fn.Counters(*history.accounts_counter)
-        self.start_time = datetime.utcnow()
         self.logger = logging.getLogger(__name__)
+        try:
+            self.clicked_links = history.clicked_links
+            self.accounts_counter = fn.Counters(*history.accounts_counter)
+        except:
+            self.logger.debug('No history')
+        self.start_time = datetime.utcnow()
         self.counter = fn.Counters(**dict(
             sleeptime=0,
             connection=0,
@@ -237,7 +240,6 @@ class Session:
         browser = self.browser
         logger = self.logger
         counter = self.counter
-        rules = self.rules.get_followers
         start = timeit.default_timer()
         counter.increment('followers', 0)
         if user:
@@ -253,7 +255,7 @@ class Session:
         browser.get(f'https://www.instagram.com/{user}')
         followers_link = fn.find_element(browser, "//a[text()=' followers']")
         followers_link.click()
-        fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
+        fn.random_sleep(2, 6, logger=logger, counter=counter)
 
         # define number of followers to get
         if not max_followers:
@@ -271,20 +273,27 @@ class Session:
 
             # try to click on the 3rd last element to focus on the modal before hitting space to scroll
             modal = fn.find_element(browser, "//div[@role='dialog']")
+            if not modal:
+                browser.get(f'https://www.instagram.com/{user}')
+                followers_link = fn.find_element(browser, "//a[text()=' followers']")
+                followers_link.click()
+                fn.random_sleep(2, 6, logger=logger, counter=counter)
+
             try:
-                fn.find_elements(modal,"//li//div//div[1]//div[2]//div[2]")[-3].click()
+                fn.find_elements(modal, "//li//div//div[1]//div[2]//div[2]")[-3].click()
 
             except exceptions.ElementNotVisibleException as e:
                 logger.warning(e)
 
                 # if not working, try the 4th last
                 try:
-                    fn.find_elements(modal,"//li//div//div[1]//div[2]//div[2]")[-4].click()
+                    fn.find_elements(modal, "//li//div//div[1]//div[2]//div[2]")[-4].click()
                 except exceptions.ElementNotVisibleException as e:
+                    logger.warning(e)
 
                     # if not working, try the 5th last
                     try:
-                        fn.find_elements(modal,"//li//div//div[1]//div[2]//div[2]")[-5].click()
+                        fn.find_elements(modal, "//li//div//div[1]//div[2]//div[2]")[-5].click()
                     except exceptions.ElementNotVisibleException as e:
                         logger.warning(e)
 
@@ -331,4 +340,4 @@ class Session:
         logger.info('Get user followers session finished after ' + str(stop - start) + ' seconds')
         self.counter.increment('execution_time', stop - start)
 
-        return {'user': user, 'followers': followers}
+        return {'user': user, 'followers': followers, 'followers_count': followers_count}

@@ -1,5 +1,5 @@
 import logging.config, mongoengine
-from instagram import insta as ifn, functions as fn, mongo, proxy, loggers
+from instagram import insta, functions as fn, mongo, proxy, loggers
 from selenium import webdriver
 from instagram.settings.settings import *
 from selenium.webdriver.chrome import options
@@ -89,7 +89,7 @@ def likes(username: str, like_from_hashtags = True, debug=False):
 
                 # open Instagram session
                 logger.debug('Open session')
-                session = ifn.Session(credentials, browser, rules, history)
+                session = insta.Session(credentials, browser, rules, history)
                 logger.info('Connect to Instagram')
                 session.connect()
 
