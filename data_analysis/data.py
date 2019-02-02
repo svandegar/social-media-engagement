@@ -75,11 +75,13 @@ def get_history(username=None, insta_username=None):
     result = mongo.History.objects(**query_filter).first()
     return result
 
+
 def get_accounts_visited(username=None, insta_username=None):
     history = get_history(username=username, insta_username=insta_username)
     accounts_counter = history.accounts_counter
     accounts = [x['name'] for x in accounts_counter]
     return accounts
+
 
 def get_followers_count(username=None,
                         insta_username=None,
@@ -87,14 +89,27 @@ def get_followers_count(username=None,
                         date_to=None,
                         **kwargs):
     metrics = get_metrics(username=username,
-                        insta_username=insta_username,
-                        date_from=date_from,
-                        date_to=date_to,
-                        **kwargs)
+                          insta_username=insta_username,
+                          date_from=date_from,
+                          date_to=date_to,
+                          **kwargs)
     followers_count = {}
     for document in metrics:
-        followers_count[document.datetime]=document.followers
+        followers_count[document.datetime] = document.followers
     return followers_count
+
+
+def get_followers(insta_username=None,
+                  date_from=None,
+                  date_to=None,
+                  **kwargs):
+    query_filter = {}
+    if insta_username: query_filter['account'] = insta_username
+    if date_from: query_filter['datetime__gte'] = date_from
+    if date_to: query_filter['datetime__lt'] = date_to
+    if kwargs: query_filter.update(kwargs)
+    followers = mongo.Followers.objects(**query_filter).order_by('-id').first()
+    return followers.followers
 
 
 """ Test functions """
@@ -103,14 +118,20 @@ mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
 
 username = 'Scott'
 date_from = '2019-01-01'
-list = ['sleeptime', 'connection', 'links_opened', 'new_post_opened', 'post_liked', 'post_not_liked', 'execution_time']
-
-summary = summarize(list, username=username, date_from=date_from)
-
-followers = get_metrics(username = username, date_from= date_from)
-
-history = get_history(username = username)
-
+insta_username = 'all_you_need_is_code'
+# metrics_list = ['sleeptime', 'connection', 'links_opened', 'new_post_opened', 'post_liked', 'post_not_liked', 'execution_time']
+#
+# summary = summarize(list, username=username, date_from=date_from)
+#
+#
+# history = get_history(username=username)
+#
 accounts = get_accounts_visited()[1:]
+#
+# followers_count = get_followers_count(username=username)
 
-followers_count = get_followers_count(username=username)
+followers = get_followers(insta_username=insta_username)
+
+""" Compare followers to accounts """
+
+common = list(set(followers) & set(accounts))

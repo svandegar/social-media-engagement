@@ -79,6 +79,7 @@ def get_followers_users(bot_username,debug=False ):
 
     # get followers
     for account in accounts_list :
+        logger.info(f'Get followers for {account}')
 
         # get the last existing followers list for this account
         last_list = mongo.Followers.objects(account = account).order_by('-id').first()
@@ -106,14 +107,16 @@ def get_followers_users(bot_username,debug=False ):
             else:
                 followers = list(set(old_followers + new_followers['followers']))
 
+        try :
+            mongo.Followers(account = account,
+            date = session.start_time.date(),
+            followers = followers,
+            followers_count = new_followers_count,
+            new_followers = new_followers['followers'],
+            new_followers_count = max
+            ).save()
+        except mongoengine.errors.NotUniqueError as e:
+            logger.error(e)
+            pass
 
-        mongo.Followers(account = account,
-        date = session.start_time.date(),
-        followers = followers,
-        followers_count = new_followers_count,
-        new_followers = new_followers['followers'],
-        new_followers_count = max
-        ).save()
-
-
-get_followers_users(debug=True, bot_username ='')
+get_followers_users(debug=True, bot_username ='Scott')

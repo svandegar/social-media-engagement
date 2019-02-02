@@ -258,7 +258,7 @@ class Session:
         fn.random_sleep(2, 6, logger=logger, counter=counter)
 
         # define number of followers to get
-        if not max_followers:
+        if not max_followers and max_followers is not 0:
             max_followers = followers_count
 
         # get the initial followers list length
