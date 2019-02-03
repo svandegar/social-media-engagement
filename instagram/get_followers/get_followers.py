@@ -99,7 +99,8 @@ def get_followers_users(bot_username,debug=False ):
 
             logger.info(f'Get {max} new followers')
             try:
-                new_followers = session.get_user_followers(account, max_followers=max)
+                actual_followers = session.get_user_followers(account, max_followers=max)
+                new_followers = list(set(actual_followers)-set(old_followers))
             except Exception as e:
                 logger.error(e)
                 break
