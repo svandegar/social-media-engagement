@@ -6,6 +6,7 @@ import logging
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.common import exceptions
+from cryptography.fernet import Fernet
 
 
 class Session:
@@ -15,7 +16,7 @@ class Session:
         self.browser = browser
         self.rules = rules
         self.timeout = rules.general['timeout']
-        self.logger = logging.getLogger(__name__)
+        self.logger = logging.getLogger(f'{__name__} - {self.username}')
         try:
             self.clicked_links = history.clicked_links
             self.accounts_counter = fn.Counters(*history.accounts_counter)
@@ -30,6 +31,7 @@ class Session:
             post_liked=0,
             post_not_liked=0,
         ))
+        self.totalLikesMax = random.randint(int(rules.like['totalLikesMax']*0.90),int(rules.like['totalLikesMax']*1.1))
 
     def connect(self):
         """
@@ -182,7 +184,7 @@ class Session:
                         self.clicked_links.append(link)
                         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
                         try:
-                            if counter.counters['post_liked'] >= rules['totalLikesMax']:
+                            if counter.counters['post_liked'] >= self.totalLikesMax:
                                 logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
 
                                 # timer

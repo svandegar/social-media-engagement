@@ -12,7 +12,7 @@ def likes(username: str, like_from_hashtags = True, debug=False):
         username = username.title()
 
         # configure logging
-        logger = logging.getLogger(__name__)
+        logger = logging.getLogger(f'{__name__} - {username}')
         logger.addFilter(loggers.ContextFilter())
         if debug:
             logging._handlers['console'].setLevel('DEBUG')
@@ -22,7 +22,7 @@ def likes(username: str, like_from_hashtags = True, debug=False):
         except KeyError:
             logger.debug('No ENVIRONMENT variable set. Default environment is PRODUCTION')
 
-        logger.info('Version: '+ VERSION)
+        logger.info('Version: ' + SCOTT_VERSION)
 
         # connect to MongoDB
         logger.debug('connect to MongoDB')
@@ -101,9 +101,9 @@ def likes(username: str, like_from_hashtags = True, debug=False):
 
                 if like_from_hashtags:
                     try:
-                        logger.info('Start like_from_hashtags. Max posts to like: ' + str(session.rules.like['totalLikesMax']))
+                        logger.info(f'Start like_from_hashtags. Max posts to like: {session.totalLikesMax}')
                         counters = session.like_from_hashtags(user_inputs.hashtags)
-                        logger.info('End like_from_hashtags. Number of posts liked: ' + str(session.counter['post_liked']))
+                        logger.info(f'End like_from_hashtags. Number of posts liked: {session.counter["post_liked"]}')
 
                         # save like metrics
                         metrics = mongo.Metrics(username=username,

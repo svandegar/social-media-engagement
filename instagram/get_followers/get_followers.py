@@ -5,10 +5,12 @@ import logging.config
 from selenium import webdriver
 from instagram.settings.settings import *
 from selenium.webdriver.chrome import options
+import click
 
 logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
 
-
+@click.command()
+@click.option('--bot_username', '-u', prompt=True, help='Scott username')
 def get_followers_users(bot_username,debug=False ):
 
     # configure logging
@@ -22,7 +24,7 @@ def get_followers_users(bot_username,debug=False ):
     except KeyError:
         logger.debug('No ENVIRONMENT variable set. Default environment is PRODUCTION')
 
-    logger.info('Version: ' + VERSION)
+    logger.info('Version: ' + SCOTT_VERSION)
 
     # connect to MongoDB
     logger.debug('Connect to MongoDB')
@@ -83,16 +85,16 @@ def get_followers_users(bot_username,debug=False ):
 
         # get the last existing followers list for this account
         last_list = mongo.Followers.objects(account = account).order_by('-id').first()
-
+        old_followers = []
+        last_followers_count = 0
         try :
             last_followers_count = last_list.followers_count
             old_followers = last_list.followers
+
         except:
-            last_followers_count = 0
-            old_followers = []
+            logger.info('No followers history')
 
         finally:
-
             # get the new list length to limit the query to new results
             new_followers_count = session.get_user_followers_count(account)
             max = new_followers_count-last_followers_count
@@ -100,24 +102,25 @@ def get_followers_users(bot_username,debug=False ):
             logger.info(f'Get {max} new followers')
             try:
                 actual_followers = session.get_user_followers(account, max_followers=max)
-                new_followers = list(set(actual_followers)-set(old_followers))
+                new_followers = list(set(actual_followers['followers'])-set(old_followers))
             except Exception as e:
                 logger.error(e)
                 break
 
             else:
-                followers = list(set(old_followers + new_followers['followers']))
+                followers = list(set(old_followers + new_followers))
 
         try :
+            logger.debug('Save followers in Mongo')
             mongo.Followers(account = account,
             date = session.start_time.date(),
             followers = followers,
             followers_count = new_followers_count,
-            new_followers = new_followers['followers'],
+            new_followers = new_followers,
             new_followers_count = max
             ).save()
         except mongoengine.errors.NotUniqueError as e:
             logger.error(e)
             pass
 
-get_followers_users(debug=True, bot_username ='Scott')
+get_followers_users(sys.argv[1:])

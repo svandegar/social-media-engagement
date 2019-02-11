@@ -22,6 +22,8 @@ def get_metrics(username=None,
     :return: list of mongo.Metrics objects
     """
     query_filter = {}
+    if not username and not insta_username:
+        raise ValueError('username or insta_username must be specified')
     if username: query_filter['username'] = username
     if insta_username: query_filter['insta_username'] = insta_username
     if date_from: query_filter['datetime__gte'] = date_from
@@ -57,6 +59,8 @@ def summarize(list: list,
     :param date_to: excluded from the results
     :return: dict {field_name : sum}
     """
+    if not username and not insta_username:
+        raise ValueError('username or insta_username must be specified')
     summary = {}
     for value in list:
         summary[value] = get_metrics(username=username,
@@ -69,6 +73,8 @@ def summarize(list: list,
 
 
 def get_history(username=None, insta_username=None):
+    if not username and not insta_username:
+        raise ValueError('username or insta_username must be specified')
     query_filter = {}
     if username: query_filter['username'] = username
     if insta_username: query_filter['insta_username'] = insta_username
@@ -77,6 +83,8 @@ def get_history(username=None, insta_username=None):
 
 
 def get_accounts_visited(username=None, insta_username=None):
+    if not username and not insta_username:
+        raise ValueError('username or insta_username must be specified')
     history = get_history(username=username, insta_username=insta_username)
     accounts_counter = history.accounts_counter
     accounts = [x['name'] for x in accounts_counter]
@@ -88,6 +96,8 @@ def get_followers_count(username=None,
                         date_from=None,
                         date_to=None,
                         **kwargs):
+    if not username and not insta_username:
+        raise ValueError('username or insta_username must be specified')
     metrics = get_metrics(username=username,
                           insta_username=insta_username,
                           date_from=date_from,
@@ -103,6 +113,8 @@ def get_followers(insta_username=None,
                   date_from=None,
                   date_to=None,
                   **kwargs):
+    if not username and not insta_username:
+        raise ValueError('username or insta_username must be specified')
     query_filter = {}
     if insta_username: query_filter['account'] = insta_username
     if date_from: query_filter['datetime__gte'] = date_from
@@ -114,19 +126,19 @@ def get_followers(insta_username=None,
 
 """ Test functions """
 
-mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
+mongoengine.connect(host="mongodb+srv://SM-E:vPo7QS7J8lDaesvu@social-media-engagement-khrv2.mongodb.net/insta-prod?retryWrites=true")
 
-username = 'Scott'
-date_from = '2019-01-01'
-insta_username = 'all_you_need_is_code'
-# metrics_list = ['sleeptime', 'connection', 'links_opened', 'new_post_opened', 'post_liked', 'post_not_liked', 'execution_time']
-#
-# summary = summarize(list, username=username, date_from=date_from)
+username = 'Julie'
+date_from = None
+insta_username = 'julie_une_fois'
+metrics_list = ['sleeptime', 'connection', 'links_opened', 'new_post_opened', 'post_liked', 'post_not_liked', 'execution_time']
+
+summary = summarize(metrics_list, username=username, date_from=date_from)
 #
 #
 # history = get_history(username=username)
 #
-accounts = get_accounts_visited()[1:]
+accounts = get_accounts_visited(insta_username=insta_username)[1:]
 #
 # followers_count = get_followers_count(username=username)
 

@@ -1,12 +1,10 @@
 import schedule as scheduler
-from instagram import routines, loggers, functions as fn, mongo
+import subprocess
+from instagram import loggers, functions as fn, mongo
 from instagram.settings.settings import *
 import logging.config
 import mongoengine
-import threading
-import copy
-import time
-import click
+import click,random,time,copy
 
 logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
 
@@ -59,21 +57,19 @@ class Scheduler:
             self.logger.debug('Cleared user schedules from scheduler')
             schedules = schedules_to_run
             for username in schedules:
-                for time in schedules[username]:
-                    self.logger.info('Set schedule for {} at {}'.format(username, time))
-                    scheduler.every().day.at(time).do(run_threaded, routines.likes, username).tag('user', 'daily')
-                    self.logger.debug('Added user schedules to scheduler')
 
-
-def run_threaded(job_func, *args):
-    """
-    run the function in a new thread
-    :param job_func: function to run
-    :args: args to pass to the function
-    :return:
-    """
-    job_thread = threading.Thread(target=job_func, args=args)
-    job_thread.start()
+                # randomly do not schedule the routine 15% of the time
+                if random.random() > 0.85:
+                    self.logger.info(f'No task scheduled for {username} today')
+                else:
+                    for time in schedules[username]:
+                        self.logger.info(f'Set schedule for {username} at {time}')
+                        args = {
+                            "args" : ["C:\Scott\scott.exe", "-u", username],
+                            "creationflags" : subprocess.CREATE_NEW_CONSOLE
+                        }
+                        scheduler.every().day.at(time).do(subprocess.Popen, **args).tag('user', 'daily')
+                        self.logger.debug('Added user schedules to scheduler')
 
 
 """ Run the scheduler """
@@ -89,10 +85,10 @@ def main(debug=False):
     sched = Scheduler()
     logger = sched.logger
 
-    logger.info('Version: ' + VERSION)
+    logger.info('Version: ' + SCOTT_VERSION)
 
     # configure the scheduler
-    scheduler.every().day.at('00:00').do(run_threaded, sched.update).tag('system', 'daily')
+    scheduler.every().day.at('00:00').do(sched.update).tag('system', 'daily')
     logger.info('Initial scheduler setting')
     scheduler.jobs[0].run()
 
