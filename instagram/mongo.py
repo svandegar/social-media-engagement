@@ -18,7 +18,7 @@ class Users(mongoengine.Document):
 
 
 class Accounts(mongoengine.Document):
-    username = mongoengine.StringField(required=True, unique=True)
+    username = mongoengine.StringField(required=True)
     insta_username = mongoengine.StringField(required=True, unique=True)
     insta_password = mongoengine.StringField(required=True)
 

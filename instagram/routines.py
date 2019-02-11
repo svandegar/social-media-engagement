@@ -24,12 +24,19 @@ def likes(username: str, like_from_hashtags = True, debug=False):
 
         logger.info('Version: ' + SCOTT_VERSION)
 
+        # check Password key
+        try :
+            if not PASSWORD_KEY:
+                raise ValueError('Environement variable PASSWORD_KEY is missing')
+        except ValueError as e:
+            logger.error(e)
+            raise e
+
         # connect to MongoDB
         logger.debug('connect to MongoDB')
         mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
 
         # check user credentials
-        # TODO : check user credentials
         user = mongo.Users.objects(username=username).first()
         try:
             if not user:
@@ -89,7 +96,7 @@ def likes(username: str, like_from_hashtags = True, debug=False):
 
                 # open Instagram session
                 logger.debug('Open session')
-                session = insta.Session(credentials, browser, rules, history)
+                session = insta.Session(credentials, browser, rules, PASSWORD_KEY,history)
                 logger.info('Connect to Instagram')
                 session.connect()
 

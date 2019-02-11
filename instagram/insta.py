@@ -10,11 +10,12 @@ from cryptography.fernet import Fernet
 
 
 class Session:
-    def __init__(self, credentials: dict, browser, rules, history=None):
+    def __init__(self, credentials: dict, browser, rules, key, history=None):
         self.username = credentials['username']
-        self.password = credentials['password']
         self.browser = browser
         self.rules = rules
+        self.cipher_suite = Fernet(key)
+        self.password = self.cipher_suite.decrypt(bytes(credentials['password'],encoding='utf-8')).decode('utf-8')
         self.timeout = rules.general['timeout']
         self.logger = logging.getLogger(f'{__name__} - {self.username}')
         try:
@@ -50,6 +51,7 @@ class Session:
 
         # Fill username and password then login
         input_username.send_keys(self.username)
+        print(self.password)
         input_password.send_keys(self.password)
         logger.info('New connection to the account :' + self.username)
         counter.increment('connection')
