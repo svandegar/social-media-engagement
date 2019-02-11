@@ -19,6 +19,7 @@ DEV/logs/
 
 # Tests
 tests.py
+data.py
 
 # Lines hereunder are auto-generated
 

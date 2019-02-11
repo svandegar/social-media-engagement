@@ -1,91 +1,94 @@
 import schedule as scheduler
-from instagram import routines, loggers, functions as fn, mongo
+import subprocess
+from instagram import loggers, functions as fn, mongo
 from instagram.settings.settings import *
 import logging.config
 import mongoengine
-import threading
-import copy
-import time
-import click
-
+import click,random,time,copy
 
 logging.config.dictConfig(fn.read_json_file(LOG_CONFIG))
-logger = logging.getLogger('Scheduler')
-logger.addFilter(loggers.ContextFilter())
 
-""" Define functions """
+""" Define Scheduler """
 
+class Scheduler:
 
-def get_schedules():
-    """
-    get schedules defined in database
-    :return: dictionary of schedules to add to scheduler
-    """
-    logger.debug('Get schedules from database')
-    mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
-    schedules = mongo.Schedules.objects()
-    result = {}
-    for schedule in schedules:
-        if schedule.schedule_activated:
-            starts = []
-            for times in schedule.schedules:
-                try:
-                    start = fn.random_time(times[0], times[1])
-                    starts.append(start)
-                except ValueError as e:
-                    logger.error(e)
-                    raise e
-            result[schedule.username] = copy.deepcopy(starts)
-    global schedules_to_run
-    schedules_to_run = result
-    logger.debug('Got {} schedules'.format(len(result)))
-    return result
+    def __init__(self):
+        self.logger = logging.getLogger('Scheduler')
+        self.logger.addFilter(loggers.ContextFilter())
 
 
-def update_scheduler():
-    """
-    delete user schedules and recreate them using the actual parameters
-    """
-    try:
-        schedules_to_run = get_schedules()
-    except Exception as e:
-        logger.error(e)
-        raise e
-    else:
-        scheduler.clear(tag='user')
-        logger.debug('Cleared user schedules from scheduler')
-        schedules = schedules_to_run
-        for username in schedules:
-            for time in schedules[username]:
-                logger.info('Set schedule for {} at {}'.format(username, time))
-                scheduler.every().day.at(time).do(run_threaded, routines.likes, username).tag('user', 'daily')
-        logger.debug('Added user schedules to scheduler')
+    def get_schedules(self):
+        """
+        get schedules defined in database
+        :return: dictionary of schedules to add to scheduler
+        """
+        self.logger.debug('Get schedules from database')
+        mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
+        schedules = mongo.Schedules.objects()
+        result = {}
+        for schedule in schedules:
+            if schedule.schedule_activated:
+                starts = []
+                for times in schedule.schedules:
+                    try:
+                        start = fn.random_time(times[0], times[1])
+                        starts.append(start)
+                    except ValueError as e:
+                        self.logger.error(e)
+                        raise e
+                result[schedule.username] = copy.deepcopy(starts)
+        global schedules_to_run
+        schedules_to_run = result
+        self.logger.debug('Got {} schedules'.format(len(result)))
+        return result
 
 
-def run_threaded(job_func, *args):
-    """
-    run the function in a new thread
-    :param job_func: function to run
-    :args: args to pass to the function
-    :return:
-    """
-    job_thread = threading.Thread(target=job_func, args=args)
-    job_thread.start()
+    def update(self):
+        """
+        delete user schedules and recreate them using the actual parameters
+        """
+        try:
+            schedules_to_run = self.get_schedules()
+        except Exception as e:
+            self.logger.error(e)
+            raise e
+        else:
+            scheduler.clear(tag='user')
+            self.logger.debug('Cleared user schedules from scheduler')
+            schedules = schedules_to_run
+            for username in schedules:
+
+                # randomly do not schedule the routine 15% of the time
+                if random.random() > 0.85:
+                    self.logger.info(f'No task scheduled for {username} today')
+                else:
+                    for time in schedules[username]:
+                        self.logger.info(f'Set schedule for {username} at {time}')
+                        args = {
+                            "args" : ["C:\Scott\scott.exe", "-u", username],
+                            "creationflags" : subprocess.CREATE_NEW_CONSOLE
+                        }
+                        scheduler.every().day.at(time).do(subprocess.Popen, **args).tag('user', 'daily')
+                        self.logger.debug('Added user schedules to scheduler')
 
 
 """ Run the scheduler """
 
-
 @click.command()
 @click.option('--debug', is_flag=True, help='Set logger level to debug')
 def main(debug=False):
-    logger.info('Version: ' + VERSION)
-    # configure the logs level
+
+    # set logs level
     if debug:
         logging._handlers['console'].setLevel('DEBUG')
 
+    sched = Scheduler()
+    logger = sched.logger
+
+    logger.info('Version: ' + SCOTT_VERSION)
+
     # configure the scheduler
-    scheduler.every().day.at('00:00').do(run_threaded, update_scheduler).tag('system', 'daily')
+    scheduler.every().day.at('00:00').do(sched.update).tag('system', 'daily')
     logger.info('Initial scheduler setting')
     scheduler.jobs[0].run()
 

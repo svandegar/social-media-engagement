@@ -6,19 +6,23 @@ import logging
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.common import exceptions
+from cryptography.fernet import Fernet
 
 
 class Session:
-    def __init__(self, credentials: dict, browser, rules, history):
+    def __init__(self, credentials: dict, browser, rules, history=None):
         self.username = credentials['username']
         self.password = credentials['password']
         self.browser = browser
         self.rules = rules
         self.timeout = rules.general['timeout']
-        self.clicked_links = history.clicked_links
-        self.accounts_counter = fn.Counters(*history.accounts_counter)
+        self.logger = logging.getLogger(f'{__name__} - {self.username}')
+        try:
+            self.clicked_links = history.clicked_links
+            self.accounts_counter = fn.Counters(*history.accounts_counter)
+        except:
+            self.logger.debug('No history')
         self.start_time = datetime.utcnow()
-        self.logger = logging.getLogger(__name__)
         self.counter = fn.Counters(**dict(
             sleeptime=0,
             connection=0,
@@ -27,6 +31,7 @@ class Session:
             post_liked=0,
             post_not_liked=0,
         ))
+        self.totalLikesMax = random.randint(int(rules.like['totalLikesMax']*0.90),int(rules.like['totalLikesMax']*1.1))
 
     def connect(self):
         """
@@ -132,7 +137,7 @@ class Session:
                 logger.info('No account name found. No action on this link')
 
         except Exception as e:
-            logger.error(e,'Loop on this post ended unexpectedly: ' + link)
+            logger.error(e, 'Loop on this post ended unexpectedly: ' + link)
 
         finally:
             # Go back to the previous page before opening a new link
@@ -179,7 +184,7 @@ class Session:
                         self.clicked_links.append(link)
                         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
                         try:
-                            if counter.counters['post_liked'] >= rules['totalLikesMax']:
+                            if counter.counters['post_liked'] >= self.totalLikesMax:
                                 logger.info('Max posts to like reached : ' + str(counter.counters['post_liked']))
 
                                 # timer
@@ -212,21 +217,17 @@ class Session:
         logger.debug('Back to previous page')
         self.browser.back()
 
-    def get_user_followers(self, account=None, max_followers=None):
+    def get_user_followers_count(self, user=None):
         browser = self.browser
         logger = self.logger
         counter = self.counter
-        rules = self.rules.get_followers
-        start = timeit.default_timer()
-        counter.increment('followers', 0)
-        if account:
-            account = account
+        if user:
+            user = user
         else:
-            account = self.username
-        got_same_list = 0  # counter to avoid infinite loops in followers list
+            user = self.username
 
-        # go to the account page and get the followers count string
-        browser.get('https://www.instagram.com/' + account)
+        # go to the user page and get the followers count string
+        browser.get(f'https://www.instagram.com/{user}')
         followers_link = fn.find_element(browser, "//a[text()=' followers']")
         if '\n' in followers_link.text:
             followers_count_string = followers_link.text.split('\n')[0]
@@ -235,13 +236,31 @@ class Session:
 
         # convert the followers count string to int
         followers_count = int(fn.human_to_int(followers_count_string))
+        return followers_count
 
-        # open the followers modal
+    def get_user_followers(self, user=None, max_followers=None):
+        browser = self.browser
+        logger = self.logger
+        counter = self.counter
+        start = timeit.default_timer()
+        counter.increment('followers', 0)
+        if user:
+            user = user
+        else:
+            user = self.username
+        got_same_list = 0  # counter to avoid infinite loops in followers list
+
+        # get followers count
+        followers_count = self.get_user_followers_count(user)
+
+        # open followers modal
+        browser.get(f'https://www.instagram.com/{user}')
+        followers_link = fn.find_element(browser, "//a[text()=' followers']")
         followers_link.click()
-        fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
+        fn.random_sleep(2, 6, logger=logger, counter=counter)
 
-        # define the number of followers to get
-        if not max_followers:
+        # define number of followers to get
+        if not max_followers and max_followers is not 0:
             max_followers = followers_count
 
         # get the initial followers list length
@@ -256,19 +275,27 @@ class Session:
 
             # try to click on the 3rd last element to focus on the modal before hitting space to scroll
             modal = fn.find_element(browser, "//div[@role='dialog']")
+            if not modal:
+                browser.get(f'https://www.instagram.com/{user}')
+                followers_link = fn.find_element(browser, "//a[text()=' followers']")
+                followers_link.click()
+                fn.random_sleep(2, 6, logger=logger, counter=counter)
+
             try:
-                modal.find_elements_by_xpath("//li//div//div[1]//div[2]//div[2]")[-3].click()
+                fn.find_elements(modal, "//li//div//div[1]//div[2]//div[2]")[-3].click()
+
             except exceptions.ElementNotVisibleException as e:
                 logger.warning(e)
 
                 # if not working, try the 4th last
                 try:
-                    modal.find_elements_by_xpath("//li//div//div[1]//div[2]//div[2]")[-4].click()
+                    fn.find_elements(modal, "//li//div//div[1]//div[2]//div[2]")[-4].click()
                 except exceptions.ElementNotVisibleException as e:
+                    logger.warning(e)
 
                     # if not working, try the 5th last
                     try:
-                        modal.find_elements_by_xpath("//li//div//div[1]//div[2]//div[2]")[-5].click()
+                        fn.find_elements(modal, "//li//div//div[1]//div[2]//div[2]")[-5].click()
                     except exceptions.ElementNotVisibleException as e:
                         logger.warning(e)
 
@@ -315,4 +342,4 @@ class Session:
         logger.info('Get user followers session finished after ' + str(stop - start) + ' seconds')
         self.counter.increment('execution_time', stop - start)
 
-        return {'account': account, 'followers': followers}
+        return {'user': user, 'followers': followers, 'followers_count': followers_count}
