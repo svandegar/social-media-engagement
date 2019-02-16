@@ -51,7 +51,6 @@ class Session:
 
         # Fill username and password then login
         input_username.send_keys(self.username)
-        print(self.password)
         input_password.send_keys(self.password)
         logger.info('New connection to the account :' + self.username)
         counter.increment('connection')

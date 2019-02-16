@@ -4,11 +4,12 @@ from selenium import webdriver
 from instagram.settings.settings import *
 from selenium.webdriver.chrome import options
 
-def likes(username: str, like_from_hashtags = True, debug=False):
+
+def likes(username: str, like_from_hashtags=True, debug=False):
     """
     Follow the Instagram routine defined by the rules set for the account
     """
-    try :
+    try:
         username = username.title()
 
         # configure logging
@@ -25,7 +26,7 @@ def likes(username: str, like_from_hashtags = True, debug=False):
         logger.info('Version: ' + SCOTT_VERSION)
 
         # check Password key
-        try :
+        try:
             if not PASSWORD_KEY:
                 raise ValueError('Environement variable PASSWORD_KEY is missing')
         except ValueError as e:
@@ -57,46 +58,52 @@ def likes(username: str, like_from_hashtags = True, debug=False):
             else:
                 # get user rules, history and user inputs
                 logger.debug('get user rules, history and user_inputs')
-                rules = mongo.Rules.objects(username=username).first()
                 history = mongo.History.objects(username=username).first()
                 user_inputs = mongo.UserInputs.objects(username=username).first()
+
+                try:
+                    rules = mongo.Rules.objects.get(username=username)
+                    logger.debug('Got specific user rules')
+                except:
+                    rules = mongo.Rules.objects.get(username='default')
+                    logger.debug('Apply generic user rules')
 
                 # get proxy information
                 if user.use_proxy:
                     proxies = mongo.Proxies.objects(username=user.username).first()
                     logger.debug('Got proxies information')
 
-                else :
+                else:
                     proxies = None
                     logger.debug('No proxies set for this user')
 
                 # open browser
                 logger.debug('Open browser')
                 chrome_options = options.Options()
-                if proxies :
+                if proxies:
                     logger.info('Connect through proxy ' + proxies.proxies['address'])
 
                     # build chrome extension for proxy authentication
                     chrome_extension = proxy.build_chrome_ext(proxies)
                     chrome_options.add_extension(chrome_extension)
-                else :
+                else:
                     logger.info('Connect without proxy')
 
                 # set language to English
                 chrome_options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
 
-                try :
+                try:
                     browser = webdriver.Chrome(options=chrome_options)
-                except :
-                    try :
+                except:
+                    try:
                         browser = webdriver.Chrome(CHROMEDRIVER_PATH, options=chrome_options)
-                    except Exception as e :
+                    except Exception as e:
                         logger.error(e)
-                        raise(e)
+                        raise (e)
 
                 # open Instagram session
                 logger.debug('Open session')
-                session = insta.Session(credentials, browser, rules, PASSWORD_KEY,history)
+                session = insta.Session(credentials, browser, rules, PASSWORD_KEY, history)
                 logger.info('Connect to Instagram')
                 session.connect()
 
@@ -123,7 +130,7 @@ def likes(username: str, like_from_hashtags = True, debug=False):
                                                 post_liked=counters['post_liked'],
                                                 post_not_liked=counters['post_not_liked'],
                                                 execution_time=counters['execution_time'],
-                                                followers = followers
+                                                followers=followers
                                                 )
                         metrics.save()
                         logger.info('Metrics saved')
