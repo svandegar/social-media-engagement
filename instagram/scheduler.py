@@ -85,12 +85,22 @@ def main(debug=False):
     sched = Scheduler()
     logger = sched.logger
 
-    logger.info('Version: ' + SCOTT_VERSION)
+    logger.info('Version: ' + SCHEDULER_VERSION)
 
     # configure the scheduler
     scheduler.every().day.at('00:00').do(sched.update).tag('system', 'daily')
     logger.info('Initial scheduler setting')
     scheduler.jobs[0].run()
+
+    # add get_followers
+    bot_time = '02:00'
+    bot_username = 'Bot'
+    args = {
+        "args": ["C:\Scott\get_followers.exe", "-u", bot_username],
+        "creationflags": subprocess.CREATE_NEW_CONSOLE
+    }
+    scheduler.every().day.at(bot_time).do(subprocess.Popen, **args).tag('system', 'daily')
+    logger.info(f'Set get_followers for {bot_username} at {bot_time}')
 
     # run the scheduler
     logger.info('Scheduler launched')
