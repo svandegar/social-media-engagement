@@ -3,21 +3,21 @@ import mongoengine
 """ MongoDb document classes """
 
 
-class History(mongoengine.Document):
+class History(mongoengine.DynamicDocument):
     username = mongoengine.StringField(required=True)
     insta_username = mongoengine.StringField(required=True, unique=True)
     clicked_links = mongoengine.ListField()
     accounts_counter = mongoengine.ListField()
 
 
-class Users(mongoengine.Document):
+class Users(mongoengine.DynamicDocument):
     username = mongoengine.StringField(required=True, unique=True)
     email_address = mongoengine.EmailField(required=True)
     password = mongoengine.StringField(required=True)
     use_proxy = mongoengine.BooleanField(False)
 
 
-class Accounts(mongoengine.Document):
+class Accounts(mongoengine.DynamicDocument):
     username = mongoengine.StringField(required=True)
     insta_username = mongoengine.StringField(required=True, unique=True)
     insta_password = mongoengine.StringField(required=True)
@@ -37,7 +37,7 @@ class Metrics(mongoengine.DynamicDocument):
     followers = mongoengine.IntField()
 
 
-class Rules(mongoengine.Document):
+class Rules(mongoengine.DynamicDocument):
     username = mongoengine.StringField(required=True)
     insta_username = mongoengine.StringField(required=True, unique=True)
     general = mongoengine.DictField(required=True)
@@ -46,29 +46,29 @@ class Rules(mongoengine.Document):
     like = mongoengine.DictField(required=True)
 
 
-class UserInputs(mongoengine.Document):
+class UserInputs(mongoengine.DynamicDocument):
     username = mongoengine.StringField(required=True)
     insta_username = mongoengine.StringField(required=True, unique=True)
     hashtags = mongoengine.ListField()
 
 
-class Followers(mongoengine.Document):
+class Followers(mongoengine.DynamicDocument):
     account = mongoengine.StringField(required=True)
     date = mongoengine.DateField(required=True, unique=False)
-    followers = mongoengine.ListField(required=True)
-    followers_count = mongoengine.IntField(required=True)
-    new_followers = mongoengine.ListField(required=True)
-    new_followers_count = mongoengine.IntField(required=True)
+    followers = mongoengine.ListField(required=False)
+    followers_count = mongoengine.IntField(required=False)
+    new_followers = mongoengine.ListField(required=False)
+    new_followers_count = mongoengine.IntField(required=False)
 
 
-class Proxies(mongoengine.Document):
+class Proxies(mongoengine.DynamicDocument):
     location = mongoengine.StringField(required= True, unique=True)
     shared = mongoengine.BooleanField(required = True)
     username = mongoengine.StringField(required=True)
     proxy = mongoengine.DictField(required=True,unique=True)
 
 
-class Schedules(mongoengine.Document):
+class Schedules(mongoengine.DynamicDocument):
     username = mongoengine.StringField(required=True)
     insta_username = mongoengine.StringField(required=True, unique=True)
     schedule_activated = mongoengine.BooleanField(default=False)

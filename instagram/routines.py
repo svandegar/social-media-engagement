@@ -1,8 +1,9 @@
 import logging.config, mongoengine
-from instagram import insta, functions as fn, mongo, proxy, loggers
+from instagram import insta, functions as fn, mongo, proxy as proxy_fn, loggers
 from selenium import webdriver
 from instagram.settings.settings import *
 from selenium.webdriver.chrome import options
+from cryptography.fernet import Fernet
 
 
 def likes(username: str, like_from_hashtags=True, debug=False):
@@ -27,7 +28,9 @@ def likes(username: str, like_from_hashtags=True, debug=False):
 
         # check Password key
         try:
-            if not PASSWORD_KEY:
+            if PASSWORD_KEY:
+                cipher_suite = Fernet(PASSWORD_KEY)
+            else:
                 raise ValueError('Environement variable PASSWORD_KEY is missing')
         except ValueError as e:
             logger.error(e)
@@ -38,7 +41,7 @@ def likes(username: str, like_from_hashtags=True, debug=False):
         mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
 
         # check user credentials
-        user = mongo.Users.objects(username=username).first()
+        user = mongo.Users.objects.get(username=username)
         try:
             if not user:
                 raise ValueError('This user is not existing: ' + username)
@@ -47,7 +50,7 @@ def likes(username: str, like_from_hashtags=True, debug=False):
         else:
             # get account information
             logger.debug('get account information')
-            account = mongo.Accounts.objects(username=user.username).first()
+            account = mongo.Accounts.objects.get(username=user.username)
             try:
                 if account:
                     credentials = dict(username=account.insta_username, password=account.insta_password)
@@ -58,8 +61,8 @@ def likes(username: str, like_from_hashtags=True, debug=False):
             else:
                 # get user rules, history and user inputs
                 logger.debug('get user rules, history and user_inputs')
-                history = mongo.History.objects(username=username).first()
-                user_inputs = mongo.UserInputs.objects(username=username).first()
+                history = mongo.History.objects.get(username=username)
+                user_inputs = mongo.UserInputs.objects.get(username=username)
 
                 try:
                     rules = mongo.Rules.objects.get(username=username)
@@ -69,22 +72,23 @@ def likes(username: str, like_from_hashtags=True, debug=False):
                     logger.debug('Apply generic user rules')
 
                 # get proxy information
-                if user.use_proxy:
-                    proxies = mongo.Proxies.objects(username=user.username).first()
-                    logger.debug('Got proxies information')
+                try:
+                    proxy = mongo.Proxies.objects.get(id=account.proxy)
+                    logger.debug(f'Got proxy id {account.proxy}')
+                    proxy.proxy['clear_password'] = cipher_suite.decrypt(bytes(proxy.proxy['password'],encoding='utf-8')).decode('utf-8')
 
-                else:
-                    proxies = None
-                    logger.debug('No proxies set for this user')
+                except:
+                    proxy = None
+                    logger.debug('No proxy set for this account')
 
                 # open browser
                 logger.debug('Open browser')
                 chrome_options = options.Options()
-                if proxies:
-                    logger.info('Connect through proxy ' + proxies.proxies['address'])
+                if proxy:
+                    logger.info(f'Connect through proxy at {proxy.location}')
 
                     # build chrome extension for proxy authentication
-                    chrome_extension = proxy.build_chrome_ext(proxies)
+                    chrome_extension = proxy_fn.build_chrome_ext(proxy)
                     chrome_options.add_extension(chrome_extension)
                 else:
                     logger.info('Connect without proxy')
@@ -103,12 +107,11 @@ def likes(username: str, like_from_hashtags=True, debug=False):
 
                 # open Instagram session
                 logger.debug('Open session')
-                session = insta.Session(credentials, browser, rules, PASSWORD_KEY, history)
+                session = insta.Session(credentials, browser, rules, cipher_suite, history)
                 logger.info('Connect to Instagram')
                 session.connect()
 
                 # scripts
-                # session.open_activity_feed()
                 logger.debug('Get user followers count')
                 followers = session.get_user_followers_count()
                 logger.info(f'{followers} followers on this account')

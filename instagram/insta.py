@@ -6,16 +6,14 @@ import logging
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.common import exceptions
-from cryptography.fernet import Fernet
 
 
 class Session:
-    def __init__(self, credentials: dict, browser, rules, key, history=None):
+    def __init__(self, credentials: dict, browser, rules, cipher_suite, history=None):
         self.username = credentials['username']
         self.browser = browser
         self.rules = rules
-        self.cipher_suite = Fernet(key)
-        self.password = self.cipher_suite.decrypt(bytes(credentials['password'],encoding='utf-8')).decode('utf-8')
+        self.password = cipher_suite.decrypt(bytes(credentials['password'],encoding='utf-8')).decode('utf-8')
         self.timeout = rules.general['timeout']
         self.logger = logging.getLogger(f'{__name__} - {self.username}')
         try:

@@ -2,7 +2,6 @@ import zipfile, uuid, re
 from instagram.settings.settings import *
 import json
 
-
 def build_chrome_ext(proxy):
     """
     creates a chrome extension for proxy authentication
@@ -11,10 +10,10 @@ def build_chrome_ext(proxy):
     """
     # get proxy settings
     try:
-        ip = proxy.proxies['address']
-        port = proxy.proxies['port']
-        username = proxy.proxies['username']
-        password = proxy.proxies['password']
+        ip = proxy.proxy['address']
+        port = proxy.proxy['port']
+        username = proxy.proxy['username']
+        password = proxy.proxy['clear_password']
     except:
         return
 
