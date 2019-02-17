@@ -100,7 +100,7 @@ def get_followers_users(bot_username,debug=False ):
 
     # get followers
     for account in accounts_list :
-        if account is not account.insta_username:
+        if account is not credentials['username']:
             logger.info(f'Get followers for {account}')
 
             # get the last existing followers list for this account
