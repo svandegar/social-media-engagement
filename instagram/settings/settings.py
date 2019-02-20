@@ -9,9 +9,9 @@ elif ENVIRONMENT == 'PRODUCTION':
     from instagram.settings.production import *
 
 # version
-SCOTT_VERSION = '1.5.0'
+SCOTT_VERSION = '1.5.1'
 SCHEDULER_VERSION = '1.4.0'
-GET_FOLLOWERS_VERSION = '1.1.0'
+GET_FOLLOWERS_VERSION = '1.1.1'
 
 # password secret key
 PASSWORD_KEY = os.getenv('PASSWORD_KEY', None)

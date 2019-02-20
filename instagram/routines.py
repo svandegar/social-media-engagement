@@ -11,8 +11,6 @@ def likes(username: str, like_from_hashtags=True, debug=False):
     Follow the Instagram routine defined by the rules set for the account
     """
     try:
-        username = username.title()
-
         # configure logging
         logger = logging.getLogger(f'{__name__} - {username}')
         logger.addFilter(loggers.ContextFilter())
@@ -41,23 +39,19 @@ def likes(username: str, like_from_hashtags=True, debug=False):
         mongoengine.connect(host=fn.read_json_file(CONFIG_FILE)['databases']['Mongo'])
 
         # check user credentials
-        user = mongo.Users.objects.get(username=username)
         try:
-            if not user:
-                raise ValueError('This user is not existing: ' + username)
-        except ValueError as e:
-            logger.warning(e)
+            user = mongo.Users.objects.get(username=username)
+        except :
+            logger.warning(f'User {username} not found in the database')
         else:
             # get account information
             logger.debug('get account information')
-            account = mongo.Accounts.objects.get(username=user.username)
             try:
-                if account:
-                    credentials = dict(username=account.insta_username, password=account.insta_password)
-                else:
-                    raise ValueError('No account found for the user: ' + str(username))
-            except ValueError as e:
-                logger.warning(e)
+                account = mongo.Accounts.objects.get(username=user.username)
+                credentials = dict(username=account.insta_username, password=account.insta_password)
+
+            except :
+                logger.warning(f'No account found for this user: {username}')
             else:
                 # get user rules, history and user inputs
                 logger.debug('get user rules, history and user_inputs')

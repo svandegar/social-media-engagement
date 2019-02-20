@@ -101,46 +101,49 @@ def get_followers_users(bot_username,debug=False ):
     # get followers
     for account in accounts_list :
         if account is not credentials['username']:
-            logger.info(f'Get followers for {account}')
-
-            # get the last existing followers list for this account
-            last_list = mongo.Followers.objects(account = account).order_by('-id').first()
-            old_followers = []
-            last_followers_count = 0
             try :
-                last_followers_count = last_list.followers_count
-                old_followers = last_list.followers
+                logger.info(f'Get followers for {account}')
 
-            except:
-                logger.info('No followers history')
+                # get the last existing followers list for this account
+                last_list = mongo.Followers.objects(account = account).order_by('-id').first()
+                old_followers = []
+                last_followers_count = 0
+                try :
+                    last_followers_count = last_list.followers_count
+                    old_followers = last_list.followers
 
-            finally:
-                # get the new list length to limit the query to new results
-                new_followers_count = session.get_user_followers_count(account)
-                max = new_followers_count-last_followers_count
+                except:
+                    logger.info('No followers history')
 
-                logger.info(f'Get {max} new followers')
-                try:
-                    actual_followers = session.get_user_followers(account, max_followers=max)
-                    new_followers = list(set(actual_followers['followers'])-set(old_followers))
-                except Exception as e:
+                finally:
+                    # get the new list length to limit the query to new results
+                    new_followers_count = session.get_user_followers_count(account)
+                    max = new_followers_count-last_followers_count
+
+                    logger.info(f'Get {max} new followers')
+                    try:
+                        actual_followers = session.get_user_followers(account, max_followers=max)
+                        new_followers = list(set(actual_followers['followers'])-set(old_followers))
+                    except Exception as e:
+                        logger.error(e)
+                        break
+
+                    else:
+                        followers = list(set(old_followers + new_followers))
+
+                try :
+                    logger.debug('Save followers in Mongo')
+                    mongo.Followers(account = account,
+                    date = session.start_time.date(),
+                    followers = followers,
+                    followers_count = new_followers_count,
+                    new_followers = new_followers,
+                    new_followers_count = max
+                    ).save()
+                except mongoengine.errors.NotUniqueError as e:
                     logger.error(e)
-                    break
+            except Exception as e:
+                logger.error(f'loop ended unexpectedly on this account {account}',e)
 
-                else:
-                    followers = list(set(old_followers + new_followers))
-
-            try :
-                logger.debug('Save followers in Mongo')
-                mongo.Followers(account = account,
-                date = session.start_time.date(),
-                followers = followers,
-                followers_count = new_followers_count,
-                new_followers = new_followers,
-                new_followers_count = max
-                ).save()
-            except mongoengine.errors.NotUniqueError as e:
-                logger.error(e)
-                pass
 
 get_followers_users(sys.argv[1:])
