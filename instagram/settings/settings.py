@@ -9,7 +9,7 @@ elif ENVIRONMENT == 'PRODUCTION':
     from instagram.settings.production import *
 
 # version
-SCOTT_VERSION = '1.5.1'
+SCOTT_VERSION = '1.5.2'
 SCHEDULER_VERSION = '1.4.0'
 GET_FOLLOWERS_VERSION = '1.1.1'
 

@@ -44,7 +44,7 @@ class Session:
         # Find username, password and login input fields
         input_username = fn.find_element(self.browser, "//input[@name='username']", timeout=self.timeout)
         input_password = fn.find_element(self.browser, "//input[@name='password']", timeout=self.timeout)
-        login_button = fn.find_element(self.browser, "//button[text()='Log in']", timeout=self.timeout)
+        login_button = fn.find_element(self.browser, "//button[@type='submit']", timeout=self.timeout)
         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
 
         # Fill username and password then login

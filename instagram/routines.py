@@ -50,8 +50,12 @@ def likes(username: str, like_from_hashtags=True, debug=False):
                 account = mongo.Accounts.objects.get(username=user.username)
                 credentials = dict(username=account.insta_username, password=account.insta_password)
 
-            except :
+            except mongoengine.DoesNotExist:
                 logger.warning(f'No account found for this user: {username}')
+                raise ValueError('User not found')
+            except mongoengine.MultipleObjectsReturned:
+                logger.warning(f'Multiples accounts found for this user: {username}')
+
             else:
                 # get user rules, history and user inputs
                 logger.debug('get user rules, history and user_inputs')
