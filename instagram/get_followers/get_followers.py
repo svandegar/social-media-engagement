@@ -100,7 +100,7 @@ def get_followers_users(bot_username,debug=False ):
 
     # get followers
     for account in accounts_list :
-        if account is not credentials['username']:
+        if account != credentials['username']:
             try :
                 logger.info(f'Get followers for {account}')
 

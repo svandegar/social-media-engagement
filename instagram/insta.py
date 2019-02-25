@@ -55,6 +55,15 @@ class Session:
         login_button.click()
         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
 
+        # Catch alerts
+        try:
+            alert = self.browser.find_element_by_xpath("//p[@role='alert']")
+            logger.error(f'Alert returned by Instagram :{alert.text}')
+            return False
+
+        except exceptions.NoSuchElementException:
+            logger.debug('No alert detected')
+
         # Deny app download if asked
         deny_app_download_button = fn.find_element(self.browser, "//a[text()='Not Now']", self.timeout)
         if deny_app_download_button:
@@ -67,6 +76,7 @@ class Session:
             deny_notifications_button.click()
             logger.debug('Notifications denied')
         fn.random_sleep(**rules['delay'], logger=logger, counter=counter)
+        return True
 
     def like(self, link):
         """

@@ -88,6 +88,7 @@ def likes(username: str, like_from_hashtags=True, debug=False):
                     # build chrome extension for proxy authentication
                     chrome_extension = proxy_fn.build_chrome_ext(proxy)
                     chrome_options.add_extension(chrome_extension)
+                    logger.debug(f'Chrome extension in {chrome_extension}')
                 else:
                     logger.info('Connect without proxy')
 
@@ -107,43 +108,51 @@ def likes(username: str, like_from_hashtags=True, debug=False):
                 logger.debug('Open session')
                 session = insta.Session(credentials, browser, rules, cipher_suite, history)
                 logger.info('Connect to Instagram')
-                session.connect()
+                is_connected = session.connect()
 
-                # scripts
-                logger.debug('Get user followers count')
-                followers = session.get_user_followers_count()
-                logger.info(f'{followers} followers on this account')
+                # deactivate schedule if alert returned by Instagram when login
+                if not is_connected:
+                    schedule = mongo.Schedules.objects.get(insta_username=session.username)
+                    schedule.modify(schedule_activated=False)
+                    logger.debug('Schedule deactiated for {username}')
 
-                if like_from_hashtags:
-                    try:
-                        logger.info(f'Start like_from_hashtags. Max posts to like: {session.totalLikesMax}')
-                        counters = session.like_from_hashtags(user_inputs.hashtags)
-                        logger.info(f'End like_from_hashtags. Number of posts liked: {session.counter["post_liked"]}')
+                else:
 
-                        # save like metrics
-                        metrics = mongo.Metrics(username=username,
-                                                insta_username=session.username,
-                                                datetime=session.start_time,
-                                                sleeptime=counters['sleeptime'],
-                                                connection=counters['connection'],
-                                                links_opened=counters['links_opened'],
-                                                new_post_opened=counters['new_post_opened'],
-                                                post_liked=counters['post_liked'],
-                                                post_not_liked=counters['post_not_liked'],
-                                                execution_time=counters['execution_time'],
-                                                followers=followers
-                                                )
-                        metrics.save()
-                        logger.info('Metrics saved')
+                    # scripts
+                    logger.debug('Get user followers count')
+                    followers = session.get_user_followers_count()
+                    logger.info(f'{followers} followers on this account')
 
-                        # update history
-                        mongo.History.objects(insta_username=session.username).first().modify(
-                            clicked_links=session.clicked_links,
-                            accounts_counter=session.accounts_counter.get_list())
-                        logger.info('History saved')
+                    if like_from_hashtags:
+                        try:
+                            logger.info(f'Start like_from_hashtags. Max posts to like: {session.totalLikesMax}')
+                            counters = session.like_from_hashtags(user_inputs.hashtags)
+                            logger.info(f'End like_from_hashtags. Number of posts liked: {session.counter["post_liked"]}')
 
-                    except:
-                        logger.error('like_from_hashtags ended unexpectedly')
+                            # save like metrics
+                            metrics = mongo.Metrics(username=username,
+                                                    insta_username=session.username,
+                                                    datetime=session.start_time,
+                                                    sleeptime=counters['sleeptime'],
+                                                    connection=counters['connection'],
+                                                    links_opened=counters['links_opened'],
+                                                    new_post_opened=counters['new_post_opened'],
+                                                    post_liked=counters['post_liked'],
+                                                    post_not_liked=counters['post_not_liked'],
+                                                    execution_time=counters['execution_time'],
+                                                    followers=followers
+                                                    )
+                            metrics.save()
+                            logger.info('Metrics saved')
+
+                            # update history
+                            mongo.History.objects(insta_username=session.username).first().modify(
+                                clicked_links=session.clicked_links,
+                                accounts_counter=session.accounts_counter.get_list())
+                            logger.info('History saved')
+
+                        except:
+                            logger.error('like_from_hashtags ended unexpectedly')
 
                 # end
                 session.browser.quit()
