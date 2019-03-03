@@ -64,6 +64,14 @@ class Session:
         except exceptions.NoSuchElementException:
             logger.debug('No alert detected')
 
+        #Catch suspicious login attempt
+        try:
+            self.browser.find_element_by_xpath("//h2[contains(text(),'We detected an unusual']")
+            logger.warning('Unusual connexion attempt detected. Waiting for security code to continue')
+            input('Press enter to continue')
+        except:
+            logger.debug('No unusual connexion attempt detected')
+
         # Deny app download if asked
         deny_app_download_button = fn.find_element(self.browser, "//a[text()='Not Now']", self.timeout)
         if deny_app_download_button:

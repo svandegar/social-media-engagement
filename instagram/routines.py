@@ -114,7 +114,7 @@ def likes(username: str, like_from_hashtags=True, debug=False):
                 if not is_connected:
                     schedule = mongo.Schedules.objects.get(insta_username=session.username)
                     schedule.modify(schedule_activated=False)
-                    logger.debug('Schedule deactiated for {username}')
+                    logger.debug('Schedule deactivated for {username}')
 
                 else:
 
