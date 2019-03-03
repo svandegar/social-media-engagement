@@ -11,7 +11,7 @@ elif ENVIRONMENT == 'PRODUCTION':
 # version
 SCOTT_VERSION = '1.4.0'
 SCHEDULER_VERSION = '1.4.0'
-GET_FOLLOWERS_VERSION = '1.1.2'
+GET_FOLLOWERS_VERSION = '1.1.3'
 
 # password secret key
 PASSWORD_KEY = os.getenv('PASSWORD_KEY', None)

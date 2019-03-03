@@ -145,5 +145,10 @@ def get_followers_users(bot_username,debug=False ):
             except Exception as e:
                 logger.error(f'loop ended unexpectedly on this account {account}',e)
 
+    try:
+        session.browser.quit()
+    except:
+        logger.warning('Cannot quit session')
+
 
 get_followers_users(sys.argv[1:])
