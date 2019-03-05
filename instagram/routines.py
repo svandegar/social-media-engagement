@@ -165,4 +165,4 @@ def likes(username: str, like_from_hashtags=True, debug=False):
         try:
             session.browser.quit()
         except:
-            pass
+            return
