@@ -1,0 +1,24 @@
+2019-10-06 15:48:19,840 - instagram.routines - Scott - ERROR - Environement variable PASSWORD_KEY is missing
+2019-10-06 15:50:18,885 - instagram.routines - Scott - ERROR - Fernet key must be 32 url-safe base64-encoded bytes.
+2019-10-06 16:22:49,652 - instagram.routines - Scott - ERROR - Message: 'chromedriver.exe' executable may have wrong permissions. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+
+2019-10-06 20:55:48,721 - instagram.routines - Scott - ERROR - Message: 'chromedriver.exe' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+
+2019-10-06 20:57:08,012 - instagram.routines - Scott - ERROR - Message: session not created: This version of ChromeDriver only supports Chrome version 78
+
+2019-10-06 21:04:37,536 - instagram.insta - all_you_need_is_code - ERROR - Cannot decrypt password 
+2019-10-06 21:09:23,075 - instagram.insta - all_you_need_is_code - ERROR - Alert returned by Instagram :Sorry, your password was incorrect. Please double-check your password.
+2019-10-06 21:10:36,020 - instagram.insta - all_you_need_is_code - ERROR - Alert returned by Instagram :Sorry, your password was incorrect. Please double-check your password.
+2019-10-06 21:21:11,917 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programmer
+2019-10-06 21:21:11,919 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programminglife
+2019-10-06 21:21:11,922 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: codinglife
+2019-10-06 21:21:11,924 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programming
+2019-10-06 21:21:11,926 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: instacode
+2019-10-06 21:21:11,928 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programmingisfun
+2019-10-06 21:21:11,930 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: coder
+2019-10-06 21:21:11,933 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: webdeveloper
+2019-10-06 21:21:11,935 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: coding
+2019-10-06 21:21:11,940 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programmers
+2019-10-06 21:21:11,942 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: instaprogramming
+2019-10-06 21:21:11,945 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: instacoding
+2019-10-06 21:21:11,948 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: pythonprogramming

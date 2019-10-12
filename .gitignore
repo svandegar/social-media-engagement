@@ -5,6 +5,10 @@ config.json
 DEV/files/
 files
 
+/venv
+venv
+venv/
+
 
 # log files
 logs/

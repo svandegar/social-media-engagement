@@ -13,9 +13,13 @@ class Session:
         self.username = credentials['username']
         self.browser = browser
         self.rules = rules
-        self.password = cipher_suite.decrypt(bytes(credentials['password'],encoding='utf-8')).decode('utf-8')
         self.timeout = rules.general['timeout']
         self.logger = logging.getLogger(f'{__name__} - {self.username}')
+        try:
+            self.password = cipher_suite.decrypt(bytes(credentials['password'],encoding='utf-8')).decode('utf-8')
+        except Exception as e:
+            self.logger.error(f"Cannot decrypt password {e}")
+
         try:
             self.clicked_links = history.clicked_links
             self.accounts_counter = fn.Counters(*history.accounts_counter)

@@ -1,0 +1,158 @@
+2019-10-06 15:48:19,837 - instagram.routines - Scott - INFO - Start script
+2019-10-06 15:48:19,839 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 15:48:19,840 - instagram.routines - Scott - ERROR - Environement variable PASSWORD_KEY is missing
+2019-10-06 15:50:18,842 - instagram.routines - Scott - INFO - Start script
+2019-10-06 15:50:18,843 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 15:50:18,885 - instagram.routines - Scott - ERROR - Fernet key must be 32 url-safe base64-encoded bytes.
+2019-10-06 15:52:01,324 - instagram.routines - Scott - INFO - Start script
+2019-10-06 15:52:01,326 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 16:08:49,351 - instagram.routines - Scott - INFO - Start script
+2019-10-06 16:08:49,353 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 16:08:55,507 - instagram.routines - Scott - WARNING - User Scott not found in the database
+2019-10-06 16:08:55,508 - instagram.routines - Scott - INFO - End of script
+2019-10-06 16:09:33,793 - instagram.routines - Scott - INFO - Start script
+2019-10-06 16:10:14,018 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 16:15:12,661 - instagram.routines - Scott - INFO - End of script
+2019-10-06 16:15:28,723 - instagram.routines - Scott - INFO - Start script
+2019-10-06 16:15:28,725 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 16:16:36,104 - instagram.routines - Scott - INFO - End of script
+2019-10-06 16:16:39,703 - instagram.routines - Scott - INFO - Start script
+2019-10-06 16:16:39,707 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 16:16:42,596 - instagram.routines - Scott - WARNING - User Scott not found in the database
+2019-10-06 16:16:42,598 - instagram.routines - Scott - INFO - End of script
+2019-10-06 16:18:42,387 - instagram.routines - Scott - INFO - Start script
+2019-10-06 16:18:42,390 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 16:21:51,331 - instagram.routines - Scott - INFO - End of script
+2019-10-06 16:22:04,373 - instagram.routines - Scott - INFO - Start script
+2019-10-06 16:22:04,385 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 16:22:49,628 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 16:22:49,652 - instagram.routines - Scott - ERROR - Message: 'chromedriver.exe' executable may have wrong permissions. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+
+2019-10-06 16:22:49,653 - instagram.routines - Scott - INFO - End of script
+2019-10-06 20:55:36,336 - instagram.routines - Scott - INFO - Start script
+2019-10-06 20:55:36,338 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 20:55:48,711 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 20:55:48,721 - instagram.routines - Scott - ERROR - Message: 'chromedriver.exe' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+
+2019-10-06 20:55:48,722 - instagram.routines - Scott - INFO - End of script
+2019-10-06 20:56:50,817 - instagram.routines - Scott - INFO - Start script
+2019-10-06 20:56:50,818 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 20:57:06,528 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 20:57:08,012 - instagram.routines - Scott - ERROR - Message: session not created: This version of ChromeDriver only supports Chrome version 78
+
+2019-10-06 20:57:08,013 - instagram.routines - Scott - INFO - End of script
+2019-10-06 20:57:48,922 - instagram.routines - Scott - INFO - Start script
+2019-10-06 20:57:48,924 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 20:58:00,571 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 20:58:02,035 - instagram.routines - Scott - INFO - End of script
+2019-10-06 20:58:26,567 - instagram.routines - Scott - INFO - Start script
+2019-10-06 20:58:26,569 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 20:58:38,716 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 20:59:21,996 - instagram.routines - Scott - INFO - End of script
+2019-10-06 21:00:08,338 - instagram.routines - Scott - INFO - Start script
+2019-10-06 21:00:08,341 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 21:00:24,267 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 21:03:54,320 - instagram.routines - Scott - INFO - End of script
+2019-10-06 21:03:59,056 - instagram.routines - Scott - INFO - Start script
+2019-10-06 21:03:59,058 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 21:04:21,939 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 21:04:37,536 - instagram.insta - all_you_need_is_code - ERROR - Cannot decrypt password 
+2019-10-06 21:05:38,147 - instagram.routines - Scott - INFO - Connect to Instagram
+2019-10-06 21:05:45,379 - instagram.routines - Scott - INFO - End of script
+2019-10-06 21:08:56,825 - instagram.routines - Scott - INFO - Start script
+2019-10-06 21:08:56,827 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 21:09:10,811 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 21:09:12,593 - instagram.routines - Scott - INFO - Connect to Instagram
+2019-10-06 21:09:18,962 - instagram.insta - all_you_need_is_code - INFO - New connection to the account :all_you_need_is_code
+2019-10-06 21:09:23,075 - instagram.insta - all_you_need_is_code - ERROR - Alert returned by Instagram :Sorry, your password was incorrect. Please double-check your password.
+2019-10-06 21:09:23,769 - instagram.routines - Scott - INFO - End of script
+2019-10-06 21:10:02,242 - instagram.routines - Scott - INFO - Start script
+2019-10-06 21:10:02,246 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 21:10:19,114 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 21:10:24,481 - instagram.routines - Scott - INFO - Connect to Instagram
+2019-10-06 21:10:31,922 - instagram.insta - all_you_need_is_code - INFO - New connection to the account :all_you_need_is_code
+2019-10-06 21:10:36,020 - instagram.insta - all_you_need_is_code - ERROR - Alert returned by Instagram :Sorry, your password was incorrect. Please double-check your password.
+2019-10-06 21:10:37,411 - instagram.routines - Scott - INFO - End of script
+2019-10-06 21:10:47,171 - instagram.routines - Scott - INFO - Start script
+2019-10-06 21:10:47,174 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 21:11:02,531 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 21:18:46,627 - instagram.routines - Scott - INFO - End of script
+2019-10-06 21:18:49,725 - instagram.routines - Scott - INFO - Start script
+2019-10-06 21:18:49,726 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-06 21:19:00,026 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-06 21:19:01,761 - instagram.routines - Scott - INFO - Connect to Instagram
+2019-10-06 21:19:10,038 - instagram.insta - all_you_need_is_code - INFO - New connection to the account :all_you_need_is_code
+2019-10-06 21:19:39,560 - instagram.routines - Scott - INFO - 137 followers on this account
+2019-10-06 21:19:39,560 - instagram.routines - Scott - INFO - Start like_from_hashtags. Max posts to like: 302
+2019-10-06 21:19:43,017 - instagram.insta - all_you_need_is_code - INFO - 22 posts selected for the hashtag programmer
+2019-10-06 21:19:47,427 - instagram.insta - all_you_need_is_code - INFO - Like post 0
+2019-10-06 21:20:06,289 - instagram.insta - all_you_need_is_code - INFO - Like post 1
+2019-10-06 21:20:19,058 - instagram.insta - all_you_need_is_code - INFO - Like post 2
+2019-10-06 21:20:39,631 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-06 21:20:57,147 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-06 21:21:11,917 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programmer
+2019-10-06 21:21:11,919 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programminglife
+2019-10-06 21:21:11,922 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: codinglife
+2019-10-06 21:21:11,924 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programming
+2019-10-06 21:21:11,926 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: instacode
+2019-10-06 21:21:11,928 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programmingisfun
+2019-10-06 21:21:11,930 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: coder
+2019-10-06 21:21:11,933 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: webdeveloper
+2019-10-06 21:21:11,935 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: coding
+2019-10-06 21:21:11,940 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: programmers
+2019-10-06 21:21:11,942 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: instaprogramming
+2019-10-06 21:21:11,945 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: instacoding
+2019-10-06 21:21:11,948 - instagram.insta - all_you_need_is_code - ERROR - Loop on this hashtag ended unexpectedly: pythonprogramming
+2019-10-06 21:21:11,948 - instagram.insta - all_you_need_is_code - INFO - Like session finished after 92.38755107899851 seconds
+2019-10-06 21:21:11,949 - instagram.routines - Scott - INFO - End like_from_hashtags. Number of posts liked: 3
+2019-10-06 21:21:12,683 - instagram.routines - Scott - INFO - Metrics saved
+2019-10-06 21:21:31,135 - instagram.routines - Scott - INFO - History saved
+2019-10-06 21:21:31,142 - instagram.routines - Scott - INFO - End of script
+2019-10-07 21:09:20,171 - instagram.routines - Scott - INFO - Start script
+2019-10-07 21:09:20,176 - instagram.routines - Scott - INFO - Version: 1.4.1
+2019-10-07 21:09:28,482 - instagram.routines - Scott - INFO - Connect without proxy
+2019-10-07 21:09:30,898 - instagram.routines - Scott - INFO - Connect to Instagram
+2019-10-07 21:09:40,126 - instagram.insta - all_you_need_is_code - INFO - New connection to the account :all_you_need_is_code
+2019-10-07 21:10:06,173 - instagram.routines - Scott - INFO - 138 followers on this account
+2019-10-07 21:10:06,174 - instagram.routines - Scott - INFO - Start like_from_hashtags. Max posts to like: 305
+2019-10-07 21:10:09,251 - instagram.insta - all_you_need_is_code - INFO - 33 posts selected for the hashtag programminglife
+2019-10-07 21:10:15,847 - instagram.insta - all_you_need_is_code - INFO - Like post 0
+2019-10-07 21:10:34,971 - instagram.insta - all_you_need_is_code - INFO - Like post 1
+2019-10-07 21:10:52,578 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:11:11,425 - instagram.insta - all_you_need_is_code - INFO - Like post 2
+2019-10-07 21:11:24,602 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:11:43,459 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:12:01,478 - instagram.insta - all_you_need_is_code - INFO - Like post 3
+2019-10-07 21:12:23,439 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:12:40,733 - instagram.insta - all_you_need_is_code - INFO - Like post 4
+2019-10-07 21:12:56,418 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:13:15,347 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:13:31,786 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:13:49,435 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:14:08,388 - instagram.insta - all_you_need_is_code - INFO - Like post 5
+2019-10-07 21:14:20,492 - instagram.insta - all_you_need_is_code - INFO - Like post 6
+2019-10-07 21:14:32,711 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:14:49,646 - instagram.insta - all_you_need_is_code - INFO - Like post 7
+2019-10-07 21:15:03,956 - instagram.insta - all_you_need_is_code - INFO - Like post 8
+2019-10-07 21:15:15,515 - instagram.insta - all_you_need_is_code - INFO - Like post 9
+2019-10-07 21:15:33,352 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:15:50,332 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:16:07,752 - instagram.insta - all_you_need_is_code - INFO - Like post 10
+2019-10-07 21:16:23,351 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:16:41,540 - instagram.insta - all_you_need_is_code - INFO - Like post 11
+2019-10-07 21:16:55,600 - instagram.insta - all_you_need_is_code - INFO - Like post 12
+2019-10-07 21:17:13,356 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:17:35,411 - instagram.insta - all_you_need_is_code - INFO - Like post 13
+2019-10-07 21:17:49,485 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:18:12,347 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:18:25,508 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:18:48,332 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:19:05,379 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:19:22,831 - instagram.insta - all_you_need_is_code - INFO - Like post 14
+2019-10-07 21:19:33,012 - instagram.insta - all_you_need_is_code - INFO - 21 posts selected for the hashtag programmingisfun
+2019-10-07 21:19:39,434 - instagram.insta - all_you_need_is_code - INFO - Like post 15
+2019-10-07 21:20:01,418 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:20:19,931 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:20:36,368 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:20:53,363 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked
+2019-10-07 21:21:10,414 - instagram.insta - all_you_need_is_code - INFO - Like per account limit reached. Post not liked

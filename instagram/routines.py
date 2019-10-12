@@ -95,6 +95,10 @@ def likes(username: str, like_from_hashtags=True, debug=False):
                 # set language to English
                 chrome_options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
 
+                # define user-agent to avoid Instagram knowing that we're using a headless browser
+                USER_AGENT = "Mozilla/5.0 (Linux; Android 8.0.0; WAS-LX3 Build/HUAWEIWAS-LX3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/69.0.3497.100 Mobile Safari/537.36 Instagram 65.0.0.12.86 Android (26/8.0.0; 480dpi; 1080x1794; HUAWEI; WAS-LX3; HWWAS-H; hi6250; es_CO; 126223536)"
+                chrome_options.add_argument(f"user-agent={USER_AGENT}")
+
                 try:
                     browser = webdriver.Chrome(options=chrome_options)
                 except:
